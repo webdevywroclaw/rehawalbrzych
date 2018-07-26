@@ -12,3 +12,20 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+
+###> symfony/framework-bundle ###
+/my-project/.env
+/my-project/public/bundles/
+/my-project/var/
+/my-project/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/my-project/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/web-server-bundle ###
+/my-project/.web-server-pid
+###< symfony/web-server-bundle ###
