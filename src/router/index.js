@@ -7,7 +7,7 @@ Vue.use(Router)
 export default new Router({
     routes: [
         {
-            path: '/el',
+            path: '/',
             name: 'Content',
             component: Content
     }
