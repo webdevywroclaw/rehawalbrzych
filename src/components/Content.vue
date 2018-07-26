@@ -31,11 +31,11 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .content {
-
-        margin: auto;
+        background: #FFE4B5;
+        margin: 0;
         display: grid;
-        grid-template-columns: 1fr 1fr;
         grid-row-gap: 20px;
+        grid-template-columns: 1fr 1fr 8fr 1fr 1fr;
 
 
     }
@@ -47,7 +47,7 @@
     }
 
     .trailerBox {
-        grid-column: 1/-1;
+        grid-column: 2/5;
         display: grid;
         grid-gap: 20px;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -61,23 +61,17 @@
     }
 
     .offerBox {
-        grid-column: -1/1;
+        grid-column: 3/4;
         display: grid;
-        grid-template-columns: repeat(8, auto);
-        grid-template-rows: auto auto;
+        grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
         grid-gap: 10px;
 
 
     }
 
     .offer {
-        grid-auto-flow: dense;
-        grid-column: span 3;
 
         border: 1px solid black;
-
-
-
     }
 
 </style>
