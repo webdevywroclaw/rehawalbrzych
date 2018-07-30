@@ -1,12 +1,86 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+            crossorigin="anonymous"></script>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<script>
+    $(document).ready(function () {
+        $(".loadarticles").on("click", function (event) {
+            $.ajax({
+                url: '/reha/rehawalbrzych/my-project/public/article/6',
+                type: 'PUT',
+                data: {title: "John"},
+                dataType: 'json',
+                async: true,
+
+                success: function (data, status) {
+                    var e = $('<tr><th>Name</th><th>Address</th></tr>');
+                    $('#student').html('');
+                    $('#student').append(e);
+
+                    for (i = 0; i < data.length; i++) {
+                        student = data[i];
+                        var e = $('<tr><td id = "name"></td><td id = "address"></td></tr>');
+
+                        $('#name', e).html(student['title']);
+                        $('#address', e).html(student['body']);
+                        $('#student').append(e);
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('Ajax request failed.');
+                }
+            });
+        });
+    });
+</script>
+<h1>Artykuły</h1>
+<table class="table table-hover">
+    <tr>
+        <th>Tytuł Artykułu</th>
+        <th>Treść</th>
+        <th>ID Galerii</th>
+        <th>Podaj tytuł nowego artykułu</th>
+        <th class="text-right">Akcje</th>
+    </tr>
+    {% for article in articles %}
+        <tr>
+            <td>{{ article.artTitle }}</td>
+            <td>{{ article.artBody }}</td>
+            <td>{{ article.artId }}</td>
+            <form action="/reha/rehawalbrzych/my-project/public/article/test" method="post">
+                <td><input type="text" placeholder="Wpisz tytuł" name="title"></td>
+                <td class="text-right">
+                    <button type="submit" class="btn btn-primary">Dodaj</button>
+                </td>
+            </form>
+            <td>
+                <button class="loadarticles">AJAX test</button>
+            </td>
+
+        </tr>
+    {% endfor %}
+</table>
+<table>
+    <div id="student"></div>
+</table>
+</body>
 </html>

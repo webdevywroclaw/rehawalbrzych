@@ -7,9 +7,16 @@
  */
 
 namespace App\Repository;
+use Doctrine\ORM\EntityRepository;
 
-
-class ArticlesRepository
+class ArticlesRepository extends EntityRepository
 {
-
+    public function findAllOrderedByName()
+    {
+        $qb = $this->createQueryBuilder("p")->select("p", "r")
+            ->orderBy('p.artTitle', 'ASC')
+            ->leftJoin('p.artGal', 'r')
+            ->getQuery();
+        return $qb->getArrayResult();
+    }
 }

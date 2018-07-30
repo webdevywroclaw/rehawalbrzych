@@ -1,3 +1,15 @@
 controllers:
-    resource: ../../src/Controller/
+    resource: ../../src/Controller/Rest
     type: annotation
+    prefix: /
+
+#rest_controller:
+#    resource: ../../src/Controller/Rest/
+#    type: annotation
+#    prefix: /api
+    # import routes from a controller class
+
+## import routes from a controller directory
+#blog:
+#    resource: "@SensioBlogBundle/Controller"
+#    type:     annotation

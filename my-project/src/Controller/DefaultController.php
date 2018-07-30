@@ -9,7 +9,12 @@
 namespace App\Controller;
 
 
+use http\Env\Response;
+
 class DefaultController
 {
-
+    public function indexAction()
+    {
+        return new \Symfony\Component\HttpFoundation\Response("Hello world");
+    }
 }
