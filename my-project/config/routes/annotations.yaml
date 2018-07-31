@@ -1,8 +1,12 @@
-controllers:
+rest_controllers:
     resource: ../../src/Controller/Rest
     type: annotation
     prefix: /
 
+controllers:
+    resource: ../../src/Controller
+    type: annotation
+    prefix: /
 #rest_controller:
 #    resource: ../../src/Controller/Rest/
 #    type: annotation

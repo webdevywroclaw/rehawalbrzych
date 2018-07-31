@@ -19,68 +19,34 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-{% block body %}{% endblock %}
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Ksiazki</a></li>
+                    <li><a href="#">Uzytkownicy</a></li>
+                    <li><a href="#">Galerie</a></li>
+                    <li><a href="#">Opcje systemu</a></li>
+                    <li><a href="http://localhost/reha/rehawalbrzych/my-project/public/articles/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block body %}{% endblock %}
+</div>
 {% block javascripts %}{% endblock %}
-<script>
-    $(document).ready(function () {
-        $(".loadarticles").on("click", function (event) {
-            $.ajax({
-                url: '/reha/rehawalbrzych/my-project/public/article/6',
-                type: 'PUT',
-                data: {title: "John"},
-                dataType: 'json',
-                async: true,
 
-                success: function (data, status) {
-                    var e = $('<tr><th>Name</th><th>Address</th></tr>');
-                    $('#student').html('');
-                    $('#student').append(e);
 
-                    for (i = 0; i < data.length; i++) {
-                        student = data[i];
-                        var e = $('<tr><td id = "name"></td><td id = "address"></td></tr>');
-
-                        $('#name', e).html(student['title']);
-                        $('#address', e).html(student['body']);
-                        $('#student').append(e);
-                    }
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    alert('Ajax request failed.');
-                }
-            });
-        });
-    });
-</script>
-<h1>Artykuły</h1>
-<table class="table table-hover">
-    <tr>
-        <th>Tytuł Artykułu</th>
-        <th>Treść</th>
-        <th>ID Galerii</th>
-        <th>Podaj tytuł nowego artykułu</th>
-        <th class="text-right">Akcje</th>
-    </tr>
-    {% for article in articles %}
-        <tr>
-            <td>{{ article.artTitle }}</td>
-            <td>{{ article.artBody }}</td>
-            <td>{{ article.artId }}</td>
-            <form action="/reha/rehawalbrzych/my-project/public/article/test" method="post">
-                <td><input type="text" placeholder="Wpisz tytuł" name="title"></td>
-                <td class="text-right">
-                    <button type="submit" class="btn btn-primary">Dodaj</button>
-                </td>
-            </form>
-            <td>
-                <button class="loadarticles">AJAX test</button>
-            </td>
-
-        </tr>
-    {% endfor %}
-</table>
-<table>
-    <div id="student"></div>
-</table>
 </body>
 </html>

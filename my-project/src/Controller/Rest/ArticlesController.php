@@ -29,7 +29,8 @@ class ArticlesController extends AbstractController
     /**
      * @Route("/articles",
      *     defaults={"name": "edward"},
-     *     methods="GET"
+     *     methods="GET",
+     *     name="articles"
      * )
      */
     public function indexAction($name)
@@ -42,7 +43,7 @@ class ArticlesController extends AbstractController
         $articles = $this->getDoctrine()->getRepository(Articles::class)->findAllOrderedbyName();
 
      //   return new JsonResponse($entityManager);
-        return $this->render('base.html.twig', array(
+        return $this->render('articles.html.twig', array(
             'articles' => $articles
         ));
 
