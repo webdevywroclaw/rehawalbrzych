@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Piotr_Wanio
- * Date: 27.07.2018
- * Time: 00:59
- */
 
 namespace App\Controller\Rest;
 
@@ -42,10 +36,10 @@ class ArticlesController extends AbstractController
 //        return new Response("aaa");
         $articles = $this->getDoctrine()->getRepository(Articles::class)->findAllOrderedbyName();
 
-     //   return new JsonResponse($entityManager);
-        return $this->render('articles.html.twig', array(
-            'articles' => $articles
-        ));
+        return new JsonResponse($articles);
+//        return $this->render('articles.html.twig', array(
+//            'articles' => $articles
+//        ));
 
 //        $article = new Articles();
 //        $galery = new Galleries();
