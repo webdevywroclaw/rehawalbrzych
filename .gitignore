@@ -1,31 +1,18 @@
-.DS_Store
-node_modules/
-/dist/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-
 
 ###> symfony/framework-bundle ###
-/my-project/.env
-/my-project/public/bundles/
-/my-project/var/
-/my-project/vendor/
+/.env
+/public/bundles/
+/var/
+/vendor/
 ###< symfony/framework-bundle ###
 
-###> symfony/phpunit-bridge ###
-.phpunit
-/my-project/phpunit.xml
-###< symfony/phpunit-bridge ###
-
 ###> symfony/web-server-bundle ###
-/my-project/.web-server-pid
+/.web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> symfony/webpack-encore-pack ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-pack ###
