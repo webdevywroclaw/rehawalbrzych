@@ -4,10 +4,19 @@
         <form class="was-validated">
             <h1>Dodawanie kategorii</h1>
             <div>
+                <span>Wybierz rodzaj kategorii:</span>
+                <div class="radio">
+                    <label><input type="radio" name="artykul" value="artykul" v-model="jsondata.kind">Artykuł</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="metoda" value="metoda" v-model="jsondata.kind">Metoda</label>
+                </div>
+                <span>Wpisz nazwę kategorii:</span>
                 <input placeholder="Wpisz nazwę kategorii" v-model="jsondata.name">
                 <!--<button class="btn btn-success" v-on:click="addCategory">Dodaj</button>-->
             </div>
             <br>
+            <span>Wybierz zdjęcie dla kategorii:</span>
             <div class="custom-file col-md-4 mb-4">
                 <input class="custom-file-input" type="file" @change="onFileSelected">
                 <label class="custom-file-label" >Wybierz zdjęcie kategorii...</label>
@@ -24,6 +33,7 @@
             <thead class="thead-dark">
             <tr>
                 <th>Id</th>
+                <th>Rodzaj</th>
                 <th>Nazwa</th>
                 <th>Zdjęcie</th>
                 <th>Edycja</th>
@@ -32,6 +42,7 @@
 
             <tr v-for="article in articles">
                 <td>{{article.catId}}</td>
+                <td>{{article.catKind}}</td>
                 <td>{{article.catName}}</td>
                <td><img v-if="article.photoId!=null" :src="article.photoId.photoSrc" /></td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
@@ -48,7 +59,8 @@
             return {
                 articles: [],
                 jsondata: {
-                    name: ''
+                    name: '',
+                    kind: ''
                 },
                 selectedFile: null
             }
@@ -92,6 +104,7 @@
                 const fd = new FormData()
                 fd.append('myFile', this.selectedFile, this.selectedFile.name)
                 fd.append('name', this.jsondata.name)
+                fd.append('kind', this.jsondata.kind)
                 this.$http.post(
                     '/api/categories',
                     fd,

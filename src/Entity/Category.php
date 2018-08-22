@@ -29,6 +29,29 @@ class Category
     private $catName;
 
     /**
+     * @return null|string
+     */
+    public function getCatKind(): ?string
+    {
+        return $this->catKind;
+    }
+
+    /**
+     * @param null|string $catKind
+     */
+    public function setCatKind(?string $catKind): void
+    {
+        $this->catKind = $catKind;
+    }
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="cat_kind", type="string", length=20, nullable=true)
+     */
+    private $catKind;
+
+    /**
      * @var Photo
      *
      * @ORM\ManyToOne(targetEntity="Photo",  cascade={"persist", "remove"})

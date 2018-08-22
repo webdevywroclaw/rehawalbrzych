@@ -47,6 +47,21 @@ class CategoriesController extends AbstractController
     }
 
     /**
+     * @Route("/categories/kind/{kind}",
+     *     methods="GET",
+     *     name="getcategory"
+     * )
+     */
+    public function getArticlesByKindAction($kind)
+    {
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findByKind($kind);
+        $response = new JsonResponse($categories);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
+    }
+
+
+    /**
      * @Route("/categories",
      *     methods="POST",
      *     name="categories"
@@ -69,7 +84,7 @@ class CategoriesController extends AbstractController
             return $response;
         }
 
-        $dir = __DIR__ . '/../img/Categories/';
+        $dir = __DIR__ . '/../../public/img/Categories/';
         $name = uniqid() . '.jpeg';
 
         foreach ($request->files as $uploadedFile) {
@@ -83,7 +98,7 @@ class CategoriesController extends AbstractController
             }
         }
 
-        $file = "http://localhost/reha/rehawalbrzych/api/src/img/Categories/" . $name;
+        $file = "/img/Categories/" . $name;
 
         if (file_exists($dir.$name)) {
             echo "Successfully saved file. ";
@@ -107,9 +122,11 @@ class CategoriesController extends AbstractController
 
 //        $params = json_decode($request->getContent(), true);
         $name = $request->request->get('name');
+        $kind = $request->request->get('kind');
         $category = new Category();
         $category->setPhotoId($photo);
         $category->setCatName($name);
+        $category->setCatKind($kind);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->merge($category);
         $entityManager->flush();

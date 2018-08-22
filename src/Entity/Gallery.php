@@ -13,6 +13,37 @@ use Doctrine\ORM\Mapping as ORM;
 class Gallery
 {
     /**
+     * @return int
+     */
+    public function getGalId(): int
+    {
+        return $this->galId;
+    }
+
+    /**
+     * @param int $galId
+     */
+    public function setGalId(int $galId): void
+    {
+        $this->galId = $galId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getGalName(): ?string
+    {
+        return $this->galName;
+    }
+
+    /**
+     * @param null|string $galName
+     */
+    public function setGalName(?string $galName): void
+    {
+        $this->galName = $galName;
+    }
+    /**
      * @var int
      *
      * @ORM\Column(name="gal_id", type="integer", nullable=false)

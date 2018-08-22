@@ -1,13 +1,14 @@
 <template>
     <div class="galleries-admin">
-        <h1>Galerie</h1>
+
+        <h1>Dodawanie galerii</h1>
         <form>
             <input placeholder="Enter Name" v-model="jsondata.name">
-
-            <button class="btn btn-success" v-on:click="addCategory">Dodaj</button>
+            <button type="button" @click="addGallery" class="btn btn-success" >Dodaj</button>
         </form>
 
 
+        <h1>Galerie</h1>
         <table class="table table-hover">
             <tr>
                 <th>Id</th>
@@ -18,7 +19,10 @@
 
                 <td>{{gallery.galId}}</td>
                 <td>{{gallery.galName}}</td>
-                <td><a class="btn btn-success" :href="'/admin/gallery/'+gallery.galId">Przeglądaj i dodaj zdjęcie</a></td>
+                <td>
+                    <a class="btn btn-success" :href="'/admin/gallery/'+gallery.galId">Przeglądaj i dodaj zdjęcie</a>
+                    <button v-on:click="deleteGallery(gallery.galId)" class="btn btn-success">Usuń</button>
+                </td>
 
             </tr>
         </table>
@@ -49,9 +53,9 @@
                     .then(response => response.json())
                     .then(result => this.galleries = result)
             },
-            addCategory() {
+            addGallery() {
                 this.$http.post(
-                    'api/categories',
+                    '/api/galleries',
                     {name: this.jsondata.name},
                     {
                         headers: {
@@ -62,15 +66,15 @@
                     .then(function (response) {
                         console.log('Success!:', response.data);
                         this.loading = false;
-                        this.fetchArticles();
+                        this.fetchGalleries();
                     }, function (response) {
                         console.log('Error!:', response.data);
                         this.loading = false;
                     });
             },
-            deleteCategory(id) {
+            deleteGallery(id) {
                 this.$http.delete(
-                    'api/categories/' + id,
+                    '/api/galleries/' + id,
                     {name: this.jsondata.name},
                     {
                         headers: {}
@@ -78,7 +82,7 @@
                     .then(function (response) {
                         console.log('Success!:', response.data);
                         this.loading = false;
-                        this.fetchArticles();
+                        this.fetchGalleries();
                     }, function (response) {
                         console.log('Error!:', response.data);
                         this.loading = false;

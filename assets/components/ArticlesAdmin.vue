@@ -1,14 +1,44 @@
 <template>
     <div class="articles-admin">
-        <h1>Artykuły</h1>
-        <form>
-            <input placeholder="Enter Name" v-model="jsondata.name">
 
-            <button class="btn btn-success" v-on:click="addCategory">Dodaj</button>
+        <h1>Dodawanie artykułu</h1>
+        <form>
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">Tytuł: </label>
+                <div class="col-sm-10">
+                    <input type="text" id="title" class="form-control" placeholder="Tytuł artykułu" v-model="jsondata.title">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="content" class="col-sm-2 col-form-label">Treść: </label>
+                <div class="col-sm-10">
+                    <textarea class="form-control rounded-0" id="content" rows="10" v-model="jsondata.body"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <select class="custom-select" required v-model="jsondata.catId">
+                        <option value="">Wybierz kategorię</option>
+                        <option v-for="category in categories" :value="category.catId">{{category.catName}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <select class="custom-select" required v-model="jsondata.galId">
+                        <option value="">Wybierz galerię</option>
+                        <option v-for="gallery in galleries" :value="gallery.galId">{{gallery.galName}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success" @click="addArticle">Dodaj artykuł</button>
         </form>
 
+        <h1>Artykuły</h1>
         <!--<router-link to="/articles/add" class="btn btn-success">Dodaj</router-link>-->
-
         <table class="table table-hover">
             <tr>
                 <th>Id</th>
@@ -23,7 +53,9 @@
                 <td class="artbody">{{article.artBody}}</td>
                 <td>{{article.galleryGal.galName}}</td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
-                <td><button v-on:click="deleteCategory(article.catId)" class="btn btn-success">Usuń</button></td>
+                <td>
+                    <button v-on:click="deleteCategory(article.catId)" class="btn btn-success">Usuń</button>
+                </td>
             </tr>
         </table>
     </div>
@@ -35,14 +67,19 @@
         data() {
             return {
                 articles: [],
+                galleries: [],
+                categories: [],
                 jsondata: {
-                    name: ''
+                    title: '',
+                    body: '',
+                    galId: '',
+                    catId: ''
                 }
             }
         },
         methods: {
             fetchArticles() {
-                this.$http.get('http://127.0.0.1/reha/rehawalbrzych/api/public/articles',
+                this.$http.get('/api/articles',
                     {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -53,10 +90,34 @@
                     .then(response => response.json())
                     .then(result => this.articles = result)
             },
-            addCategory(){
+            fetchGalleries() {
+                this.$http.get('/api/galleries',
+                    {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Accept': 'application/json'
+                        }
+                    }
+                )
+                    .then(response => response.json())
+                    .then(result => this.galleries = result)
+            },
+            fetchCategories() {
+                this.$http.get('/api/categories/kind/artykul',
+                    {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Accept': 'application/json'
+                        }
+                    }
+                )
+                    .then(response => response.json())
+                    .then(result => this.categories = result)
+            },
+            addArticle(){
                 this.$http.post(
-                    'http://127.0.0.1/reha/rehawalbrzych/api/public/categories',
-                    {name: this.jsondata.name},
+                    '/api/articles',
+                    JSON.stringify(this.jsondata),
                     {
                         headers: {
                             'Content-Type': 'application/json',
@@ -64,21 +125,39 @@
                         }
                     })
                     .then(function (response) {
-                    console.log('Success!:', response.data);
-                    this.loading = false;
-                    this.fetchArticles();
-                }, function (response) {
-                    console.log('Error!:', response.data);
-                    this.loading = false;
-                });
+                        console.log('Success!:', response.data);
+                        this.loading = false;
+                        this.fetchArticles();
+                    }, function (response) {
+                        console.log('Error!:', response.data);
+                        this.loading = false;
+                    });
             },
-            deleteCategory(id){
-                this.$http.delete(
-                    'http://127.0.0.1/reha/rehawalbrzych/api/public/categories/'+id,
-                    {name: this.jsondata.name},
+            addCategory() {
+                this.$http.post(
+                    'http://127.0.0.1/reha/rehawalbrzych/api/public/categories',
+                    JSON.stringify(jsondata),
                     {
                         headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
                         }
+                    })
+                    .then(function (response) {
+                        console.log('Success!:', response.data);
+                        this.loading = false;
+                        this.fetchArticles();
+                    }, function (response) {
+                        console.log('Error!:', response.data);
+                        this.loading = false;
+                    });
+            },
+            deleteCategory(id) {
+                this.$http.delete(
+                    'http://127.0.0.1/reha/rehawalbrzych/api/public/categories/' + id,
+                    {name: this.jsondata.name},
+                    {
+                        headers: {}
                     })
                     .then(function (response) {
                         console.log('Success!:', response.data);
@@ -92,6 +171,8 @@
         },
         created: function () {
             this.fetchArticles();
+            this.fetchGalleries();
+            this.fetchCategories();
         }
     }
 
@@ -101,11 +182,10 @@
 <style scoped>
     /*.admin {*/
 
-        /*margin: auto;*/
-        /*display: grid;*/
-        /*grid-template-columns: 1fr 1fr;*/
-        /*grid-row-gap: 20px;*/
-
+    /*margin: auto;*/
+    /*display: grid;*/
+    /*grid-template-columns: 1fr 1fr;*/
+    /*grid-row-gap: 20px;*/
 
     /*}*/
 
@@ -136,7 +216,6 @@
         grid-template-rows: auto auto;
         grid-gap: 10px;
 
-
     }
 
     .offer {
@@ -145,12 +224,11 @@
 
         border: 1px solid black;
 
-
-
     }
 
     .artbody {
         max-width: 50px;
         word-wrap: break-word;
     }
+
 </style>

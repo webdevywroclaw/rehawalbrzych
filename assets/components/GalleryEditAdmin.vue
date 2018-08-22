@@ -2,6 +2,15 @@
     <div class="gallery-edit-admin">
         <h1>Edycja galerii {{$route.params.id}}</h1>
 
+        <span>Dodaj zdjęcie do galerii:</span>
+        <div class="custom-file col-md-4 mb-4">
+            <input class="custom-file-input" type="file" @change="onFileSelected">
+            <label class="custom-file-label" >Wybierz zdjęcie...</label>
+            <div class="invalid-feedback">Example invalid custom file feedback</div>
+        </div>
+
+        <button type="submit" class="btn btn-success" @click="onUpload">Dodaj zdjęcie</button>
+
         <table class="table table-hover">
             <tr>
                 <th>Id</th>
@@ -29,12 +38,13 @@
                 galleries: [],
                 jsondata: {
                     name: ''
-                }
+                },
+                selectedFile: null
             }
         },
         methods: {
             fetchPhotos() {
-                this.$http.get('http://127.0.0.1/reha/rehawalbrzych/api/public/api/photos/'+ this.$route.params.id,
+                this.$http.get('/api/photos/'+ this.$route.params.id,
                     {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -45,28 +55,39 @@
                     .then(response => response.json())
                     .then(result => this.galleries = result)
             },
-            addCategory() {
+            onFileSelected(event){
+                this.selectedFile = event.target.files[0]
+            },
+            onUpload(){
+                const fd = new FormData()
+                fd.append('myFile', this.selectedFile, this.selectedFile.name)
+                fd.append('id', this.$route.params.id)
                 this.$http.post(
-                    'http://127.0.0.1/reha/rehawalbrzych/api/public/api/categories',
-                    {name: this.jsondata.name},
+                    '/api/photos',
+                    fd,
                     {
                         headers: {
-                            'Content-Type': 'application/json',
+                            'Content-Type': 'application/x-www-form-urlencoded',
                             'Accept': 'application/json'
+                        },
+                        progress(e) {
+                            if (e.lengthComputable) {
+                                console.log(e.loaded / e.total * 100);
+                            }
                         }
                     })
                     .then(function (response) {
                         console.log('Success!:', response.data);
                         this.loading = false;
-                        this.fetchArticles();
+                        this.fetchPhotos();
                     }, function (response) {
-                        console.log('Error!:', response.data);
+                        console.log('Error!:', response.error);
                         this.loading = false;
                     });
             },
             deletePhoto(id) {
                 this.$http.delete(
-                    'http://127.0.0.1/reha/rehawalbrzych/api/public/api/photo/' + id,
+                    '/api/photo/' + id,
                     {name: this.jsondata.name},
                     {
                         headers: {}
