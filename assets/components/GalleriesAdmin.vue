@@ -1,9 +1,10 @@
 <template>
-    <div class="galleries-admin">
+    <transition name="fade">
+    <div class="galleries-admin" v-if="loaded">
 
         <h1>Dodawanie galerii</h1>
         <form>
-            <input placeholder="Enter Name" v-model="jsondata.name">
+            <input placeholder="Wpisz nazwę galerii" v-model="jsondata.name">
             <button type="button" @click="addGallery" class="btn btn-success" >Dodaj</button>
         </form>
 
@@ -20,13 +21,14 @@
                 <td>{{gallery.galId}}</td>
                 <td>{{gallery.galName}}</td>
                 <td>
-                    <a class="btn btn-success" :href="'/admin/gallery/'+gallery.galId">Przeglądaj i dodaj zdjęcie</a>
+                    <router-link class="btn btn-success" :to="'/admin/gallery/'+gallery.galId">Przeglądaj i dodaj zdjęcie</router-link>
                     <button v-on:click="deleteGallery(gallery.galId)" class="btn btn-success">Usuń</button>
                 </td>
 
             </tr>
         </table>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -34,6 +36,7 @@
         name: 'Admin',
         data() {
             return {
+                loaded: false,
                 galleries: [],
                 jsondata: {
                     name: ''
@@ -51,7 +54,10 @@
                     }
                 )
                     .then(response => response.json())
-                    .then(result => this.galleries = result)
+                    .then(result => {
+                        this.galleries = result
+                        this.loaded = true
+                    })
             },
             addGallery() {
                 this.$http.post(
@@ -147,5 +153,14 @@
     .artbody {
         max-width: 50px;
         word-wrap: break-word;
+    }
+    [v-cloak] {
+        display:none !important;
+    }
+    .fade-enter-active {
+        transition: opacity 1s;
+    }
+    .fade-enter /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
     }
 </style>

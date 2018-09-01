@@ -1,5 +1,6 @@
 <template>
-    <div class="categories-admin">
+    <transition name="fade">
+    <div class="categories-admin" v-if="loaded">
 
         <form class="was-validated">
             <h1>Dodawanie kategorii</h1>
@@ -50,6 +51,7 @@
             </tr>
         </table>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -57,6 +59,7 @@
         name: 'Admin',
         data() {
             return {
+                loaded: false,
                 articles: [],
                 jsondata: {
                     name: '',
@@ -75,8 +78,13 @@
                         }
                     }
                 )
+                    // .then(response => response.json())
+                    // .then(result => this.articles = result)
                     .then(response => response.json())
-                    .then(result => this.articles = result)
+                    .then(json => {
+                        this.articles = json
+                        this.loaded = true
+                    })
             },
             addCategory(){
                 this.$http.post(
@@ -203,6 +211,17 @@
 
 
 
+    }
+
+    [v-cloak] {
+        display:none !important;
+    }
+
+    .fade-enter-active {
+        transition: opacity 1s;
+    }
+    .fade-enter /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
     }
 
 </style>

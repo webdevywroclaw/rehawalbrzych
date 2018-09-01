@@ -15,7 +15,7 @@ class FrontController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
-     * @Route("/{route}", name="vue_pages", requirements={"route"="^(?!.*api).+"})
+     * @Route("/{route}", name="vue_pages", requirements={"route"="^(?!.*api|_wdt|_profiler|login).+"})
      */
     public function indexAction()
     {

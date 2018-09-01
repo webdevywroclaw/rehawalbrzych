@@ -5,8 +5,13 @@ import CategoriesAdmin from '../components/CategoriesAdmin'
 import GalleriesAdmin from '../components/GalleriesAdmin'
 import GalleryEditAdmin from '../components/GalleryEditAdmin'
 import ArticlesAdmin from '../components/ArticlesAdmin'
+import MethodsAdmin from '../components/MethodsAdmin'
+import MethodEditAdmin from '../components/MethodEditAdmin'
+import TherapeutistsAdmin from '../components/TherapeutistsAdmin'
+import TherapistEditAdmin from '../components/TherapistEditAdmin'
 import PageHeader from '../components/PageHeader'
 import AdminHeader from '../components/AdminHeader'
+import AdminMain from '../components/AdminMain'
 
 Vue.use(Router)
 
@@ -25,7 +30,7 @@ export default new Router({
             path: '/admin',
             name: 'Admin',
             components: {
-                default: Example,
+                default: AdminMain,
                 header: AdminHeader
             }
         },
@@ -57,6 +62,36 @@ export default new Router({
             name: 'ArticlesAdmin',
             components: {
                 default: ArticlesAdmin,
+                header: AdminHeader
+            }
+        },
+        {
+            path: '/admin/methods',
+            name: 'MethodsAdmin',
+            components: {
+                default: MethodsAdmin,
+                header: AdminHeader
+            }
+        },
+        {
+            path: '/admin/method/:id',
+            components: {
+                default: MethodEditAdmin,
+                header: AdminHeader
+            }
+        },
+        {
+            path: '/admin/therapeutists',
+            name: 'TherapeutistsAdmin',
+            components: {
+                default: TherapeutistsAdmin,
+                header: AdminHeader
+            }
+        },
+        {
+            path: '/admin/therapeutist/:id',
+            components: {
+                default: TherapistEditAdmin,
                 header: AdminHeader
             }
         }

@@ -1,26 +1,29 @@
 <template>
   <div class="admin-header">
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-      <a class="navbar-brand" href="#">Panel administracyjny</a>
+      <router-link to="/admin" class="navbar-brand">Panel administracyjny</router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/admin/categories">Kategorie</a>
+            <router-link to="/admin/categories" class="nav-link">Kategorie</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/galleries">Galerie</a>
+            <router-link to="/admin/galleries" class="nav-link">Galerie</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/articles">Artykuły</a>
+            <router-link to="/admin/articles" class="nav-link">Artykuły</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/methods">Metody</a>
+            <router-link to="/admin/methods" class="nav-link">Metody</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/therapetists">Terapeuci</a>
+            <router-link to="/admin/therapeutists" class="nav-link">Terapeuci</router-link>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link last">Wyloguj</a>
           </li>
         </ul>
       </div>
@@ -64,4 +67,11 @@
         color: #42b983;
     }
 
+    a.nav-link.last {
+      color: #bb0000;
+    }
+
+    a.nav-link.last:hover {
+      color: #ff0000;
+    }
 </style>

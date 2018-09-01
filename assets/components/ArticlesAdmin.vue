@@ -1,5 +1,6 @@
 <template>
-    <div class="articles-admin">
+    <transition name="fade">
+    <div class="articles-admin" v-if="loaded">
 
         <h1>Dodawanie artykułu</h1>
         <form>
@@ -42,6 +43,7 @@
         <table class="table table-hover">
             <tr>
                 <th>Id</th>
+                <th>Kategoria</th>
                 <th>Tytuł</th>
                 <th>Treść</th>
                 <th>Nazwa galerii</th>
@@ -49,16 +51,18 @@
             </tr>
             <tr v-for="article in articles">
                 <td>{{article.artId}}</td>
+                <td>{{article.categoryCat.catName}}</td>
                 <td>{{article.artTitle}}</td>
                 <td class="artbody">{{article.artBody}}</td>
                 <td>{{article.galleryGal.galName}}</td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
                 <td>
-                    <button v-on:click="deleteCategory(article.catId)" class="btn btn-success">Usuń</button>
+                    <button v-on:click="deleteArticle(article.artId)" class="btn btn-success">Usuń</button>
                 </td>
             </tr>
         </table>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -66,6 +70,7 @@
         name: 'Admin',
         data() {
             return {
+                loaded: false,
                 articles: [],
                 galleries: [],
                 categories: [],
@@ -88,7 +93,10 @@
                     }
                 )
                     .then(response => response.json())
-                    .then(result => this.articles = result)
+                    .then(result => {
+                        this.articles = result
+                        this.loaded = true
+                    })
             },
             fetchGalleries() {
                 this.$http.get('/api/galleries',
@@ -133,28 +141,9 @@
                         this.loading = false;
                     });
             },
-            addCategory() {
-                this.$http.post(
-                    'http://127.0.0.1/reha/rehawalbrzych/api/public/categories',
-                    JSON.stringify(jsondata),
-                    {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        }
-                    })
-                    .then(function (response) {
-                        console.log('Success!:', response.data);
-                        this.loading = false;
-                        this.fetchArticles();
-                    }, function (response) {
-                        console.log('Error!:', response.data);
-                        this.loading = false;
-                    });
-            },
-            deleteCategory(id) {
+            deleteArticle(id) {
                 this.$http.delete(
-                    'http://127.0.0.1/reha/rehawalbrzych/api/public/categories/' + id,
+                    '/api/articles/' + id,
                     {name: this.jsondata.name},
                     {
                         headers: {}
@@ -227,8 +216,15 @@
     }
 
     .artbody {
-        max-width: 50px;
+        min-width: 100px;
+        max-width: 200px;
         word-wrap: break-word;
     }
 
+    .fade-enter-active {
+        transition: opacity 1s;
+    }
+    .fade-enter /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
 </style>

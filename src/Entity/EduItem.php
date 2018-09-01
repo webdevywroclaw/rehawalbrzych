@@ -1,6 +1,6 @@
 <?php
 
-namespace App\\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,9 +36,9 @@ class EduItem
     private $eduItemDegree;
 
     /**
-     * @var \Category
+     * @var Category
      *
-     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist", "remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="category_cat_id", referencedColumnName="cat_id")
      * })
@@ -46,14 +46,94 @@ class EduItem
     private $categoryCat;
 
     /**
-     * @var \Education
+     * @var Education
      *
-     * @ORM\ManyToOne(targetEntity="Education")
+     * @ORM\ManyToOne(targetEntity="Education",  cascade={"persist", "remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="education_edu_id", referencedColumnName="edu_id")
      * })
      */
     private $educationEdu;
+
+    /**
+     * @return int
+     */
+    public function getEduItemId(): int
+    {
+        return $this->eduItemId;
+    }
+
+    /**
+     * @param int $eduItemId
+     */
+    public function setEduItemId(int $eduItemId): void
+    {
+        $this->eduItemId = $eduItemId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getEduItemName(): ?string
+    {
+        return $this->eduItemName;
+    }
+
+    /**
+     * @param null|string $eduItemName
+     */
+    public function setEduItemName(?string $eduItemName): void
+    {
+        $this->eduItemName = $eduItemName;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getEduItemDegree(): ?string
+    {
+        return $this->eduItemDegree;
+    }
+
+    /**
+     * @param null|string $eduItemDegree
+     */
+    public function setEduItemDegree(?string $eduItemDegree): void
+    {
+        $this->eduItemDegree = $eduItemDegree;
+    }
+
+    /**
+     * @return Category
+     */
+    public function getCategoryCat(): Category
+    {
+        return $this->categoryCat;
+    }
+
+    /**
+     * @param Category $categoryCat
+     */
+    public function setCategoryCat(Category $categoryCat): void
+    {
+        $this->categoryCat = $categoryCat;
+    }
+
+    /**
+     * @return Education
+     */
+    public function getEducationEdu(): Education
+    {
+        return $this->educationEdu;
+    }
+
+    /**
+     * @param Education $educationEdu
+     */
+    public function setEducationEdu(Education $educationEdu): void
+    {
+        $this->educationEdu = $educationEdu;
+    }
 
 
 }

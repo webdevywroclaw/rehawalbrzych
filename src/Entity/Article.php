@@ -36,7 +36,7 @@ class Article
     private $artBody;
 
     /**
-     * @var \Category
+     * @var Category
      *
      * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumns({
@@ -94,39 +94,39 @@ class Article
     }
 
     /**
-     * @return \Category
+     * @return Category
      */
-    public function getCategoryCat(): \Category
+    public function getCategoryCat(): Category
     {
         return $this->categoryCat;
     }
 
     /**
-     * @param \Category $categoryCat
+     * @param Category $categoryCat
      */
-    public function setCategoryCat(\Category $categoryCat): void
+    public function setCategoryCat(Category $categoryCat): void
     {
         $this->categoryCat = $categoryCat;
     }
 
     /**
-     * @return \Gallery
+     * @return Gallery
      */
-    public function getGalleryGal(): \Gallery
+    public function getGalleryGal(): Gallery
     {
         return $this->galleryGal;
     }
 
     /**
-     * @param \Gallery $galleryGal
+     * @param Gallery $galleryGal
      */
-    public function setGalleryGal(\Gallery $galleryGal): void
+    public function setGalleryGal(Gallery $galleryGal): void
     {
         $this->galleryGal = $galleryGal;
     }
 
     /**
-     * @var \Gallery
+     * @var Gallery
      *
      * @ORM\ManyToOne(targetEntity="Gallery")
      * @ORM\JoinColumns({
