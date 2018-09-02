@@ -25,6 +25,14 @@
                     </select>
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">Cena: </label>
+                <div class="col-sm-10">
+                    <input type="text" id="price" class="form-control" placeholder="Cena metody" v-model="jsondata.price">
+                </div>
+            </div>
+
         </form>
         <button type="button" class="btn btn-success" @click="updateMethod">Zapisz</button>
         <div v-if="saved">Zapisano</div>
@@ -50,6 +58,7 @@
                     id: '',
                     title: '',
                     body: '',
+                    price: '',
                     galId: '',
                     catId: ''
                 },
@@ -91,6 +100,7 @@
                     this.jsondata.id = this.$route.params.id
                     this.jsondata.title = this.method[0].metName
                     this.jsondata.body = this.method[0].metBody
+                    this.jsondata.price = this.method[0].metPrice
                 }
             },
             updateMethod(){

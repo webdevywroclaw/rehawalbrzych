@@ -35,6 +35,13 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">Cena: </label>
+                <div class="col-sm-10">
+                    <input type="text" id="price" class="form-control" placeholder="Cena metody" v-model="jsondata.price">
+                </div>
+            </div>
+
             <button type="button" class="btn btn-success" @click="addMethod">Dodaj metodę</button>
         </form>
 
@@ -47,6 +54,7 @@
                 <th>Nazwa</th>
                 <th>Opis</th>
                 <th>Nazwa galerii</th>
+                <th>Cena</th>
                 <th>Edycja</th>
                 <th>Usuń</th>
             </tr>
@@ -57,6 +65,7 @@
                 <td>{{method.metName}}</td>
                 <td v-html="method.metBody" class="artbody"></td>
                 <td>{{method.galleryGal.galName}}</td>
+                <td>{{method.metPrice}}</td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
                 <td>
                     <router-link class="btn btn-success" :to="'/admin/method/'+method.metId">Edytuj</router-link>
@@ -83,6 +92,7 @@
                 jsondata: {
                     title: '',
                     body: '',
+                    price: '',
                     galId: '',
                     catId: ''
                 }
