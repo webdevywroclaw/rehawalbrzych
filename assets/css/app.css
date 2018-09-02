@@ -3,4 +3,15 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+
+}
+.application {
+    margin: 0;
+    padding:0;
+    background-color: rgb(255, 251, 210);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: center;
 }
