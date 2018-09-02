@@ -5,6 +5,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.*)$ index.php/$1 [QSA,L]
 
+#SetEnv APP_ENV prod
+SetEnv DATABASE_URL 'mysql://root:@127.0.0.1:3306/rehawalbrzych'
 #<IfModule mod_rewrite.c>
 #  RewriteEngine On
 #  RewriteBase /
