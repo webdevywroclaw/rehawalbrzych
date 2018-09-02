@@ -56,7 +56,7 @@
 
 -->
  <div v-else>
-      <method-single-component v-bind:methods="methods"></method-single-component>
+      <method-single-component></method-single-component>
  </div>
 </ul>
 </template>

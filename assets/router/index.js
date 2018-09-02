@@ -24,7 +24,7 @@ import MenuComponent from '../components/MenuComponent'
 import TherapistSingleComponent from '../components/TherapistSingleComponent'
 import FooterComponent from '../components/FooterComponent'
 import ArticleComponent from '../components/ArticleComponent'
-
+import MethodSingleComponent from '../components/MethodSingleComponent'
 import TherapistSiteComponent from '../components/TherapistSiteComponent'
 
 import PriceListComponent from '../components/PriceListComponent'
@@ -137,7 +137,7 @@ export default new Router({
             path: '/metoda/:id',
             name: 'MethodSingleComponent',
             components: {
-                default: MethodsComponent,
+                default: MethodSingleComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
