@@ -54,6 +54,13 @@ class Method
     private $metBody;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="met_price", type="integer", length=11, nullable=true)
+     */
+    private $metPrice;
+
+    /**
      * @return int
      */
     public function getMetId(): int
@@ -132,6 +139,24 @@ class Method
     {
         $this->metBody = $metBody;
     }
+
+    /**
+     * @return int
+     */
+    public function getMetPrice(): int
+    {
+        return $this->metPrice;
+    }
+
+    /**
+     * @param int $metPrice
+     */
+    public function setMetPrice(int $metPrice): void
+    {
+        $this->metPrice = $metPrice;
+    }
+
+
 
     /**
      * @return Category

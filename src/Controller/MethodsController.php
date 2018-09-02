@@ -94,6 +94,7 @@ class MethodsController extends AbstractController
         $params = json_decode($request->getContent(), true);
         $title = $params['title'];
         $body = $params['body'];
+        $price = $params['price'];
         $galId = $params['galId'];
         $catId = $params['catId'];
         $method = new Method();
@@ -103,6 +104,7 @@ class MethodsController extends AbstractController
         $method->setCategoryCat($category);
         $method->setMetName($title);
         $method->setMetBody($body);
+        $method->setMetPrice($price);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->merge($method);
         $entityManager->flush();
@@ -135,6 +137,7 @@ class MethodsController extends AbstractController
         $params = json_decode($request->getContent(), true);
         $title = $params['title'];
         $body = $params['body'];
+        $price = $params['price'];
         $id = $params['id'];
         $catId = $params['catId'];
         $method = $this->getDoctrine()->getRepository(Method::class)->find($id);
@@ -144,6 +147,7 @@ class MethodsController extends AbstractController
         }
         $method->setMetName($title);
         $method->setMetBody($body);
+        $method->setMetPrice($price);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->merge($method);
         $entityManager->flush();
