@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Example from '../components/Example'
+
 import CategoriesAdmin from '../components/admin/CategoriesAdmin'
 import GalleriesAdmin from '../components/admin/GalleriesAdmin'
 import GalleryEditAdmin from '../components/admin/GalleryEditAdmin'
@@ -9,16 +9,13 @@ import MethodsAdmin from '../components/admin/MethodsAdmin'
 import MethodEditAdmin from '../components/admin/MethodEditAdmin'
 import TherapeutistsAdmin from '../components/admin/TherapeutistsAdmin'
 import TherapistEditAdmin from '../components/admin/TherapistEditAdmin'
-import PageHeader from '../components/PageHeader'
 import AdminHeader from '../components/admin/AdminHeader'
 import AdminMain from '../components/admin/AdminMain'
 
 import ContentComponent from '../components/ContentComponent'
-import AboutUsComponent from '../components/AboutUsComponent'
 import CampComponent from '../components/CampComponent'
 import ContactComponent from '../components/ContactComponent'
 import GalleryComponent from '../components/GalleryComponent'
-import MethodsComponent from '../components/MethodsComponent'
 import OfferContentComponent from '../components/OfferContentComponent'
 import MenuComponent from '../components/MenuComponent'
 import TherapistSingleComponent from '../components/TherapistSingleComponent'
@@ -26,8 +23,8 @@ import FooterComponent from '../components/FooterComponent'
 import ArticleComponent from '../components/ArticleComponent'
 import MethodSingleComponent from '../components/MethodSingleComponent'
 import TherapistSiteComponent from '../components/TherapistSiteComponent'
-
 import PriceListComponent from '../components/PriceListComponent'
+import MethodsInCatComponent from '../components/MethodsInCatComponent'
 
 Vue.use(Router)
 
@@ -39,15 +36,6 @@ export default new Router({
             name: 'ContentComponent',
             components: {
                 default: ContentComponent,
-                menu: MenuComponent,
-                footer: FooterComponent
-            }
-        },
-        {
-            path: '/onas',
-            name: 'AboutUsComponent',
-            components: {
-                default: AboutUsComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
@@ -80,10 +68,10 @@ export default new Router({
             }
         },
         {
-            path: '/metody/:idcat',
-            name: 'MethodsComponent',
+            path: '/metody/:id',
+            name: 'MethodsInCatComponent',
             components: {
-                default: MethodsComponent,
+                default: MethodsInCatComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
@@ -128,7 +116,7 @@ export default new Router({
             path: '/cennik',
             name: 'PriceListComponent',
             components: {
-                default: MethodsComponent,
+                default: PriceListComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }

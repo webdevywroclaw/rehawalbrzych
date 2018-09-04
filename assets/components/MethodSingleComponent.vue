@@ -1,7 +1,7 @@
 <template>
 <div>
     <h1>{{method[0].metName}}</h1>
-    <h3>{{method[0].metBody}}</h3>
+    <span v-html="method[0].metBody"/>
 </div>
   <!-- <div v-if="method[0].metId === $route.params.id">
     <h1>method[0].metName</h1>

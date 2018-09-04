@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$route.params.id === therapeutist[0].therapId">
+  <div >
     <img v-bind:src="therapeutist[0].photoPhoto.photoSrc">
     <h1>{{therapeutist[0].therapName}}</h1>
     <h1>{{therapeutist[0].therapSurname}}</h1>

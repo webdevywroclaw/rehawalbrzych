@@ -4,7 +4,7 @@
   <div class="description">
    <h2 >{{therapeutistApi.therapName}} {{therapeutistApi.therapSurname}}</h2>
    <h4>{{therapeutistApi.therapDesc}}</h4>
-   <router-link :to="{ name: 'TherapistSingleComponent',params:{id:therapeutistApi.therapId}}"><button>More</button></router-link>
+   <router-link :to="'/terapeuta/'+therapeutistApi.therapId"><button>More</button></router-link>
   </div>
   </div>
 </template>
