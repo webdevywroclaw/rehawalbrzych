@@ -17,7 +17,7 @@ import ContentComponent from '../components/ContentComponent'
 import AboutUsComponent from '../components/AboutUsComponent'
 import CampComponent from '../components/CampComponent'
 import ContactComponent from '../components/ContactComponent'
-import GalleryComponent from '../components/GalleryComponent'
+import GalleriesComponent from '../components/GalleriesComponent'
 import MethodsComponent from '../components/MethodsComponent'
 import OfferContentComponent from '../components/OfferContentComponent'
 import MenuComponent from '../components/MenuComponent'
@@ -72,9 +72,9 @@ export default new Router({
         },
         {
             path: '/galeria',
-            name: 'GalleryComponent',
+            name: 'GalleriesComponent',
             components: {
-                default: GalleryComponent,
+                default: GalleriesComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
