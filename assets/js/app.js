@@ -7,7 +7,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '../css/app.css'
 import HeaderComponent from '../components/HeaderComponent'
 import * as VueGoogleMaps from "vue2-google-maps";
+import PhotoSwipe from 'vue-simple-photoswipe/dist/vue-simple-photoswipe'
 
+
+Vue.use(PhotoSwipe)
 Vue.use(BootstrapVue);
 Vue.use(vueResource);
 
