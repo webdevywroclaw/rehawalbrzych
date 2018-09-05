@@ -37,6 +37,13 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="short" class="col-sm-2 col-form-label">Krótki opis: </label>
+                <div class="col-sm-10">
+                    <input type="text" id="short" class="form-control" placeholder="Krótki opis" v-model="jsondata.short">
+                </div>
+            </div>
+
             <h2>Edukacja</h2>
 
             <div class="form-group row">
@@ -133,6 +140,7 @@
                     surname: '',
                     id: '',
                     desc: '',
+                    short: '',
                     schools: [],
                     courses: [],
                     methods: []
@@ -206,6 +214,7 @@
                     this.jsondata.name = this.therapeutist[0].therapName
                     this.jsondata.surname = this.therapeutist[0].therapSurname
                     this.jsondata.desc = this.therapeutist[0].therapDesc
+                    this.jsondata.short = this.therapeutist[0].therapShort
                     this.jsondata.methods = []
                     for(var i =0; i< this.therapeutist['methods'].length; i++)
                     {

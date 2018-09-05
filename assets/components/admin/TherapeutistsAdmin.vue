@@ -25,6 +25,13 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="short" class="col-sm-2 col-form-label">Krótki opis: </label>
+                <div class="col-sm-10">
+                    <input type="text" id="short" class="form-control" placeholder="Krótki opis" v-model="jsondata.short">
+                </div>
+            </div>
+
             <h2>Edukacja</h2>
 
             <div class="form-group row">
@@ -107,6 +114,7 @@
                 <th>Imię</th>
                 <th>Nazwisko</th>
                 <th>O mnie</th>
+                <th>Krótki opis</th>
                 <th>Zdjęcie</th>
                 <th>Edycja</th>
                 <th>Usuń</th>
@@ -118,6 +126,7 @@
                 <td>{{therapeutist.therapName}}</td>
                 <td>{{therapeutist.therapSurname}}</td>
                 <td class="artbody">{{therapeutist.therapDesc}}</td>
+                <td>{{therapeutist.therapShort}}</td>
                 <td><img v-if="therapeutist.photoPhoto!=null" :src="therapeutist.photoPhoto.photoSrc" /></td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
                 <td>
@@ -149,6 +158,7 @@
                     name: '',
                     surname: '',
                     desc: '',
+                    short: '',
                     education: [],
                     methods: [],
                     schools: [],

@@ -130,6 +130,7 @@ class TherapeutistsController extends AbstractController
         $myJson = json_decode($request->request->get('json'), true);
         $name = $myJson['name'];
         $surname = $myJson['surname'];
+        $short = $myJson['short'];
         $desc = $myJson['desc'];
         $methods = $myJson['methods'];
         $schools = $myJson['schools'];
@@ -145,6 +146,7 @@ class TherapeutistsController extends AbstractController
         $therapist->setTherapName($name);
         $therapist->setTherapSurname($surname);
         $therapist->setTherapDesc($desc);
+        $therapist->setTherapShort($short);
         $therapist->setPhotoPhoto($photo);
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -253,6 +255,7 @@ class TherapeutistsController extends AbstractController
         $name = $myJson['name'];
         $surname = $myJson['surname'];
         $desc = $myJson['desc'];
+        $short = $myJson['short'];
         $methods = $myJson['methods'];
         $schools = $myJson['schools'];
         $courses = $myJson['courses'];
@@ -267,6 +270,7 @@ class TherapeutistsController extends AbstractController
         $therapist->setTherapName($name);
         $therapist->setTherapSurname($surname);
         $therapist->setTherapDesc($desc);
+        $therapist->setTherapShort($short);
         if(isset($photo)){
             $therapist->setPhotoPhoto($photo);
         }
