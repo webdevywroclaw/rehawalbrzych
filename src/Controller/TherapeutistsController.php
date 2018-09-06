@@ -56,6 +56,16 @@ class TherapeutistsController extends AbstractController
             ->where('p.educationEdu = '.$therapist[0]['educationEdu']['eduId'].' AND p.categoryCat = 2')
             ->getQuery()
             ->getArrayResult();
+        $conferences = $this->getDoctrine()->getRepository(EduItem::class)->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.educationEdu = '.$therapist[0]['educationEdu']['eduId'].' AND p.categoryCat = 3')
+            ->getQuery()
+            ->getArrayResult();
+        $publications = $this->getDoctrine()->getRepository(EduItem::class)->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.educationEdu = '.$therapist[0]['educationEdu']['eduId'].' AND p.categoryCat = 4')
+            ->getQuery()
+            ->getArrayResult();
         $methods = $this->getDoctrine()->getRepository(MethodsTherapeutists::class)->createQueryBuilder('p')
             ->select('p', 't')
             ->where('p.therapId = '.$id)
@@ -65,8 +75,10 @@ class TherapeutistsController extends AbstractController
 
         $schools_to_merge = array('schools' => $schools);
         $courses_to_merge = array('courses' => $courses);
+        $conferences_to_merge = array('conferences' => $conferences);
+        $publications_to_merge = array('publications' => $publications);
         $methods_to_merge = array('methods' => $methods);
-        $merged = array_merge($therapist, $schools_to_merge, $courses_to_merge, $methods_to_merge);
+        $merged = array_merge($therapist, $schools_to_merge, $courses_to_merge, $methods_to_merge, $conferences_to_merge, $publications_to_merge);
         $response = new JsonResponse($merged);
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
@@ -135,6 +147,8 @@ class TherapeutistsController extends AbstractController
         $methods = $myJson['methods'];
         $schools = $myJson['schools'];
         $courses = $myJson['courses'];
+        $conferences = $myJson['conferences'];
+        $publications = $myJson['publications'];
 
         $photo = new Photo();
         $photo->setPhotoSrc($file);
@@ -155,15 +169,15 @@ class TherapeutistsController extends AbstractController
         $education = new Education();
 
         foreach ($schools as $school)
-        {
-            $eduitem = new EduItem();
-            $eduitem->setEducationEdu($education);
-            $cat = $this->getDoctrine()->getRepository(Category::class)->find(1);
-            $eduitem->setCategoryCat($cat);
-            $eduitem->setEduItemName($school);
-            $entityManager->merge($eduitem);
-            $entityManager->flush();
-        }
+    {
+        $eduitem = new EduItem();
+        $eduitem->setEducationEdu($education);
+        $cat = $this->getDoctrine()->getRepository(Category::class)->find(1);
+        $eduitem->setCategoryCat($cat);
+        $eduitem->setEduItemName($school);
+        $entityManager->merge($eduitem);
+        $entityManager->flush();
+    }
 
         foreach ($courses as $course)
         {
@@ -172,6 +186,28 @@ class TherapeutistsController extends AbstractController
             $cat = $this->getDoctrine()->getRepository(Category::class)->find(2);
             $eduitem->setCategoryCat($cat);
             $eduitem->setEduItemName($course);
+            $entityManager->merge($eduitem);
+            $entityManager->flush();
+        }
+
+        foreach ($conferences as $conference)
+        {
+            $eduitem = new EduItem();
+            $eduitem->setEducationEdu($education);
+            $cat = $this->getDoctrine()->getRepository(Category::class)->find(3);
+            $eduitem->setCategoryCat($cat);
+            $eduitem->setEduItemName($conference);
+            $entityManager->merge($eduitem);
+            $entityManager->flush();
+        }
+
+        foreach ($publications as $publication)
+        {
+            $eduitem = new EduItem();
+            $eduitem->setEducationEdu($education);
+            $cat = $this->getDoctrine()->getRepository(Category::class)->find(4);
+            $eduitem->setCategoryCat($cat);
+            $eduitem->setEduItemName($publication);
             $entityManager->merge($eduitem);
             $entityManager->flush();
         }
@@ -259,6 +295,8 @@ class TherapeutistsController extends AbstractController
         $methods = $myJson['methods'];
         $schools = $myJson['schools'];
         $courses = $myJson['courses'];
+        $conferences = $myJson['conferences'];
+        $publications = $myJson['publications'];
 
 //            $response = new Response("sssos :".$name);
 //            $response->headers->set('Access-Control-Allow-Origin', '*');
@@ -299,6 +337,28 @@ class TherapeutistsController extends AbstractController
             $cat = $this->getDoctrine()->getRepository(Category::class)->find(2);
             $eduitem->setCategoryCat($cat);
             $eduitem->setEduItemName($course);
+            $entityManager->merge($eduitem);
+            $entityManager->flush();
+        }
+
+        foreach ($conferences as $conference)
+        {
+            $eduitem = new EduItem();
+            $eduitem->setEducationEdu($education);
+            $cat = $this->getDoctrine()->getRepository(Category::class)->find(3);
+            $eduitem->setCategoryCat($cat);
+            $eduitem->setEduItemName($conference);
+            $entityManager->merge($eduitem);
+            $entityManager->flush();
+        }
+
+        foreach ($publications as $publication)
+        {
+            $eduitem = new EduItem();
+            $eduitem->setEducationEdu($education);
+            $cat = $this->getDoctrine()->getRepository(Category::class)->find(4);
+            $eduitem->setCategoryCat($cat);
+            $eduitem->setEduItemName($publication);
             $entityManager->merge($eduitem);
             $entityManager->flush();
         }

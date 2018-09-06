@@ -7,6 +7,7 @@ use App\Entity\Category;
 use App\Entity\Gallery;
 use App\Entity\Photo;
 use App\Entity\Photos;
+use App\Entity\Therapeutist;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,11 +43,16 @@ class ArticlesController extends AbstractController
     {
         $article = $this->getDoctrine()->getRepository(Article::class)->findById($id);
         $galid = $article[0]['galleryGal']['galId'];
-        $photos = $this->getDoctrine()->getRepository(Photo::class)->createQueryBuilder('p')
-            ->select('p')
-            ->where('p.galleryGal = '.$galid)
-            ->getQuery()
-            ->getArrayResult();
+        if($galid!=null){
+            $photos = $this->getDoctrine()->getRepository(Photo::class)->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.galleryGal = '.$galid)
+                ->getQuery()
+                ->getArrayResult();
+        }
+        else{
+            $photos = null;
+        }
         $gallery = array('photos' => $photos);
 //        $content = array('article' => $article);
         $merged = array_merge($article,$gallery);
@@ -95,17 +101,65 @@ class ArticlesController extends AbstractController
         $body = $params['body'];
         $galId = $params['galId'];
         $catId = $params['catId'];
+        $authId = $params['authId'];
         $article = new Article();
         $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
         $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
-        $article->setGalleryGal($gallery);
-        $article->setCategoryCat($category);
+        $author = $this->getDoctrine()->getRepository(Therapeutist::class)->find($authId);
+        if($gallery!=null) $article->setGalleryGal($gallery);
+        if($category!=null)$article->setCategoryCat($category);
+        if($author!=null)$article->setArtAuthor($author);
         $article->setArtTitle($title);
         $article->setArtBody($body);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->merge($article);
         $entityManager->flush();
         $response = new Response("dodales artykul o tytule: ".$article->getArtTitle());
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
+        return $response;
+    }
+
+    /**
+     * @Route("/article",
+     *     methods="POST",
+     *     name="updatearticle",
+     *     requirements={
+     *         "_format": "json"
+     *     }
+     * )
+     */
+    public function updateAction(Request $request)
+    {
+        if(empty($request->getContent()))
+        {
+            $params = json_decode($request->getContent(), true);
+            $response = new Response($params['name']);
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
+            return $response;
+
+        }
+        $params = json_decode($request->getContent(), true);
+        $id = $params['id'];
+        $title = $params['title'];
+        $body = $params['body'];
+        $galId = $params['galId'];
+        $catId = $params['catId'];
+        $authId = $params['authId'];
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+        $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
+        $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
+        $author = $this->getDoctrine()->getRepository(Therapeutist::class)->find($authId);
+        if($gallery!=null) $article->setGalleryGal($gallery);
+        if($category!=null)$article->setCategoryCat($category);
+        if($author!=null)$article->setArtAuthor($author);
+        $article->setArtTitle($title);
+        $article->setArtBody($body);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->merge($article);
+        $entityManager->flush();
+        $response = new Response("zapisano artykul o tytule: ".$article->getArtTitle());
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
         return $response;

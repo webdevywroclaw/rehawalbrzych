@@ -79,20 +79,22 @@
                     });
             },
             deleteGallery(id) {
-                this.$http.delete(
-                    '/api/galleries/' + id,
-                    {name: this.jsondata.name},
-                    {
-                        headers: {}
-                    })
-                    .then(function (response) {
-                        console.log('Success!:', response.data);
-                        this.loading = false;
-                        this.fetchGalleries();
-                    }, function (response) {
-                        console.log('Error!:', response.data);
-                        this.loading = false;
-                    });
+                if (confirm("Czy na pewno chcesz usunąć galerię?")) {
+                    this.$http.delete(
+                        '/api/galleries/' + id,
+                        {name: this.jsondata.name},
+                        {
+                            headers: {}
+                        })
+                        .then(function (response) {
+                            console.log('Success!:', response.data);
+                            this.loading = false;
+                            this.fetchGalleries();
+                        }, function (response) {
+                            console.log('Error!:', response.data);
+                            this.loading = false;
+                        });
+                }
             }
         },
         created: function () {

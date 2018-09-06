@@ -158,20 +158,22 @@
                     });
             },
             deleteMethod(id) {
-                this.$http.delete(
-                    '/api/methods/' + id,
-                    {name: this.jsondata.name},
-                    {
-                        headers: {}
-                    })
-                    .then(function (response) {
-                        console.log('Success!:', response.data);
-                        this.loading = false;
-                        this.fetchMethods();
-                    }, function (response) {
-                        console.log('Error!:', response.data);
-                        this.loading = false;
-                    });
+                if (confirm("Czy na pewno chcesz usunąć metodę?")) {
+                    this.$http.delete(
+                        '/api/methods/' + id,
+                        {name: this.jsondata.name},
+                        {
+                            headers: {}
+                        })
+                        .then(function (response) {
+                            console.log('Success!:', response.data);
+                            this.loading = false;
+                            this.fetchMethods();
+                        }, function (response) {
+                            console.log('Error!:', response.data);
+                            this.loading = false;
+                        });
+                }
             }
         },
         created: function () {

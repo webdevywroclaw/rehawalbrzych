@@ -5,6 +5,7 @@ import CategoriesAdmin from '../components/admin/CategoriesAdmin'
 import GalleriesAdmin from '../components/admin/GalleriesAdmin'
 import GalleryEditAdmin from '../components/admin/GalleryEditAdmin'
 import ArticlesAdmin from '../components/admin/ArticlesAdmin'
+import ArticleEditAdmin from '../components/admin/ArticleEditAdmin'
 import MethodsAdmin from '../components/admin/MethodsAdmin'
 import MethodEditAdmin from '../components/admin/MethodEditAdmin'
 import TherapeutistsAdmin from '../components/admin/TherapeutistsAdmin'
@@ -178,6 +179,13 @@ export default new Router({
             name: 'ArticlesAdmin',
             components: {
                 default: ArticlesAdmin,
+                menu: AdminHeader
+            }
+        },
+        {
+            path: '/admin/article/:id',
+            components: {
+                default: ArticleEditAdmin,
                 menu: AdminHeader
             }
         },

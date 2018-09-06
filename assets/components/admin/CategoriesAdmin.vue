@@ -45,7 +45,7 @@
                 <td>{{article.catId}}</td>
                 <td>{{article.catKind}}</td>
                 <td>{{article.catName}}</td>
-               <td><img v-if="article.photoId!=null" :src="article.photoId.photoSrc" /></td>
+               <td><img class="photo" v-if="article.photoId!=null" :src="article.photoId.photoSrc" /></td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
                 <td><button v-on:click="deleteCategory(article.catId)" class="btn btn-success">Usuń</button></td>
             </tr>
@@ -136,22 +136,23 @@
                         this.loading = false;
                     });
             },
-            deleteCategory(id){
-                this.$http.delete(
-                    '/api/categories/'+id,
-                    {name: this.jsondata.name},
-                    {
-                        headers: {
-                        }
-                    })
-                    .then(function (response) {
-                        console.log('Success!:', response.data);
-                        this.loading = false;
-                        this.fetchArticles();
-                    }, function (response) {
-                        console.log('Error!:', response.data);
-                        this.loading = false;
-                    });
+            deleteCategory(id) {
+                if (confirm("Czy na pewno chcesz usunąć kategorię?")) {
+                    this.$http.delete(
+                        '/api/categories/' + id,
+                        {name: this.jsondata.name},
+                        {
+                            headers: {}
+                        })
+                        .then(function (response) {
+                            console.log('Success!:', response.data);
+                            this.loading = false;
+                            this.fetchArticles();
+                        }, function (response) {
+                            console.log('Error!:', response.data);
+                            this.loading = false;
+                        });
+                }
             }
         },
         created: function () {
@@ -172,6 +173,10 @@
 
 
     /*}*/
+
+    img.photo {
+        max-height: 150px;
+    }
 
     #image {
         border: 2px solid black;
