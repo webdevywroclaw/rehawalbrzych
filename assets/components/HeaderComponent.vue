@@ -40,6 +40,7 @@ export default {
     line-height: 30px;
     text-align: right;
     border-bottom: 1px dotted #FDE36B;
+    background-color: #fbc13c;
   }
 
   #contact-top span {

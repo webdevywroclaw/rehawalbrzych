@@ -1,6 +1,12 @@
 <template>
-
-
+<div>
+    <h1>{{method[0].metName}}</h1>
+    <span v-html="method[0].metBody"/>
+</div>
+  <!-- <div v-if="method[0].metId === $route.params.id">
+    <h1>method[0].metName</h1>
+  </div>
+  -->
   <!--
   <div v-if="$route.params.id === 'metoda1'">
     <img v-bind:src="methods[0].photo">
@@ -32,7 +38,35 @@
 
 <script>
   export default {
+      data(){
+          return{
+             method: {
+                "0": {},
+                 "photos":[]
+             }
+          }
+      },
 
+      methods: {
+          fetchMethod() {
+              this.$http.get('/api/method/'+ this.$route.params.id,
+                  {
+                      headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded',
+                          'Accept': 'application/json'
+                      }
+                  }
+              )
+                  .then(response => response.json())
+                  .then(result => {
+                      this.method = result
+                      this.loaded = true
+                  })
+          }
+      },
+      created: function () {
+          this.fetchMethod();
+      }
    /* props: ['methods'] */
   }
 </script>

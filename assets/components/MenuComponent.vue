@@ -81,6 +81,7 @@
 .nav{
   border-bottom: 1px dotted #FDE36B;
   text-align: left;
+  background-color: #fbc13c;
 }
 #menu{
   margin-left: 30px;

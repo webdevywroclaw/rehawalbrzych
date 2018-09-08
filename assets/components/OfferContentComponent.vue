@@ -6,7 +6,7 @@
     </ul>
     </div>
     <div v-else>
-      <h1>dupa</h1>
+      <h1></h1>
     </div>
   </div>
 </template>

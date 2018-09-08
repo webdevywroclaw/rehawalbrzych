@@ -3,7 +3,7 @@
     <div class="box2">
       <!-- <div :id="offer.class" :style="{ backgroundImage: 'url('+offer.backgroundUrl+');'}"> -->
         <h2 class="box2-title">{{methodCatApi.catName}}</h2>
-        <router-link :to="{ name: 'MethodsComponent',params:{idcat: methodCatApi.catId}}"><button>More</button></router-link>
+        <router-link :to="'/metody/'+methodCatApi.catId"><button>More</button></router-link>
         <img v-bind:src="methodCatApi.photoId.photoSrc">
      <!-- </div> -->
     </div>
