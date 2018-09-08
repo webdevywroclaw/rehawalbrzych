@@ -61,10 +61,10 @@
             <tbody>
             <tr v-for="method in methods">
                 <td>{{method.metId}}</td>
-                <td>{{method.categoryCat.catName}}</td>
+                <td><span v-if="method.categoryCat!=null">{{method.categoryCat.catName}}</span></td>
                 <td>{{method.metName}}</td>
                 <td v-html="method.metBody" class="artbody"></td>
-                <td>{{method.galleryGal.galName}}</td>
+                <td><span v-if="method.galleryGal!=null">{{method.galleryGal.galName}}</span></td>
                 <td>{{method.metPrice}}</td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
                 <td>
