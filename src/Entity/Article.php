@@ -46,6 +46,26 @@ class Article
     private $categoryCat;
 
     /**
+     * @var Gallery
+     *
+     * @ORM\ManyToOne(targetEntity="Gallery")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="gallery_gal_id", referencedColumnName="gal_id", nullable=true)
+     * })
+     */
+    private $galleryGal;
+
+    /**
+     * @var Therapeutist
+     *
+     * @ORM\ManyToOne(targetEntity="Therapeutist")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="art_author", referencedColumnName="therap_id", nullable=true)
+     * })
+     */
+    private $artAuthor;
+
+    /**
      * @return int
      */
     public function getArtId(): int
@@ -126,14 +146,19 @@ class Article
     }
 
     /**
-     * @var Gallery
-     *
-     * @ORM\ManyToOne(targetEntity="Gallery")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="gallery_gal_id", referencedColumnName="gal_id")
-     * })
+     * @return Therapeutist
      */
-    private $galleryGal;
+    public function getArtAuthor(): Therapeutist
+    {
+        return $this->artAuthor;
+    }
 
+    /**
+     * @param Therapeutist $artAuthor
+     */
+    public function setArtAuthor(Therapeutist $artAuthor): void
+    {
+        $this->artAuthor = $artAuthor;
+    }
 
 }

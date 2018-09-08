@@ -46,7 +46,7 @@ class Gallery
     /**
      * @var int
      *
-     * @ORM\Column(name="gal_id", type="integer", nullable=false)
+     * @ORM\Column(name="gal_id", type="integer", nullable=true)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */

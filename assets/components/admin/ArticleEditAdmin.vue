@@ -2,7 +2,7 @@
     <transition name="fade">
     <div class="articles-admin" v-if="loaded">
 
-        <h1>Dodawanie artykułu</h1>
+        <h1>Edycja artykułu {{$route.params.id}}</h1>
         <form>
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">Tytuł: </label>
@@ -44,52 +44,26 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-success" @click="addArticle">Dodaj artykuł</button>
         </form>
 
-        <h1>Artykuły</h1>
-        <!--<router-link to="/articles/add" class="btn btn-success">Dodaj</router-link>-->
-        <table class="table table-hover">
-            <tr>
-                <th>Id</th>
-                <th>Autor</th>
-                <th>Kategoria</th>
-                <th>Tytuł</th>
-                <th>Treść</th>
-                <th>Galeria</th>
-                <th>Edycja</th>
-                <th>Usuń</th>
-            </tr>
-            <tbody>
-            <tr v-for="article in articles">
-                <td>{{article.artId}}</td>
-                <td><span v-if="article.artAuthor != null">{{article.artAuthor.therapName}} {{article.artAuthor.therapSurname}}</span></td>
-                <td><span v-if="article.categoryCat != null">{{article.categoryCat.catName}}</span></td>
-                <td>{{article.artTitle}}</td>
-                <td v-html="article.artBody" class="artbody"></td>
-                <td><span v-if="article.galleryGal != null">{{article.galleryGal.galName}}</span></td>
-                <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
-                <td>
-                    <router-link class="btn btn-success" :to="'/admin/article/'+article.artId">Edytuj</router-link>
-                </td>
-                <td>
-                    <button v-on:click="deleteArticle(article.artId)" class="btn btn-success">Usuń</button>
-                </td>
-            </tr>
-            </tbody>
+        <button type="button" class="btn btn-success" @click="updateArticle">Zapisz</button>
+        <div v-if="saved">Zapisano</div>
 
-        </table>
     </div>
     </transition>
 </template>
 
 <script>
     export default {
-        name: 'Admin',
+        name: 'ArticleEditAdmin',
         data() {
             return {
+                saved: false,
                 loaded: false,
-                articles: [],
+                article: {
+                    "0":{},
+                    "photos":[]
+                },
                 galleries: [],
                 categories: [],
                 therapists: [],
@@ -103,8 +77,8 @@
             }
         },
         methods: {
-            fetchArticles() {
-                this.$http.get('/api/articles',
+            fetchArticle() {
+                this.$http.get('/api/article/'+this.$route.params.id,
                     {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -114,7 +88,8 @@
                 )
                     .then(response => response.json())
                     .then(result => {
-                        this.articles = result
+                        this.article = result
+                        this.updateJsonData()
                         this.loaded = true
                     })
             },
@@ -154,9 +129,17 @@
                     .then(response => response.json())
                     .then(result => this.therapists = result)
             },
-            addArticle(){
+            updateJsonData() {
+                if(this.article!=null){
+                    this.jsondata.id = this.$route.params.id
+                    this.jsondata.title = this.article[0].artTitle
+                    this.jsondata.body = this.article[0].artBody
+
+                }
+            },
+            updateArticle(){
                 this.$http.post(
-                    '/api/articles',
+                    '/api/article',
                     JSON.stringify(this.jsondata),
                     {
                         headers: {
@@ -166,8 +149,8 @@
                     })
                     .then(function (response) {
                         console.log('Success!:', response.data);
+                        this.saved = true;
                         this.loading = false;
-                        this.fetchArticles();
                     }, function (response) {
                         console.log('Error!:', response.data);
                         this.loading = false;
@@ -193,7 +176,7 @@
             }
         },
         created: function () {
-            this.fetchArticles();
+            this.fetchArticle();
             this.fetchGalleries();
             this.fetchCategories();
             this.fetchTherapists();

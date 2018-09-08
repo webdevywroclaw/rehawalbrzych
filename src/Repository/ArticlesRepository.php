@@ -8,9 +8,10 @@ class ArticlesRepository extends EntityRepository
 {
     public function findAllOrderedByName()
     {
-        $qb = $this->createQueryBuilder('p')->select('p', 'g', 'c')
+        $qb = $this->createQueryBuilder('p')->select('p', 'g', 'c', 'a')
             ->leftJoin('p.categoryCat', 'c')
             ->leftJoin('p.galleryGal', 'g')
+            ->leftJoin('p.artAuthor', 'a')
             ->getQuery();
         return $qb->getArrayResult();
     }

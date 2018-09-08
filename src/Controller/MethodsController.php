@@ -43,11 +43,16 @@ class MethodsController extends AbstractController
     {
         $method = $this->getDoctrine()->getRepository(Method::class)->findById($id);
         $galid = $method[0]['galleryGal']['galId'];
-        $photos = $this->getDoctrine()->getRepository(Photo::class)->createQueryBuilder('p')
-            ->select('p')
-            ->where('p.galleryGal = '.$galid)
-            ->getQuery()
-            ->getArrayResult();
+        if($galid!=null) {
+            $photos = $this->getDoctrine()->getRepository(Photo::class)->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.galleryGal = ' . $galid)
+                ->getQuery()
+                ->getArrayResult();
+        }
+        else{
+            $photos = null;
+        }
         $gallery = array('photos' => $photos);
 //        $content = array('article' => $article);
         $merged = array_merge($method,$gallery);
@@ -98,13 +103,17 @@ class MethodsController extends AbstractController
         $galId = $params['galId'];
         $catId = $params['catId'];
         $method = new Method();
-        $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
-        $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
-        $method->setGalleryGal($gallery);
-        $method->setCategoryCat($category);
+        if($catId!=null){
+            $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
+            $method->setCategoryCat($category);
+        }
+        if($galId!=null){
+            $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
+            $method->setGalleryGal($gallery);
+        }
         $method->setMetName($title);
         $method->setMetBody($body);
-        $method->setMetPrice($price);
+        if($price!=null) $method->setMetPrice($price);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->merge($method);
         $entityManager->flush();
@@ -140,10 +149,15 @@ class MethodsController extends AbstractController
         $price = $params['price'];
         $id = $params['id'];
         $catId = $params['catId'];
+        $galId = $params['galId'];
         $method = $this->getDoctrine()->getRepository(Method::class)->find($id);
         if($catId!=null){
             $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
             $method->setCategoryCat($category);
+        }
+        if($galId!=null){
+            $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
+            $method->setGalleryGal($gallery);
         }
         $method->setMetName($title);
         $method->setMetBody($body);
