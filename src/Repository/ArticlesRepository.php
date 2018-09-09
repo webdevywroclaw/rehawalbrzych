@@ -18,9 +18,11 @@ class ArticlesRepository extends EntityRepository
 
     public function findById($id)
     {
-        $qb = $this->createQueryBuilder('p')->select('p', 'g')
+        $qb = $this->createQueryBuilder('p')->select('p', 'g','c', 'a')
             ->where('p.artId = '.$id)
+            ->leftJoin('p.categoryCat', 'c')
             ->leftJoin('p.galleryGal', 'g')
+            ->leftJoin('p.artAuthor', 'a')
             ->getQuery();
         return $qb->getArrayResult();
     }

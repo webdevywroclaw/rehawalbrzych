@@ -24,7 +24,6 @@ export default {
   img{
       height: 250px;
       width: 250px;
-      border: 7px solid orange;
       border-radius: 100%;
       margin:10px;
   }
@@ -35,9 +34,7 @@ export default {
 
   }
    @media (max-width: 500px){
-     img{
 
-     }
      #ter{
        grid-template-columns: 1fr 1fr;
      }
