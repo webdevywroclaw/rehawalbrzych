@@ -110,6 +110,7 @@ class MethodsController extends AbstractController
         if($galId!=null){
             $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
             $method->setGalleryGal($gallery);
+            $gallery->setMetId($method);
         }
         $method->setMetName($title);
         $method->setMetBody($body);
@@ -158,6 +159,7 @@ class MethodsController extends AbstractController
         if($galId!=null){
             $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
             $method->setGalleryGal($gallery);
+            $gallery->setMetId($method);
         }
         $method->setMetName($title);
         $method->setMetBody($body);
