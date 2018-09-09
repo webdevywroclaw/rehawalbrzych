@@ -1,13 +1,12 @@
 <template>
-  <li>
     <div class="box2">
       <!-- <div :id="offer.class" :style="{ backgroundImage: 'url('+offer.backgroundUrl+');'}"> -->
+        <div>
         <h2 class="box2-title">{{methodCatApi.catName}}</h2>
         <router-link :to="'/metody/'+methodCatApi.catId"><button>More</button></router-link>
-        <img v-bind:src="methodCatApi.photoId.photoSrc">
+        </div>
      <!-- </div> -->
     </div>
-  </li>
 </template>
 
 <script>
@@ -28,17 +27,17 @@ li {
   margin: 0;
   padding: 0;
 }
-#box2-image1 {
-
+.box2:nth-child(1) {
+  background-image: url(../assets/max-rovensky-545700-unsplash.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%;
-  z-index: -1;
+
   opacity: 0.4;
 }
-#box2-image2 {
+#166 {
 
   background-position: center;
   background-repeat: no-repeat;

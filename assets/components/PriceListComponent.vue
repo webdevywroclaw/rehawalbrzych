@@ -1,5 +1,5 @@
 <template>
-
+<!--
         <table class="table">
             <tbody>
             <tr>
@@ -14,10 +14,17 @@
             </li>
             </tbody>
         </table>
-
-
-
-
+-->
+<div>
+    <div class="price-list-title">
+        <span id="name">Nazwa metody</span>
+        <span id="price">Cena(zł)</span>
+    </div>
+    <div class="price-list" v-for="methodApi in methodsApi" :key="methodApi" v-bind:methodApi="methodApi">
+        <span class="singlename">{{methodApi.metName}}</span>
+        <span class="singleprice">{{methodApi.metPrice}}</span>
+    </div>
+</div>
 </template>
 
 <script>
@@ -53,8 +60,8 @@
     }
 </script>
 
-<style>
-    ul{
+<style scoped>
+    li{
         list-style: none;
         padding: 0px;
         margin: 0px;
@@ -78,6 +85,32 @@
     }
     .table tbody tr:nth-child(even) td{
         background-color: #FDE36B;
+    }
+    .price-list{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        padding:10px;
+    }
+    .price-list-title{
+        padding:10px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #name{
+         background-color: #fbc13c;
+        padding:10px;
+     }
+    #price{
+        background-color: #FFEEA6;
+        padding:10px;
+    }
+    .singlename{
+        background-color: #fde36b;
+        padding:10px;
+    }
+    .singleprice{
+        background-color: #FFFAAB;
+        padding:10px;
     }
 </style>
 

@@ -22,6 +22,7 @@ import MenuComponent from '../components/MenuComponent'
 import TherapistSingleComponent from '../components/TherapistSingleComponent'
 import FooterComponent from '../components/FooterComponent'
 import ArticleComponent from '../components/ArticleComponent'
+import ArticleSingleComponent from '../components/ArticleSingleComponent'
 import MethodSingleComponent from '../components/MethodSingleComponent'
 import TherapistSiteComponent from '../components/TherapistSiteComponent'
 import PriceListComponent from '../components/PriceListComponent'
@@ -127,6 +128,24 @@ export default new Router({
             name: 'MethodSingleComponent',
             components: {
                 default: MethodSingleComponent,
+                menu: MenuComponent,
+                footer: FooterComponent
+            }
+        },
+        {
+            path: '/artykuly',
+            name: 'ArticleComponent',
+            components: {
+                default: ArticleComponent,
+                menu: MenuComponent,
+                footer: FooterComponent
+            }
+        },
+        {
+            path: '/artykul/:id',
+            name: 'ArticleSingleComponent',
+            components: {
+                default: ArticleSingleComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
