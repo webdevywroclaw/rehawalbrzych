@@ -4,7 +4,7 @@
 
             <figure  v-for="(photo, index) in photos" :key="photo" v-bind:photo="photo" @click="$photoswipe.open(index, photos)">
                 <img class="preview-img-item" :src="photo.src" >
-                <figcaption itemprop="caption description">{{photo.title}}Image captionImage captionImage captionImage captionImage captionImage captionImage captionImage captionImage caption</figcaption>
+                <figcaption itemprop="caption description">{{photo.title}}</figcaption>
 
             </figure>
 
@@ -62,7 +62,7 @@
         font-size: 12px;
         /*border: thin #c0c0c0 solid;*/
         /*padding: 5px;*/
-        height: 150px;
+        height: 200px;
         display: inline-block;
         width: min-content;
         background-color: white;
@@ -70,17 +70,20 @@
     }
 
     figure figcaption {
+        font-style: italic;
         text-align: center;
         word-wrap: break-word;
         overflow-y:auto;
         max-height: 20px;
+        max-width: 300px;
         bottom: 0;
         right: 0;
         left: 0;
+        background-color: #FEFAD1;
     }
 
     figure img {
-        height: 85%;
+        height: 90%;
         width: auto;
 
     }

@@ -106,7 +106,10 @@ class ArticlesController extends AbstractController
         $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
         $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
         $author = $this->getDoctrine()->getRepository(Therapeutist::class)->find($authId);
-        if($gallery!=null) $article->setGalleryGal($gallery);
+        if($gallery!=null) {
+            $article->setGalleryGal($gallery);
+            $gallery->setArtId($article);
+        }
         if($category!=null)$article->setCategoryCat($category);
         if($author!=null)$article->setArtAuthor($author);
         $article->setArtTitle($title);
@@ -151,7 +154,10 @@ class ArticlesController extends AbstractController
         $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
         $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
         $author = $this->getDoctrine()->getRepository(Therapeutist::class)->find($authId);
-        if($gallery!=null) $article->setGalleryGal($gallery);
+        if($gallery!=null){
+            $article->setGalleryGal($gallery);
+            $gallery->setArtId($article);
+        }
         if($category!=null)$article->setCategoryCat($category);
         if($author!=null)$article->setArtAuthor($author);
         $article->setArtTitle($title);
