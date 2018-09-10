@@ -1,9 +1,9 @@
 <template>
   <div id="test2">
     <div class="offerts" v-if="$route.name === 'OfferContentComponent'">
-    <ul>
-      <offer-component v-for="methodCatApi in methodsCatApi" :key="methodCatApi" :methodCatApi="methodCatApi" ></offer-component>
-    </ul>
+
+      <offer-component v-for="methodCatApi in methodsCatApi" :key="methodCatApi" :methodCatApi="methodCatApi"></offer-component>
+
     </div>
     <div v-else>
       <h1></h1>

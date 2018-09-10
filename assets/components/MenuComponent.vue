@@ -31,6 +31,7 @@
       <router-link to="/terapeuci">O nas</router-link>
       <router-link to="/oferta">Metody</router-link>
       <router-link to="/cennik">Cennik</router-link>
+      <router-link to="/artykuly">Artykuły</router-link>
       <router-link to="/galeria">Galeria</router-link>
       <router-link to="/kontakt">Kontakt</router-link>
     </div>

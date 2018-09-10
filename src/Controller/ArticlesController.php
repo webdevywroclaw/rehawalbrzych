@@ -53,7 +53,7 @@ class ArticlesController extends AbstractController
         else{
             $photos = null;
         }
-        $gallery = array('photos' => $photos);
+        $gallery = array('gallery' => $photos);
 //        $content = array('article' => $article);
         $merged = array_merge($article,$gallery);
         $response = new JsonResponse($merged);
@@ -115,7 +115,7 @@ class ArticlesController extends AbstractController
         $article->setArtTitle($title);
         $article->setArtBody($body);
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->merge($article);
+        if($gallery==null)$entityManager->merge($article);
         $entityManager->flush();
         $response = new Response("dodales artykul o tytule: ".$article->getArtTitle());
         $response->headers->set('Access-Control-Allow-Origin', '*');

@@ -2,11 +2,11 @@
 <template>
 <ul>
   <li  v-for="item in items" v-bind:key="item">
-      <div class="box1" :id="item.class">
+      <div class="box1" :id="item.cl">
       <h3 class="box-title">{{item.boxTitle}}</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil placeat recusandae rem suscipit amet
-        mollitia magni corporis natus, ipsam aliquid.</p>
-      <button type="button" class="icon">
+          <p v-if="item.cl === 'number1'" >Poniedziałek 8.00-16.00<br> Wtorek 8.00-16.00 <br Środa 8.00-16.00<br> Czwartek 8.00-16.00 <br> Piątek 8.00-16.00 <br> Sobota nieczynne <br> Niedziela nieczynne</p>
+          <p v-else>loremlorem</p>
+          <button type="button" class="icon">
         <img v-bind:src="item.src" class="button-image">
       </button>
       </div>
@@ -22,20 +22,20 @@ export default {
         {
           boxTitle: 'Godziny Przyjęć',
           src: require('../assets/photo-camera.png'),
-          class: 'number1'
+          cl: 'number1'
         },
         { boxTitle: 'Poznaj nas',
           src: require('../assets/user-silhouette.png'),
-          class: 'number2'
+          cl: 'number2'
         },
         {
           boxTitle: 'Najnowszy sprzęt',
           src: require('../assets/nut-icon.png'),
-          class: 'number3'
+          cl: 'number3'
         },
         { boxTitle: 'Galeria',
           src: require('../assets/photo-camera.png'),
-          class: 'number4'
+          cl: 'number4'
         }
       ]
     };

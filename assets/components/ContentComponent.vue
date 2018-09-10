@@ -6,7 +6,6 @@
             <h1> Kompleksowa Fizjoterapia dzieci i dorosłych</h1>
         </div>
         <trailer-component></trailer-component>
-        <article-component></article-component>
     </div>
 
 </template>
@@ -14,12 +13,10 @@
 <script>
 import TrailerComponent from './TrailerComponent'
 import OfferComponent from './OfferComponent'
-import ArticleComponent from './ArticleComponent'
 export default {
   components: {
     TrailerComponent,
     OfferComponent,
-    ArticleComponent
   }
 }
 </script>
