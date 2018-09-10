@@ -57,7 +57,7 @@ export default new Router({
             components: {
                 default: ContactComponent,
                 menu: MenuComponent,
-                footer: FooterComponent
+
             }
         },
         {

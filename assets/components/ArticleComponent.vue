@@ -1,25 +1,23 @@
 <template>
-    <div >
-        <div v-for="article in articles">
-        <span >{{article.artTitle}}</span>
-        <span>{{article.artAuthor.therapName}} {{article.artAuthor.therapSurname}}</span>
-        <router-link :to="'/artykul/'+article.artId"><button>Czytaj</button></router-link>
+    <div id="articles" >
+        <div class="article" v-for="article in articles">
+            <h2 >{{article.artTitle}}</h2>
+            <h3>{{article.artAuthor.therapName}} {{article.artAuthor.therapSurname}}</h3>
+            <router-link :to="'/artykul/'+article.artId"><button>Czytaj</button></router-link>
         </div>
     </div>
 
 </template>
 
 <script>
-    import ArticleSingleComponent from './ArticleSingleComponent'
+
 export default {
   data () {
    return {
         articles:[],
         }
       },
-    components:{
-        ArticleSingleComponent
-    },
+
     methods: {
         fetchArticles() {
             this.$http.get('/api/articles',
@@ -44,6 +42,17 @@ export default {
   };
 </script>
 
-<style>
-
+<style scoped>
+    #articles{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    }
+    .article{
+        border: 1px dotted #fbc13c;
+        margin: 10px;
+    }
+    button{
+        margin: 5px;
+        border-radius: 10%;
+    }
 </style>

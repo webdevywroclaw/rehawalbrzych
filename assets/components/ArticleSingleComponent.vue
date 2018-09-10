@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="art">
+    <div class="author">
+      <img v-bind:src="article[0].artAuthor.photoPhoto.photoSrc">
+      <h3>{{article[0].artAuthor.therapName}} {{article[0].artAuthor.therapSurname}}</h3>
+    </div>
     <h1>{{article[0].artTitle}}</h1>
     <p>{{article[0].artBody}}</p>
-    <div v-for="art in articles" v-bind:art="art">
-      <div v-if="art.artId == $route.params.id">
-        <h1>{{art.artTitle}}</h1>
-      </div>
-    </div>
+
+
   </div>
 </template>
 
 <script>
 export default {
-    props:['articles'],
     data(){
         return{
             article: {
@@ -37,6 +37,7 @@ export default {
                     this.loaded = true
                 })
         }
+
     },
     created: function () {
         this.fetchArticle();
@@ -44,6 +45,18 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+img{
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  margin:10px;
+}
+  art{
+    display: block;
+  }
+  .author{
+    width: 200px;
+    text-align: center;
+  }
 </style>

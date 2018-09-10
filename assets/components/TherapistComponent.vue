@@ -1,12 +1,15 @@
 <template>
-  <div id="ter">
-      <h2 >{{therapeutistApi.therapName}} {{therapeutistApi.therapSurname}}</h2>
+    <router-link :to="'/terapeuta/'+therapeutistApi.therapId">
+    <div id="ter">
+
       <div class="obramowanie">
       <img v-bind:src="therapeutistApi.photoPhoto.photoSrc" alt="Avatar">
       </div>
-      <h2> TERAPEUTA </h2>
-      <router-link :to="'/terapeuta/'+therapeutistApi.therapId"><button>More</button></router-link>
+      <h2 >{{therapeutistApi.therapName}} {{therapeutistApi.therapSurname}}</h2>
+      <h4> TERAPEUTA </h4>
+      <button>More</button>
   </div>
+    </router-link>
 </template>
 
 <script>

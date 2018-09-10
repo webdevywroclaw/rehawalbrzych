@@ -80,16 +80,6 @@
                       this.therapeutist = result
                       this.loaded = true
                   })
-
-
-              // setTimeout(this.updateJsonData, 1500)
-
-              // this.jsondata.name = this.therapeutist[0].therapName
-              // this.jsondata.surname = this.therapeutist[0].therapSurname
-              // this.jsondata.desc = this.therapeutist[0].therapDesc
-              // this.jsondata.methods = this.therapeutist['methods']
-              // this.jsondata.schools = this.therapeutist['schools']
-              // this.jsondata.courses = this.therapeutist['courses']
           }
       },
       created: function () {

@@ -1,17 +1,30 @@
 <template>
-    <div class="box2">
-      <!-- <div :id="offer.class" :style="{ backgroundImage: 'url('+offer.backgroundUrl+');'}"> -->
-        <div>
-        <h2 class="box2-title">{{methodCatApi.catName}}</h2>
-        <router-link :to="'/metody/'+methodCatApi.catId"><button>More</button></router-link>
-        </div>
-     <!-- </div> -->
-    </div>
+
+            <div class="box2" >
+              <!-- <div :id="offer.class" :style="{ backgroundImage: 'url('+offer.backgroundUrl+');'}"> -->
+                <div class="bx">
+
+                     <span class="box2-title">{{methodCatApi.catName}}</span>
+                    <router-link :to="'/metody/'+methodCatApi.catId"><button>More</button></router-link>
+                </div>
+             <!-- </div> -->
+            </div>
+
+
 </template>
 
 <script>
 export default {
   props: ['methodCatApi'],
+    data(){
+      return{
+      bckgs:[
+          {bacg: url('../assets/max-rovensky-545700-unsplash.jpg')},
+          {bacg: url('../assets/beach-boy-bubbles-106684.jpg')},
+          {bacg: url('../assets/beach-elderly-love-160936.jpg')},
+      ]
+      }
+    }
 }
 
 </script>
@@ -27,14 +40,17 @@ li {
   margin: 0;
   padding: 0;
 }
+.bx{
+    text-align: center;
+    vertical-align: middle;
+}
 .box2:nth-child(1) {
-  background-image: url(../assets/max-rovensky-545700-unsplash.jpg);
+  background-image: url('../assets/max-rovensky-545700-unsplash.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%;
-
   opacity: 0.4;
 }
 #166 {
@@ -88,4 +104,9 @@ li {
         grid-column: span 2;
     }
  }
+    img{
+        width: 100%;
+        height: 100%;
+
+    }
 </style>
