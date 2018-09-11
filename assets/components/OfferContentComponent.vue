@@ -1,8 +1,7 @@
 <template>
   <div id="test2">
     <div class="offerts" v-if="$route.name === 'OfferContentComponent'">
-
-      <offer-component v-for="methodCatApi in methodsCatApi" :key="methodCatApi" :methodCatApi="methodCatApi"></offer-component>
+     <offer-component v-for="methodCatApi in methodsCatApi" :key="methodCatApi" :methodCatApi="methodCatApi" :style="{'background-image': 'url(' + offerts[0].bacg + ')'}" ></offer-component>
 
     </div>
     <div v-else>
@@ -17,8 +16,9 @@ export default {
     data () {
     return {
         methodsCatApi: [],
+
       offerts: [
-        { box2Title: 'WADY POSTAWY', class: 'box2-image1', cat_id: '1'},
+        { box2Title: 'WADY POSTAWY', class: 'box2-image1', cat_id: '1',bacg: require('../assets/max-rovensky-545700-unsplash.jpg')},
         { box2Title: 'WADY STÓP', class: 'box2-image2', cat_id: '2'},
         { box2Title: 'REHABILITACJA DZIECI', class: 'box2-image3', cat_id: '3'},
         { box2Title: 'REHABILITACJA DOROSŁYCH', class: 'box2-image4', cat_id: '4'}
@@ -43,15 +43,16 @@ export default {
                     this.methodsCatApi = result
                     this.loaded = true
                 })
-        }
+        },
     },
     created: function () {
+
         this.fetchCatMethods();
     }
 }
 </script>
 
-<style>
+<style scoped>
   ul {
   list-style: none;
   padding: 0px;
@@ -60,7 +61,8 @@ export default {
   @media (min-width: 700px){
         .offerts {
         display: grid;
-        grid-template-columns: repeat(6,1fr);
+        grid-template-columns: repeat(2,minmax(300px,1fr));
+
     }
     .offerts ul {
         display: grid;
@@ -70,5 +72,5 @@ export default {
         grid-template-columns: repeat(4,1fr);
         grid-gap: 20px;
     }
-} 
+}
 </style>

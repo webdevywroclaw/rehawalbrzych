@@ -1,27 +1,26 @@
 <template>
 
-            <div class="box2" >
-              <!-- <div :id="offer.class" :style="{ backgroundImage: 'url('+offer.backgroundUrl+');'}"> -->
+            <div class="box2">
                 <div class="bx">
-
-                     <span class="box2-title">{{methodCatApi.catName}}</span>
-                    <router-link :to="'/metody/'+methodCatApi.catId"><button>More</button></router-link>
+                     <h2 class="box2-title">{{methodCatApi.catName}}</h2>
+                    <router-link :to="'/metody/'+methodCatApi.catId"><button>Zobacz</button></router-link>
                 </div>
              <!-- </div> -->
             </div>
-
 
 </template>
 
 <script>
 export default {
-  props: ['methodCatApi'],
+    props: ['methodCatApi'],
     data(){
       return{
-      bckgs:[
-          {bacg: url('../assets/max-rovensky-545700-unsplash.jpg')},
-          {bacg: url('../assets/beach-boy-bubbles-106684.jpg')},
-          {bacg: url('../assets/beach-elderly-love-160936.jpg')},
+
+          cat:[],
+          bckgs:[
+          {ident: 'one',bacg: url('../assets/max-rovensky-545700-unsplash.jpg')},
+          {ident: 'two' ,bacg: url('../assets/beach-boy-bubbles-106684.jpg')},
+          {ident: 'three',bacg: url('../assets/beach-elderly-love-160936.jpg')},
       ]
       }
     }
@@ -37,31 +36,19 @@ li {
 }
 
 .box2 {
-  margin: 0;
-  padding: 0;
+    justify-self: center;
+  padding: 0 20px;
+    margin:20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90%;
+    height: 300px;
+    opacity: 0.4;
 }
 .bx{
     text-align: center;
     vertical-align: middle;
-}
-.box2:nth-child(1) {
-  background-image: url('../assets/max-rovensky-545700-unsplash.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-}
-#166 {
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.4;
 }
 #box2-image3 {
 
@@ -108,5 +95,14 @@ li {
         width: 100%;
         height: 100%;
 
+    }
+    button{
+        backgroud-color: none;
+        border: 2px solid black;
+        border-radius: 6px;
+        font-size: 20px;
+    }
+    h2{
+        font-size: 30px;
     }
 </style>
