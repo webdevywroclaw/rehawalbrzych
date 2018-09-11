@@ -12,11 +12,11 @@
     <p>{{therapeutist[0].therapDesc}}</p>
   </div>
 
-  <div id="icon1">
+  <div v-if="therapeutist.schools.length != 0" id="icon1">
     <font-awesome-icon icon="graduation-cap" id="graduate" />
   </div>
 
-  <div class="study">
+  <div v-if="therapeutist.schools.length != 0" class="study">
     <ul>
       <li v-for="school in therapeutist.schools">
         <h4>{{school.eduItemName}}</h4>
@@ -25,11 +25,11 @@
   </div>
 
 
-  <div id="icon2">
+  <div  v-if="therapeutist.courses.length != 0" id="icon2">
     <font-awesome-icon icon="clipboard-check" id="clipboard"/>
   </div>
 
-  <div class="courses">
+  <div v-if="therapeutist.courses.length != 0" class="courses">
     <ul>
       <li v-for="course in therapeutist.courses">
         <h4>{{course.eduItemName}}</h4>
@@ -37,11 +37,11 @@
     </ul>
   </div>
 
-  <div id="icon3">
+  <div v-if="therapeutist.methods.length != 0" id="icon3">
     <font-awesome-icon icon="list-alt" id="listalt"/>
   </div>
 
-  <div class="thermet">
+  <div v-if="therapeutist.methods.length != 0" class="thermet">
     <ul>
       <li v-for="method in therapeutist.methods">
         <h4>{{method.metId.metName}}</h4>
@@ -88,7 +88,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .therapinfo{
 
   }
@@ -147,5 +147,19 @@
     background-color: #FEFFBC;
 
     grid-column: 2/6;
+  }
+  p{
+    margin:10px;
+    text-align: justify;
+    font-size: 18px;
+  }
+
+  h4{
+    margin: 10px;
+    font-size: 18px;
+    text-align: justify;
+  }
+  li{
+    margin: 20px;
   }
 </style>

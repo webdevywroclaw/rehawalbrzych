@@ -1,15 +1,19 @@
 <template>
-    <router-link :to="'/terapeuta/'+therapeutistApi.therapId">
+
     <div id="ter">
 
       <div class="obramowanie">
-      <img v-bind:src="therapeutistApi.photoPhoto.photoSrc" alt="Avatar">
+          <router-link :to="'/terapeuta/'+therapeutistApi.therapId">
+            <img v-bind:src="therapeutistApi.photoPhoto.photoSrc" alt="Avatar">
+          </router-link>
       </div>
       <h2 >{{therapeutistApi.therapName}} {{therapeutistApi.therapSurname}}</h2>
-      <h4> TERAPEUTA </h4>
-      <button>More</button>
+      <h4> {{therapeutistApi.therapShort}} </h4>
+       <router-link :to="'/terapeuta/'+therapeutistApi.therapId">
+        <button>Więcej</button>
+       </router-link>
   </div>
-    </router-link>
+
 </template>
 
 <script>
@@ -42,5 +46,14 @@ export default {
        grid-template-columns: 1fr 1fr;
      }
    }
-
+    button{
+        background-color: #fde36b;
+        border: 2px solid #fb933c;
+        border-radius:6px;
+        text-align: center;
+        font-size: 24px;
+    }
+    h4{
+        color:#fb933c;
+    }
 </style>

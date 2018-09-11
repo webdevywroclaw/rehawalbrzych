@@ -2,7 +2,7 @@
     <div id="articles" >
         <div class="article" v-for="article in articles">
             <h2 >{{article.artTitle}}</h2>
-            <h3>{{article.artAuthor.therapName}} {{article.artAuthor.therapSurname}}</h3>
+            <h4>{{article.artAuthor.therapName}} {{article.artAuthor.therapSurname}}</h4>
             <router-link :to="'/artykul/'+article.artId"><button>Czytaj</button></router-link>
         </div>
     </div>
@@ -45,14 +45,26 @@ export default {
 <style scoped>
     #articles{
         display:grid;
-        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
     }
     .article{
-        border: 1px dotted #fbc13c;
+        border: 3px dotted #fbc13c;
         margin: 10px;
+        padding:10px;
     }
+
     button{
         margin: 5px;
-        border-radius: 10%;
+        background-color: #fde36b;
+        border: 2px solid #fbc13c;
+        border-radius:10%;
+        text-align: center;
+        font-size: 20px;
+    }
+    h2{
+        font-size: 24px;
+    }
+    h4{
+        font-size: 18px;
     }
 </style>

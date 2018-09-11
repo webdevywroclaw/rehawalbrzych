@@ -1,8 +1,18 @@
 <template>
+
   <div class="contact">
-    <h3 class="contact-text">{{adres}}</h3>
-    <h3 class="contact-text">{{telephone}}</h3>
-    <h3 class="contact-text">{{mail}}</h3>
+    <div class="contactitem">
+      <font-awesome-icon id="addres" icon="map-marker-alt"></font-awesome-icon>
+      <h3 class="contact-text">{{adres}}</h3>
+    </div>
+    <div class="contactitem">
+      <font-awesome-icon id="phone" icon="phone"></font-awesome-icon>
+      <h3 class="contact-text">{{telephone}}</h3>
+    </div>
+    <div class="contactitem">
+      <font-awesome-icon id="at" icon="at"></font-awesome-icon>
+      <h3 class="contact-text">{{mail}}</h3>
+    </div>
   </div>
 </template>
 
@@ -20,10 +30,25 @@ export default {
 </script>
 
 <style scoped>
+  .contact{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:10px;
+    margin-top:100px;
+  }
   .contact-text {
-    border: 1px dotted #FBC13C;
     padding: 10px;
     margin: 10px 20px;
     text-align: center;
+  }
+  .contactitem{
+    border: 2px dotted #FBC13C;
+    margin:10px;
+  }
+  #phone,#addres,#at{
+    height:50px;
+    width: 50px;
+    color: #fb933c;
+    margin:5px;
   }
 </style>

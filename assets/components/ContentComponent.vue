@@ -3,7 +3,7 @@
          <div id="section-a">
             <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/image-from-rawpixel-id-383840-jpeg.jpg') + ')' }">
                 ></div>
-            <h1> Kompleksowa Fizjoterapia dzieci i dorosłych</h1>
+            <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
         </div>
         <trailer-component></trailer-component>
     </div>
@@ -23,14 +23,17 @@ export default {
 
 <style scoped>
 #content{
+
+    position: relative;
     margin:0;
     padding:0;
-    margin-top:30px;
+
 }
 #section-a {
-    min-height: 400px;
+    min-height: 600px;
     color: #fff;
     text-align: right;
+    grid-column: 1/-1;
 }
 #section-a h1{
     margin-top:0px;
@@ -43,8 +46,10 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin:0px;
+    padding:0px;
     width: 100%;
-    height: 424px;
+    height: 600px;
     opacity: 0.4;
 }
 </style>
