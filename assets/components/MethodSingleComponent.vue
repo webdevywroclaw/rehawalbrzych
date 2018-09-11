@@ -103,7 +103,7 @@
         width: 90%;
         margin: auto;
         margin-top: 10px;
-        margin-bottom: 8px;
+        /*margin-bottom: 8px;*/
         font-size: 20px;
     }
 
