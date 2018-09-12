@@ -68,6 +68,11 @@
         color: #fb933c;
         margin:5px;
     }
+    #at{
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
     .box{
         border: 1px dotted #fb933c;
         margin: 10px;

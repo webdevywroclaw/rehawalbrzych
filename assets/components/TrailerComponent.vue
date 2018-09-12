@@ -143,7 +143,7 @@ ul{
 }
 
 
-@media (min-width: 700px){
+@media (min-width: 800px){
     ul li {
         width: 25%;
         height: auto;
@@ -153,7 +153,9 @@ ul{
         justify-content: space-around;
 
     }
+    
 }
+
 
 #trailer1{
     grid-column:1/2;
@@ -201,5 +203,8 @@ ul{
 #turnusphoto{
     padding:10px;
 }
+    h4{
+        font-size:16px;
+    }
 </style>
 

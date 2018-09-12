@@ -1,8 +1,8 @@
 <template>
     <div id="content">
          <div id="section-a">
-            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/image-from-rawpixel-id-383840-jpeg.jpg') + ')' }">
-                ></div>
+            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/image-from-rawpixel-id-383840-jpeg-min.jpg') + ')' }">
+            </div>
             <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
         </div>
         <trailer-component></trailer-component>
