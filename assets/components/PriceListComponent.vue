@@ -21,7 +21,11 @@
         <span id="price">Cena(zł)</span>
     </div>
     <div class="price-list" v-for="methodApi in methodsApi" :key="methodApi" v-bind:methodApi="methodApi">
-        <span class="singlename">{{methodApi.metName}}</span>
+        <span class="singlename">
+            <router-link class="methodlink" :to="'/metoda/'+methodApi.metId">{{methodApi.metName}}
+            <font-awesome-icon id="external-link-alt" icon="external-link-alt"></font-awesome-icon>
+            </router-link>
+        </span>
         <span class="singleprice">{{methodApi.metPrice}}</span>
     </div>
 </div>
@@ -111,6 +115,11 @@
     .singleprice{
         background-color: #FFFAAB;
         padding:10px;
+    }
+
+    .methodlink:active, .methodlink:link, .methodlink:visited, .methodlink:hover {
+        color: black;
+        text-decoration: none;
     }
 </style>
 

@@ -97,6 +97,8 @@
         width: 90%;
         margin: auto;
         margin-top: 10px;
+        padding-left: 15px;
+        list-style: none;
     }
     span>h4 {
         text-align: left;
@@ -128,6 +130,11 @@
     .therapists {
         border: 2px black;
 
+    }
+
+    .therapists>ul {
+        list-style: none;
+        padding-left: 0;
     }
 
     .therapists > ul > li > a:active, .therapists > ul > li > a:visited, .therapists > ul > li > a:link {

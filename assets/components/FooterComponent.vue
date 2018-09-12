@@ -32,9 +32,13 @@ export default {
 <style scoped>
   .contact{
     display:grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap:10px;
-    margin-top:100px;
+    /*margin-top:100px;*/
+  }
+  .contactitem>h3 {
+    margin: auto;
+    font-size: 1.5rem;
   }
   .contact-text {
     padding: 10px;
@@ -44,6 +48,9 @@ export default {
   .contactitem{
     border: 2px dotted #FBC13C;
     margin:10px;
+    display: flex;
+    align-items: center;
+    word-break: break-word;
   }
   #phone,#addres,#at{
     height:50px;

@@ -29,8 +29,9 @@
             <div class="form-group row">
                 <div class="col-sm-12">
                     <select class="custom-select" required v-model="jsondata.galId">
-                        <option value="">Wybierz galerię</option>
+                        <option value="">{{method[0].galleryGal.galName}}</option>
                         <option v-for="gallery in galleries" :value="gallery.galId">{{gallery.galName}}</option>
+                        <option value="null">Brak galerii</option>
                     </select>
                 </div>
             </div>
@@ -58,7 +59,11 @@
                 saved: false,
                 loaded: false,
                 method: {
-                    "0":{},
+                    "0":{
+                        "galleryGal": {
+                            "galName": ''
+                        }
+                    },
                     "photos":[]
                 },
                 categories: [],

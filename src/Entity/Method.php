@@ -190,6 +190,11 @@ class Method
         $this->galleryGal = $galleryGal;
     }
 
+    public function setGalleryNull(): void
+    {
+        $this->galleryGal = null;
+    }
+
     /**
      * @var Category
      *
@@ -205,7 +210,7 @@ class Method
      *
      * @ORM\ManyToOne(targetEntity="Gallery")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="gallery_gal_id", referencedColumnName="gal_id")
+     *   @ORM\JoinColumn(name="gallery_gal_id", referencedColumnName="gal_id", nullable=true)
      * })
      */
     private $galleryGal;
