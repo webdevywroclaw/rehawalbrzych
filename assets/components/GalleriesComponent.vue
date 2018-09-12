@@ -57,7 +57,7 @@
     }
 </script>
 
-<style>
+<style scoped>
   .preview-img-list {
     display: flex;
     flex-wrap: wrap;

@@ -86,7 +86,7 @@
 }
 #menu{
   margin-left: 30px;
-  height: 70px;
+  min-height: 70px;
   
 }
 #menu a {
@@ -115,7 +115,7 @@ label{
   display: none;
 }
 
-@media only screen and (max-width:700px){
+@media only screen and (max-width:800px){
   label{
     display: block;
     cursor: pointer;
@@ -124,7 +124,10 @@ label{
     text-align: center;
     width: 100%;
     display: none;
-    
+    position: fixed;
+    top: 102px;
+    z-index: 5;
+    background-color: #fff;
   }
   #menu a{
     display: block;
