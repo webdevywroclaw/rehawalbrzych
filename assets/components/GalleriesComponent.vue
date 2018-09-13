@@ -3,8 +3,8 @@
     <div v-if="gallery.galId!=1 && gallery.galId!=2" class="gallery" v-for="gallery in galleries" :key="gallery" v-bind:gallery="gallery">
       <h2 v-if="gallery.galId!=1 && gallery.galId!=2"  class="gal-header">
         <span >{{gallery.galName}}</span>
-        <a v-if="gallery.metId!=null" :href="'metoda/'+gallery.metId.metId">Więcej...</a>
-        <a v-if="gallery.artId!=null" :href="'artykul/'+gallery.artId.artId">Więcej...</a>
+        <router-link v-if="gallery.metId!=null" :to="'metoda/'+gallery.metId.metId">Więcej...</router-link>
+        <router-link v-if="gallery.artId!=null" :to="'artykul/'+gallery.artId.artId">Więcej...</router-link>
       </h2>
       <gallery-component v-if="gallery.galId!=1 && gallery.galId!=2" :id="gallery.galId"></gallery-component>
     </div>

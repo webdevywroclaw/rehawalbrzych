@@ -156,11 +156,15 @@ class MethodsController extends AbstractController
             $category = $this->getDoctrine()->getRepository(Category::class)->find($catId);
             $method->setCategoryCat($category);
         }
-        if($galId!=null){
+        if($galId=="null"){
+            $method->setGalleryNull();
+        }
+        if($galId!=null && $galId!="null"){
             $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
             $method->setGalleryGal($gallery);
             $gallery->setMetId($method);
         }
+
         $method->setMetName($title);
         $method->setMetBody($body);
         $method->setMetPrice($price);

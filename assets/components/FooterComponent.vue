@@ -30,23 +30,48 @@ export default {
 </script>
 
 <style scoped>
-
+  .contact{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap:10px;
+    /*margin-top:100px;*/
+  }
+  .contactitem>h3 {
+    margin: auto;
+    font-size: 1.5rem;
+  }
   .contact-text {
     margin: 10px 20px;
     text-align: center;
+    padding: 10px;
   }
   .contactitem{
     border: 2px dotted #FBC13C;
-    margin:5px;
+    margin:10px;
+    display: flex;
+    align-items: center;
+    word-break: break-word;
   }
   #phone,#addres,#at{
-    height:40px;
-    width: 40px;
+    height:50px;
+    width: 50px;
     color: #fb933c;
     margin:5px;
   }
-  h3{
-    font-size: 20px;
+  /*h3{*/
+    /*font-size: 20px;*/
+  /*}*/
+
+  @media (max-width: 350px) {
+    .contactitem>h3{
+      font-size: 1.3rem;
+    }
+    .contact{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap:10px;
+      /*margin-top:50px;*/
+    }
   }
 
   @media (min-width: 500px) {
@@ -54,28 +79,20 @@ export default {
       display: grid;
       grid-template-columns: repeat(2, minmax(250px, 1fr));
       grid-gap: 10px;
-      margin-top: 50px;
+      /*margin-top: 50px;*/
     }
 
     #ctc {
       grid-column: 1/3;
     }
 
-    h3 {
-      font-size: 16px;
-    }
-
-    #phone, #addres, #at {
-      height: 30px;
-      width: 30px;
-    }
   }
     @media (min-width: 1000px){
       .contact{
         display:grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         grid-gap:10px;
-        margin-top:50px;
+        /*margin-top:50px;*/
       }
       #ctc{
         grid-column: 3/4;

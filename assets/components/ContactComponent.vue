@@ -13,13 +13,12 @@
                 <font-awesome-icon id="at" icon="at"></font-awesome-icon>
                 <h3>{{mail}}</h3>
             </div>
-        </div>
-        <google-map></google-map>
-        <div class="parent1">
-            <div class="parent2">
+
+            <div class="box">
+                <font-awesome-icon id="fb" :icon="['fab', 'facebook-f']"></font-awesome-icon>
                 <div class="fb-page"
                      data-href="https://www.facebook.com/REHAWa%C5%82brzych-Centrum-Rehabilitacji-i-Integracji-Sensorycznej-232658286876630/"
-                     data-tabs="timeline" data-height="350"  data-small-header="false" data-adapt-container-width="true"
+                     data-width="250" data-height="70" data-small-header="true" data-adapt-container-width="true"
                      data-hide-cover="false" data-show-facepile="true">
                     <blockquote
                             cite="https://www.facebook.com/REHAWa%C5%82brzych-Centrum-Rehabilitacji-i-Integracji-Sensorycznej-232658286876630/"
@@ -29,6 +28,8 @@
                 </div>
             </div>
         </div>
+        <google-map></google-map>
+
     </div>
 </template>
 
@@ -45,36 +46,95 @@
         },
         components: {
             GoogleMap
+        },
+        methods: {
+            reloadFacebook() {
+
+                FB.XFBML.parse();
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) {
+                        return;
+                    }
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, "script", "facebook-jssdk"));
+            }
+        },
+        created: function () {
+
+            FB.init({
+                appId: 'your-app-id',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.1'
+            });
+            FB.XFBML.parse();
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         }
     }
 </script>
 
 <style scoped>
-    .cont{
-        display:grid;
-        grid-template-columns: repeat(3,1fr);
+    .cont {
+        display: grid;
+        /*grid-gap: 10px;*/
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     }
-    .parent1{
-        width:100%;
+
+    .box {
+        display: flex;
+        align-items: center;
+        /*justify-content: center;   */
+    }
+
+    .parent1 {
+        width: 100%;
         display: grid;
         grid-template-columns: 1fr;
     }
-    parent2{
-        width: 320px;
-    }
-    #phone,#addres,#at{
-        height:70px;
+
+    #phone, #addres, #at, #fb {
+        height: 70px;
         width: 70px;
         color: #fb933c;
-        margin:5px;
+        margin: 5px 0 5px 30px;
     }
-    #at{
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-        hyphens: auto;
-    }
-    .box{
+
+    .box {
         border: 1px dotted #fb933c;
         margin: 10px;
+    }
+
+    h3 {
+        margin: auto;
+    }
+
+    .fb-page {
+        margin: auto;
+    }
+
+    @media(max-width: 700px){
+        .cont {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        h3 {
+            font-size: 20px;
+        }
+        .box {
+            flex-direction: column;
+        }
     }
 </style>

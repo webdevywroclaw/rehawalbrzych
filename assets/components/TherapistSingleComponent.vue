@@ -43,9 +43,14 @@
 
   <div v-if="therapeutist.methods.length != 0" class="thermet">
     <ul>
-      <li v-for="method in therapeutist.methods">
-        <h4>{{method.metId.metName}}</h4>
-      </li>
+
+        <router-link v-for="method in therapeutist.methods" :key="method" class="methodlink" :to="'/metoda/'+method.metId.metId">
+          <li>
+          <h4>{{method.metId.metName}}
+          <font-awesome-icon id="external-link-alt" icon="external-link-alt"></font-awesome-icon></h4>
+          </li>
+        </router-link>
+
     </ul>
   </div>
 
@@ -162,4 +167,10 @@
   li{
     margin: 20px;
   }
+
+  .methodlink:active, .methodlink:link, .methodlink:visited, .methodlink:hover {
+    color: black;
+    text-decoration: none;
+  }
+
 </style>
