@@ -126,19 +126,26 @@ ul{
   height: minmax(300px, auto);
 
 }
-
+p{
+    margin-bottom: 0px;
+}
 #number1 {
+    padding-top: 10px;
   background: #fbfc9a;
     grid-column: 1/2;
 }
 #number2 {
+    padding-top: 10px;
   background: #fde36b;
     grid-column: 2/3;
 }
 #number3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
   background: #fbc13c;
 }
 #number4 {
+    padding-top: 10px;
   background: #fb933c;
 }
 
@@ -174,7 +181,8 @@ ul{
     max-height:165px;
 }
 .box-title {
-    margin: 10px;
+    margin: 0;
+    margin-bottom: 10px;
     padding: 0;
     grid-column: 1/-1;
 }
@@ -205,6 +213,7 @@ ul{
 }
     h4{
         font-size:16px;
+        margin: 5px 0px;
     }
 </style>
 
