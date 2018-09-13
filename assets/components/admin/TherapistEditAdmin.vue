@@ -37,6 +37,13 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="short" class="col-sm-2 col-form-label">Krótki opis: </label>
+                <div class="col-sm-10">
+                    <input type="text" id="short" class="form-control" placeholder="Krótki opis" v-model="jsondata.short">
+                </div>
+            </div>
+
             <h2>Edukacja</h2>
 
             <div class="form-group row">
@@ -77,6 +84,43 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="confs" class="col-sm-2 col-form-label">Konferencje: </label>
+                <div class="col-sm-8">
+                    <input type="text" id="confs" class="form-control" v-model="act_conf">
+                </div>
+                <button type="button" class="col-sm-2 btn btn-success" @click="addConf(act_conf)">Dodaj</button>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <table class="table table-hover">
+                        <tr><th>Dodane konferencje</th></tr>
+                        <tr v-for="(conf, index) in jsondata.conferences">
+                            <th>{{conf}}  <span class="deletebutton" @click="deleteConf(index)">x</span></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="publications" class="col-sm-2 col-form-label">Publikacje: </label>
+                <div class="col-sm-8">
+                    <input type="text" id="publications" class="form-control" v-model="act_pub">
+                </div>
+                <button type="button" class="col-sm-2 btn btn-success" @click="addPub(act_pub)">Dodaj</button>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <table class="table table-hover">
+                        <tr><th>Dodane publikacje</th></tr>
+                        <tr v-for="(pub, index) in jsondata.publications">
+                            <th>{{pub}}  <span class="deletebutton" @click="deletePub(index)">x</span></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
             <div class="form-group row">
                 <label for="methods" class="col-sm-2 col-form-label">Metody: </label>
@@ -117,6 +161,8 @@
                 act_school: '',
                 act_course: '',
                 act_method: '',
+                act_pub: '',
+                act_conf: '',
                 methods: [],
                 therapeutist: {
                     "0": {
@@ -124,6 +170,10 @@
                     "schools": [
                     ],
                     "courses": [
+                    ],
+                    "conferences": [
+                    ],
+                    "publications": [
                     ],
                     "methods": [
                     ]
@@ -133,8 +183,11 @@
                     surname: '',
                     id: '',
                     desc: '',
+                    short: '',
                     schools: [],
                     courses: [],
+                    publications: [],
+                    conferences: [],
                     methods: []
                 },
                 selectedFile: null
@@ -188,6 +241,12 @@
             addSchool(school) {
                 this.jsondata.schools.push(school);
             },
+            addPub(method) {
+                this.jsondata.publications.push(method);
+            },
+            addConf(school) {
+                this.jsondata.conferences.push(school);
+            },
             addCourse(course) {
                 this.jsondata.courses.push(course);
             },
@@ -196,6 +255,12 @@
             },
             deleteCourse(index) {
                 this.jsondata.courses.splice(index,1);
+            },
+            deleteConf(index) {
+                this.jsondata.conferences.splice(index,1);
+            },
+            deletePub(index) {
+                this.jsondata.publications.splice(index,1);
             },
             deleteMethod(index) {
                 this.jsondata.methods.splice(index,1);
@@ -206,6 +271,7 @@
                     this.jsondata.name = this.therapeutist[0].therapName
                     this.jsondata.surname = this.therapeutist[0].therapSurname
                     this.jsondata.desc = this.therapeutist[0].therapDesc
+                    this.jsondata.short = this.therapeutist[0].therapShort
                     this.jsondata.methods = []
                     for(var i =0; i< this.therapeutist['methods'].length; i++)
                     {
@@ -221,6 +287,16 @@
                     for(var i =0; i< this.therapeutist['courses'].length; i++)
                     {
                         this.jsondata.courses.push(this.therapeutist['courses'][i]['eduItemName'])
+                    }
+                    this.jsondata.conferences = []
+                    for(var i =0; i< this.therapeutist['conferences'].length; i++)
+                    {
+                        this.jsondata.conferences.push(this.therapeutist['conferences'][i]['eduItemName'])
+                    }
+                    this.jsondata.publications = []
+                    for(var i =0; i< this.therapeutist['publications'].length; i++)
+                    {
+                        this.jsondata.publications.push(this.therapeutist['publications'][i]['eduItemName'])
                     }
                 }
             },

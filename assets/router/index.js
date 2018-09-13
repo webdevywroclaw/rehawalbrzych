@@ -1,33 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Example from '../components/Example'
+
 import CategoriesAdmin from '../components/admin/CategoriesAdmin'
 import GalleriesAdmin from '../components/admin/GalleriesAdmin'
 import GalleryEditAdmin from '../components/admin/GalleryEditAdmin'
 import ArticlesAdmin from '../components/admin/ArticlesAdmin'
+import ArticleEditAdmin from '../components/admin/ArticleEditAdmin'
 import MethodsAdmin from '../components/admin/MethodsAdmin'
 import MethodEditAdmin from '../components/admin/MethodEditAdmin'
 import TherapeutistsAdmin from '../components/admin/TherapeutistsAdmin'
 import TherapistEditAdmin from '../components/admin/TherapistEditAdmin'
-import PageHeader from '../components/PageHeader'
 import AdminHeader from '../components/admin/AdminHeader'
 import AdminMain from '../components/admin/AdminMain'
 
 import ContentComponent from '../components/ContentComponent'
-import AboutUsComponent from '../components/AboutUsComponent'
 import CampComponent from '../components/CampComponent'
 import ContactComponent from '../components/ContactComponent'
-import GalleryComponent from '../components/GalleryComponent'
-import MethodsComponent from '../components/MethodsComponent'
+import GalleriesComponent from '../components/GalleriesComponent'
 import OfferContentComponent from '../components/OfferContentComponent'
 import MenuComponent from '../components/MenuComponent'
 import TherapistSingleComponent from '../components/TherapistSingleComponent'
 import FooterComponent from '../components/FooterComponent'
 import ArticleComponent from '../components/ArticleComponent'
+import ArticleSingleComponent from '../components/ArticleSingleComponent'
 import MethodSingleComponent from '../components/MethodSingleComponent'
 import TherapistSiteComponent from '../components/TherapistSiteComponent'
-
 import PriceListComponent from '../components/PriceListComponent'
+import MethodsInCatComponent from '../components/MethodsInCatComponent'
 
 Vue.use(Router)
 
@@ -39,15 +38,6 @@ export default new Router({
             name: 'ContentComponent',
             components: {
                 default: ContentComponent,
-                menu: MenuComponent,
-                footer: FooterComponent
-            }
-        },
-        {
-            path: '/onas',
-            name: 'AboutUsComponent',
-            components: {
-                default: AboutUsComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
@@ -67,23 +57,23 @@ export default new Router({
             components: {
                 default: ContactComponent,
                 menu: MenuComponent,
-                footer: FooterComponent
+
             }
         },
         {
             path: '/galeria',
-            name: 'GalleryComponent',
+            name: 'GalleriesComponent',
             components: {
-                default: GalleryComponent,
+                default: GalleriesComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
         },
         {
-            path: '/metody/:idcat',
-            name: 'MethodsComponent',
+            path: '/metody/:id',
+            name: 'MethodsInCatComponent',
             components: {
-                default: MethodsComponent,
+                default: MethodsInCatComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
@@ -128,7 +118,7 @@ export default new Router({
             path: '/cennik',
             name: 'PriceListComponent',
             components: {
-                default: MethodsComponent,
+                default: PriceListComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
@@ -138,6 +128,24 @@ export default new Router({
             name: 'MethodSingleComponent',
             components: {
                 default: MethodSingleComponent,
+                menu: MenuComponent,
+                footer: FooterComponent
+            }
+        },
+        {
+            path: '/artykuly',
+            name: 'ArticleComponent',
+            components: {
+                default: ArticleComponent,
+                menu: MenuComponent,
+                footer: FooterComponent
+            }
+        },
+        {
+            path: '/artykul/:id',
+            name: 'ArticleSingleComponent',
+            components: {
+                default: ArticleSingleComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
             }
@@ -178,6 +186,13 @@ export default new Router({
             name: 'ArticlesAdmin',
             components: {
                 default: ArticlesAdmin,
+                menu: AdminHeader
+            }
+        },
+        {
+            path: '/admin/article/:id',
+            components: {
+                default: ArticleEditAdmin,
                 menu: AdminHeader
             }
         },

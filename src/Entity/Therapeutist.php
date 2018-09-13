@@ -43,6 +43,13 @@ class Therapeutist
     private $therapDesc;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="therap_short", type="string", length=255, nullable=true)
+     */
+    private $therapShort;
+
+    /**
      * @var Education
      *
      * @ORM\ManyToOne(targetEntity="Education", cascade={"persist", "remove"})
@@ -125,6 +132,23 @@ class Therapeutist
     {
         $this->therapDesc = $therapDesc;
     }
+
+    /**
+     * @return string
+     */
+    public function getTherapShort(): string
+    {
+        return $this->therapShort;
+    }
+
+    /**
+     * @param string $therapShort
+     */
+    public function setTherapShort(string $therapShort): void
+    {
+        $this->therapShort = $therapShort;
+    }
+
 
     /**
      * @return Education

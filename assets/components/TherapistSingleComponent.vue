@@ -1,63 +1,64 @@
 <template>
-  <div v-if="$route.params.id === therapeutist[0].therapId">
-    <img v-bind:src="therapeutist[0].photoPhoto.photoSrc">
+
+<div class="therapeutist">
+
+  <div class="therapinfo" >
+    <img class="teraphoto" v-bind:src="therapeutist[0].photoPhoto.photoSrc">
     <h1>{{therapeutist[0].therapName}}</h1>
     <h1>{{therapeutist[0].therapSurname}}</h1>
-    <h3>{{therapeutist[0].therapDesc}}</h3>
+  </div>
 
-    <h1>Wykształcenie:</h1>
+  <div class="therapdesc">
+    <p>{{therapeutist[0].therapDesc}}</p>
+  </div>
+
+  <div v-if="therapeutist.schools.length != 0" id="icon1">
+    <font-awesome-icon icon="graduation-cap" id="graduate" />
+  </div>
+
+  <div v-if="therapeutist.schools.length != 0" class="study">
     <ul>
       <li v-for="school in therapeutist.schools">
-        <h3>{{school.eduItemName}}</h3>
+        <h4>{{school.eduItemName}}</h4>
       </li>
     </ul>
+  </div>
 
-    <h1>Kursy:</h1>
+
+  <div  v-if="therapeutist.courses.length != 0" id="icon2">
+    <font-awesome-icon icon="clipboard-check" id="clipboard"/>
+  </div>
+
+  <div v-if="therapeutist.courses.length != 0" class="courses">
     <ul>
       <li v-for="course in therapeutist.courses">
-        <h3>{{course.eduItemName}}</h3>
+        <h4>{{course.eduItemName}}</h4>
       </li>
     </ul>
+  </div>
 
-    <h1>Metody:</h1>
+  <div v-if="therapeutist.methods.length != 0" id="icon3">
+    <font-awesome-icon icon="list-alt" id="listalt"/>
+  </div>
+
+  <div v-if="therapeutist.methods.length != 0" class="thermet">
     <ul>
-      <li v-for="method in therapeutist.methods">
-        <h3>{{method.metId.metName}}</h3>
-      </li>
+
+        <router-link v-for="method in therapeutist.methods" :key="method" class="methodlink" :to="'/metoda/'+method.metId.metId">
+          <li>
+          <h4>{{method.metId.metName}}
+          <font-awesome-icon id="external-link-alt" icon="external-link-alt"></font-awesome-icon></h4>
+          </li>
+        </router-link>
+
     </ul>
+  </div>
 
 </div>
-
-<!--
-  </div>
-  <div v-else-if="$route.params.id === therapists[1].name">
-    <img v-bind:src="therapists[1].photo">
-    <h1>{{therapists[1].name}}</h1>
-    <h1>{{therapists[1].surname}}</h1>
-    <h3>{{therapists[1].longDescription}}</h3>
-    <h1>{{therapists[1].education}}</h1>
-    <h1>{{therapists[1].methods}}</h1>
-  </div>
-  <div v-else-if="$route.params.id === therapists[2].name">
-    <img v-bind:src="therapists[2].photo">
-    <h1>{{therapists[2].name}}</h1>
-    <h1>{{therapists[2].surname}}</h1>
-    <h3>{{therapists[2].longDescription}}</h3>
-    <h1>{{therapists[2].education}}</h1>
-    <h1>{{therapists[2].methods}}</h1>
-  </div>
-  <div v-else-if="$route.params.id === therapists[3].name">
-    <img v-bind:src="therapists[3].photo">
-    <h1>{{therapists[3].name}}</h1>
-    <h1>{{therapists[3].surname}}</h1>
-    <h3>{{therapists[3].longDescription}}</h3>
-    <h1>{{therapists[3].education}}</h1>
-    <h1>{{therapists[3].methods}}</h1>
-  </div>
-  -->
 </template>
 
 <script>
+
   export default {
       data() {
           return {
@@ -84,16 +85,6 @@
                       this.therapeutist = result
                       this.loaded = true
                   })
-
-
-              // setTimeout(this.updateJsonData, 1500)
-
-              // this.jsondata.name = this.therapeutist[0].therapName
-              // this.jsondata.surname = this.therapeutist[0].therapSurname
-              // this.jsondata.desc = this.therapeutist[0].therapDesc
-              // this.jsondata.methods = this.therapeutist['methods']
-              // this.jsondata.schools = this.therapeutist['schools']
-              // this.jsondata.courses = this.therapeutist['courses']
           }
       },
       created: function () {
@@ -102,6 +93,84 @@
   }
 </script>
 
-<style>
+<style scoped>
+  .therapinfo{
+
+  }
+  .therapeutist{
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 200px;
+  }
+  .teraphoto{
+    height: 170px;
+    width: 170px;
+    border-radius: 100%;
+    margin:10px;
+  }
+  #graduate,#clipboard,#listalt{
+    height:100px;
+    width: 100px;
+    color: black;
+  }
+
+  .therapinfo{
+    background-color: #E1702E;
+    background-color: #FFED3D;
+    background-color: #F59B67;
+    background-color: #fb933c;
+  }
+  .therapdesc{
+    background-color: #FFED3D;
+    background-color: #FFF6CD;
+
+    grid-column: 2/6;
+  }
+
+  #icon1{
+    background-color: #fbc13c;
+
+  }
+  .study{
+    background-color: #FFEEA6;
+
+    grid-column: 2/6;
+  }
+  #icon2{
+    background-color: #fde36b;
+
+  }
+  .courses{
+    background-color: #FFFAAB;
+
+    grid-column: 2/6;
+  }
+  #icon3{
+    background-color: #fbfc9a;
+
+  }
+  .thermet{
+    background-color: #FEFFBC;
+
+    grid-column: 2/6;
+  }
+  p{
+    margin:10px;
+    text-align: justify;
+    font-size: 18px;
+  }
+
+  h4{
+    margin: 10px;
+    font-size: 18px;
+    text-align: justify;
+  }
+  li{
+    margin: 20px;
+  }
+
+  .methodlink:active, .methodlink:link, .methodlink:visited, .methodlink:hover {
+    color: black;
+    text-decoration: none;
+  }
 
 </style>

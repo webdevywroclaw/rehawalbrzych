@@ -35,6 +35,15 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <select class="custom-select" required v-model="jsondata.authId">
+                        <option value="">Wybierz autora</option>
+                        <option v-for="therapist in therapists" :value="therapist.therapId">{{therapist.therapName}} {{therapist.therapSurname}}</option>
+                    </select>
+                </div>
+            </div>
+
             <button type="button" class="btn btn-success" @click="addArticle">Dodaj artykuł</button>
         </form>
 
@@ -43,23 +52,32 @@
         <table class="table table-hover">
             <tr>
                 <th>Id</th>
+                <th>Autor</th>
                 <th>Kategoria</th>
                 <th>Tytuł</th>
                 <th>Treść</th>
-                <th>Nazwa galerii</th>
+                <th>Galeria</th>
                 <th>Edycja</th>
+                <th>Usuń</th>
             </tr>
+            <tbody>
             <tr v-for="article in articles">
                 <td>{{article.artId}}</td>
-                <td>{{article.categoryCat.catName}}</td>
+                <td><span v-if="article.artAuthor != null">{{article.artAuthor.therapName}} {{article.artAuthor.therapSurname}}</span></td>
+                <td><span v-if="article.categoryCat != null">{{article.categoryCat.catName}}</span></td>
                 <td>{{article.artTitle}}</td>
-                <td class="artbody">{{article.artBody}}</td>
-                <td>{{article.galleryGal.galName}}</td>
+                <td v-html="article.artBody" class="artbody"></td>
+                <td><span v-if="article.galleryGal != null">{{article.galleryGal.galName}}</span></td>
                 <!--<td><router-link v-bind:to="'/categories/'+article.catId+'/edit'" class="btn btn-success">Edytuj</router-link></td>-->
+                <td>
+                    <router-link class="btn btn-success" :to="'/admin/article/'+article.artId">Edytuj</router-link>
+                </td>
                 <td>
                     <button v-on:click="deleteArticle(article.artId)" class="btn btn-success">Usuń</button>
                 </td>
             </tr>
+            </tbody>
+
         </table>
     </div>
     </transition>
@@ -74,11 +92,13 @@
                 articles: [],
                 galleries: [],
                 categories: [],
+                therapists: [],
                 jsondata: {
                     title: '',
                     body: '',
                     galId: '',
-                    catId: ''
+                    catId: '',
+                    authId: ''
                 }
             }
         },
@@ -122,6 +142,18 @@
                     .then(response => response.json())
                     .then(result => this.categories = result)
             },
+            fetchTherapists() {
+                this.$http.get('/api/therapeutists',
+                    {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Accept': 'application/json'
+                        }
+                    }
+                )
+                    .then(response => response.json())
+                    .then(result => this.therapists = result)
+            },
             addArticle(){
                 this.$http.post(
                     '/api/articles',
@@ -142,26 +174,29 @@
                     });
             },
             deleteArticle(id) {
-                this.$http.delete(
-                    '/api/articles/' + id,
-                    {name: this.jsondata.name},
-                    {
-                        headers: {}
-                    })
-                    .then(function (response) {
-                        console.log('Success!:', response.data);
-                        this.loading = false;
-                        this.fetchArticles();
-                    }, function (response) {
-                        console.log('Error!:', response.data);
-                        this.loading = false;
-                    });
+                if(confirm("Czy na pewno chcesz usunąć artykuł?")){
+                    this.$http.delete(
+                        '/api/articles/' + id,
+                        {name: this.jsondata.name},
+                        {
+                            headers: {}
+                        })
+                        .then(function (response) {
+                            console.log('Success!:', response.data);
+                            this.loading = false;
+                            this.fetchArticles();
+                        }, function (response) {
+                            console.log('Error!:', response.data);
+                            this.loading = false;
+                        });
+                }
             }
         },
         created: function () {
             this.fetchArticles();
             this.fetchGalleries();
             this.fetchCategories();
+            this.fetchTherapists();
         }
     }
 
@@ -216,9 +251,13 @@
     }
 
     .artbody {
+        display: block;
         min-width: 100px;
-        max-width: 200px;
+        max-width: 450px;
         word-wrap: break-word;
+        max-height: 150px;
+        overflow-y: overlay;
+        margin: auto;
     }
 
     .fade-enter-active {

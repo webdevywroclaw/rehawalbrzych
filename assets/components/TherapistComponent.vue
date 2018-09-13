@@ -1,12 +1,19 @@
 <template>
-  <div id="ter">
-  <img v-bind:src="therapeutistApi.photoPhoto.photoSrc">
-  <div class="description">
-   <h2 >{{therapeutistApi.therapName}} {{therapeutistApi.therapSurname}}</h2>
-   <h4>{{therapeutistApi.therapDesc}}</h4>
-   <router-link :to="{ name: 'TherapistSingleComponent',params:{id:therapeutistApi.therapId}}"><button>More</button></router-link>
+
+    <div id="ter">
+
+      <div class="obramowanie">
+          <router-link :to="'/terapeuta/'+therapeutistApi.therapId">
+            <img v-bind:src="therapeutistApi.photoPhoto.photoSrc" alt="Avatar">
+          </router-link>
+      </div>
+      <h2 >{{therapeutistApi.therapName}} {{therapeutistApi.therapSurname}}</h2>
+      <h4> {{therapeutistApi.therapShort}} </h4>
+       <router-link :to="'/terapeuta/'+therapeutistApi.therapId">
+        <button>Więcej</button>
+       </router-link>
   </div>
-  </div>
+
 </template>
 
 <script>
@@ -18,14 +25,14 @@ export default {
 
 <style scoped>
   #ter{
-  border: 1px solid #fde36b;
-  display: grid;
-  grid-template-columns: 200px 1fr;
+  /* border: 1px solid #fde36b; */
   margin: 10px;
   }
   img{
-    width: 200px;
-    height:250px;
+      height: 250px;
+      width: 250px;
+      border-radius: 100%;
+      margin:10px;
   }
   h2{
   overflow-wrap: break-word;
@@ -34,13 +41,19 @@ export default {
 
   }
    @media (max-width: 500px){
-     img{
-       width:100px;
-       height:125px;
-     }
+
      #ter{
-       grid-template-columns: 100px 1fr;
+       grid-template-columns: 1fr 1fr;
      }
    }
-
+    button{
+        background-color: #fde36b;
+        border: 2px solid #fb933c;
+        border-radius:6px;
+        text-align: center;
+        font-size: 24px;
+    }
+    h4{
+        color:#fb933c;
+    }
 </style>

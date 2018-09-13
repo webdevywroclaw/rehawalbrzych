@@ -1,38 +1,70 @@
 <template>
-  <div v-if="k === '1'">
-    <h1>{{items.art_title}}</h1>
-    <h1>dupa</h1>
-  </div>
-  <div v-else-if="k === '2'">
-    <h1>{{items.art_title}}</h1>
-  </div>
-  <div v-else-if="k === '4'">
-    C
-  </div>
-  <div v-else>
-    Not A/B/C
-  </div>
+    <div id="articles" >
+        <div class="article" v-for="article in articles">
+            <h2 >{{article.artTitle}}</h2>
+            <h4>{{article.artAuthor.therapName}} {{article.artAuthor.therapSurname}}</h4>
+            <router-link :to="'/artykul/'+article.artId"><button>Czytaj</button></router-link>
+        </div>
+    </div>
+
 </template>
 
 <script>
-import OfferComponent from './OfferComponent'
+
 export default {
   data () {
    return {
-        items: [
-          { art_id: '1', art_title:'Metoda1', art_body: 'aaaaaaaaaaaaaaaaaaaaaaa', category_id: '1'},
-          { art_id: '2', art_title:'Metoda2', art_body: 'bbbbbbbbbbbbbbbbbbbbbbb', category_id: '1'},
-          { art_id: '3', art_title:'Metoda3', art_body: 'cccccccccccccccccccccccc', category_id: '2'},
-          { art_id: '4', art_title:'Metoda4', art_body: 'dddddddddddddddddddddddd', category_id: '2' }
-        ]
-      }
+        articles:[],
+        }
       },
-    components: {
-      OfferComponent
+
+    methods: {
+        fetchArticles() {
+            this.$http.get('/api/articles',
+                {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept': 'application/json'
+                    }
+                }
+            )
+                .then(response => response.json())
+                .then(result => {
+                    this.articles = result
+                    this.loaded = true
+                })
+
+        }
+    },
+    created: function () {
+        this.fetchArticles();
     }
   };
 </script>
 
-<style>
+<style scoped>
+    #articles{
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+    }
+    .article{
+        border: 3px dotted #fbc13c;
+        margin: 10px;
+        padding:10px;
+    }
 
+    button{
+        margin: 5px;
+        background-color: #fde36b;
+        border: 2px solid #fbc13c;
+        border-radius:10%;
+        text-align: center;
+        font-size: 20px;
+    }
+    h2{
+        font-size: 24px;
+    }
+    h4{
+        font-size: 18px;
+    }
 </style>

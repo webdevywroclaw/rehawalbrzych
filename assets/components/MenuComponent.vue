@@ -31,6 +31,7 @@
       <router-link to="/terapeuci">O nas</router-link>
       <router-link to="/oferta">Metody</router-link>
       <router-link to="/cennik">Cennik</router-link>
+      <router-link to="/artykuly">Artykuły</router-link>
       <router-link to="/galeria">Galeria</router-link>
       <router-link to="/kontakt">Kontakt</router-link>
     </div>
@@ -81,10 +82,11 @@
 .nav{
   border-bottom: 1px dotted #FDE36B;
   text-align: left;
+  background-color: #fbc13c;
 }
 #menu{
   margin-left: 30px;
-  height: 70px;
+  min-height: 70px;
   
 }
 #menu a {
@@ -113,7 +115,7 @@ label{
   display: none;
 }
 
-@media only screen and (max-width:700px){
+@media only screen and (max-width:800px){
   label{
     display: block;
     cursor: pointer;
@@ -122,7 +124,10 @@ label{
     text-align: center;
     width: 100%;
     display: none;
-    
+    position: fixed;
+    top: 102px;
+    z-index: 5;
+    background-color: #fff;
   }
   #menu a{
     display: block;

@@ -1,14 +1,20 @@
 <template>
 <div class="header">
   <div id="contact-top">
-    <img src="../assets/placeholder-for-map.png" class="button-image nr1">
+    <!-- <img src="../assets/placeholder-for-map.png" class="button-image nr1">
     <span class="nr1">{{adres}}</span>
     <img src="../assets/phone-receiver.png" class="button-image nr2">
     <span class="nr2">{{telephone}}</span>
     <img src="../assets/black-envelope.png" class="button-image nr3">
+    <span class="nr3">{{mail}}</span> -->
+    <font-awesome-icon id="addres" icon="map-marker-alt"></font-awesome-icon>
+    <span class="nr1">{{adres}}</span>
+    <font-awesome-icon id="phone" icon="phone"></font-awesome-icon>
+    <span class="nr2">{{telephone}}</span>
+    <font-awesome-icon id="at" icon="at"></font-awesome-icon>
     <span class="nr3">{{mail}}</span>
-  </div>
   <router-view name="menu"></router-view>
+  </div>
 </div>
 </template>
 
@@ -40,27 +46,33 @@ export default {
     line-height: 30px;
     text-align: right;
     border-bottom: 1px dotted #FDE36B;
+    background-color: #fbc13c;
   }
 
   #contact-top span {
     margin-right: 5px;
   }
 
-  #contact-top img {
-    height: 15px;
-    width: 15px;
+  #addres,#phone,#at {
     margin-left: 20px;
     margin-right: 3px;
+
   }
 
   @media (max-width:550px){
     .nr1{
       display:none;
     }
+    #addres{
+      display: none;
+    }
   }
   @media (max-width:800px){
     .nr3{
       display:none;
+    }
+    #at{
+      display: none;
     }
   }
 </style>

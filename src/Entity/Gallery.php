@@ -12,6 +12,43 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Gallery
 {
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="gal_id", type="integer", nullable=true)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $galId;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="gal_name", type="string", length=45, nullable=true)
+     */
+    private $galName;
+
+    /**
+     * @var Article
+     *
+     * @ORM\ManyToOne(targetEntity="Article",  cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="art_id", referencedColumnName="art_id")
+     * })
+     */
+    private $artId;
+
+    /**
+     * @var Method
+     *
+     * @ORM\ManyToOne(targetEntity="Method",  cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="met_id", referencedColumnName="met_id")
+     * })
+     */
+    private $metId;
+
     /**
      * @return int
      */
@@ -43,21 +80,39 @@ class Gallery
     {
         $this->galName = $galName;
     }
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="gal_id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $galId;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="gal_name", type="string", length=45, nullable=true)
+     * @return Article
      */
-    private $galName;
+    public function getArtId(): Article
+    {
+        return $this->artId;
+    }
+
+    /**
+     * @param Article $artId
+     */
+    public function setArtId(Article $artId): void
+    {
+        $this->artId = $artId;
+    }
+
+    /**
+     * @return Method
+     */
+    public function getMetId(): Method
+    {
+        return $this->metId;
+    }
+
+    /**
+     * @param Method $metId
+     */
+    public function setMetId(Method $metId): void
+    {
+        $this->metId = $metId;
+    }
+
 
 
 }

@@ -40,6 +40,7 @@ class PhotosController extends AbstractController
      */
     public function addAction(Request $request)
     {
+        $title = $request->request->get('title');
         $galId = $request->request->get('id');
         $dir = __DIR__ . '/../../public/img/Galleries/'.$galId.'/';
         $name = uniqid() . '.jpeg';
@@ -72,7 +73,7 @@ class PhotosController extends AbstractController
         $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find($galId);
         $photo->setGalleryGal($gallery);
         $photo->setPhotoSrc($file);
-        $photo->setPhotoTitle($name);
+        $photo->setPhotoTitle($title);
 //        $entityManager = $this->getDoctrine()->getManager();
 //        $entityManager->merge($photo);
 //        $entityManager->flush();

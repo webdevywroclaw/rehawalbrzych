@@ -27,6 +27,16 @@
             </div>
 
             <div class="form-group row">
+                <div class="col-sm-12">
+                    <select class="custom-select" required v-model="jsondata.galId">
+                        <option value="">{{method[0].galleryGal.galName}}</option>
+                        <option v-for="gallery in galleries" :value="gallery.galId">{{gallery.galName}}</option>
+                        <option value="null">Brak galerii</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">Cena: </label>
                 <div class="col-sm-10">
                     <input type="text" id="price" class="form-control" placeholder="Cena metody" v-model="jsondata.price">
@@ -49,7 +59,11 @@
                 saved: false,
                 loaded: false,
                 method: {
-                    "0":{},
+                    "0":{
+                        "galleryGal": {
+                            "galName": ''
+                        }
+                    },
                     "photos":[]
                 },
                 categories: [],
@@ -94,7 +108,18 @@
                     .then(response => response.json())
                     .then(result => this.categories = result)
             },
-
+            fetchGalleries() {
+                this.$http.get('/api/galleries',
+                    {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Accept': 'application/json'
+                        }
+                    }
+                )
+                    .then(response => response.json())
+                    .then(result => this.galleries = result)
+            },
             updateJsonData() {
                 if(this.method!=null){
                     this.jsondata.id = this.$route.params.id
@@ -126,6 +151,7 @@
         created: function () {
             this.fetchMethod()
             this.fetchCategories()
+            this.fetchGalleries()
         }
     }
 

@@ -2,19 +2,31 @@
     <div class="gallery-edit-admin">
         <h1>Edycja galerii {{$route.params.id}}</h1>
 
+        <form>
+
         <span>Dodaj zdjęcie do galerii:</span>
         <div class="custom-file col-md-4 mb-4">
             <input class="custom-file-input" type="file" @change="onFileSelected">
             <label class="custom-file-label" >Wybierz zdjęcie...</label>
             <div class="invalid-feedback">Example invalid custom file feedback</div>
         </div>
+        <div class="form-group row">
+            <label for="desc" class="col-sm-2 col-form-label">Tytuł zdjęcia: </label>
+            <div class="col-sm-10">
+                <input type="text" id="desc" class="form-control" placeholder="Tytuł zdjęcia" v-model="jsondata.title">
+            </div>
+        </div>
+
+        </form>
 
         <button type="submit" class="btn btn-success" @click="onUpload">Dodaj zdjęcie</button>
+
+
 
         <table class="table table-hover">
             <tr>
                 <th>Id</th>
-                <th>Nazwa pliku</th>
+                <th>Tytuł zdjęcia</th>
                 <th>Zdjęcie</th>
                 <th>Usuń</th>
             </tr>
@@ -22,7 +34,7 @@
 
                 <td>{{gallery.photoId}}</td>
                 <td>{{gallery.photoTitle}}</td>
-                <td><img :src="gallery.photoSrc" /></td>
+                <td><img class="photo" :src="gallery.photoSrc" /></td>
                 <td><button v-on:click="deletePhoto(gallery.photoId)" class="btn btn-success">Usuń</button></td>
 
             </tr>
@@ -37,7 +49,7 @@
             return {
                 galleries: [],
                 jsondata: {
-                    name: ''
+                    title: ''
                 },
                 selectedFile: null
             }
@@ -61,6 +73,7 @@
             onUpload(){
                 const fd = new FormData()
                 fd.append('myFile', this.selectedFile, this.selectedFile.name)
+                fd.append('title', this.jsondata.title)
                 fd.append('id', this.$route.params.id)
                 this.$http.post(
                     '/api/photos',
@@ -86,20 +99,22 @@
                     });
             },
             deletePhoto(id) {
-                this.$http.delete(
-                    '/api/photo/' + id,
-                    {name: this.jsondata.name},
-                    {
-                        headers: {}
-                    })
-                    .then(function (response) {
-                        console.log('Success!:', response.data);
-                        this.loading = false;
-                        this.fetchPhotos();
-                    }, function (response) {
-                        console.log('Error!:', response.data);
-                        this.loading = false;
-                    });
+                if (confirm("Czy na pewno chcesz usunąć zdjęcie?")) {
+                    this.$http.delete(
+                        '/api/photo/' + id,
+                        {name: this.jsondata.name},
+                        {
+                            headers: {}
+                        })
+                        .then(function (response) {
+                            console.log('Success!:', response.data);
+                            this.loading = false;
+                            this.fetchPhotos();
+                        }, function (response) {
+                            console.log('Error!:', response.data);
+                            this.loading = false;
+                        });
+                }
             }
         },
         created: function () {
@@ -119,6 +134,11 @@
     /*grid-row-gap: 20px;*/
 
     /*}*/
+
+
+    img.photo {
+        max-height: 150px;
+    }
 
     #image {
         border: 2px solid black;
