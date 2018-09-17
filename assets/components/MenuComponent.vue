@@ -103,6 +103,7 @@
   }
 
 label{
+  margin: 0px;
   margin-left: 40px;
   font-size: 24px;
   line-height: 70px;
@@ -113,6 +114,7 @@ label{
 }
 #toggle{
   display: none;
+  margin:0px;
 }
 
 @media only screen and (max-width:800px){
