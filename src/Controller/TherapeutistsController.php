@@ -112,12 +112,13 @@ class TherapeutistsController extends AbstractController
     public function addAction(Request $request)
     {
         $dir = __DIR__ . '/../../public/img/Therapeutists/';
-        $name = uniqid() . '.jpeg';
+//        $name = uniqid() . '.jpeg';
 
         $params = json_decode($request->getContent(), true);
 
         foreach ($request->files as $uploadedFile) {
             try {
+                $name = $uploadedFile->getClientOriginalName();
                 $uploadedFile->move($dir, $name);
             } catch (\Exception $exception) {
                 $response = new Response($exception->getMessage());
@@ -244,12 +245,13 @@ class TherapeutistsController extends AbstractController
     public function updateAction(Request $request)
     {
         $dir = __DIR__ . '/../../public/img/Therapeutists/';
-        $name = uniqid() . '.jpeg';
+//        $name = uniqid() . '.jpeg';
 
         $params = json_decode($request->getContent(), true);
 
         foreach ($request->files as $uploadedFile) {
             try {
+                $name = $uploadedFile->getClientOriginalName();
                 $uploadedFile->move($dir, $name);
             } catch (\Exception $exception) {
                 $response = new Response($exception->getMessage());
