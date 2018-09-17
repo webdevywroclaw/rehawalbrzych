@@ -10,7 +10,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.*)$ index.php/$1 [QSA,L]
 SetEnv APP_ENV prod
-SetEnv DATABASE_URL 'mysql://kuna20_admin:sababis131@127.0.0.1:3306/kuna20_rehawalbrzych'
+SetEnv DATABASE_URL 'mysql://rehawalb_admin:reha1234@127.0.0.1:3306/rehawalb_rehawalbrzych'
 
 #<IfModule mod_rewrite.c>
 #  RewriteEngine On
