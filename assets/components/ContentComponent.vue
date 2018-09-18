@@ -30,15 +30,16 @@ export default {
 
 }
 #section-a {
-    min-height: 600px;
+    min-height: 500px;
     color: #fff;
     text-align: right;
     grid-column: 1/-1;
 }
 #section-a h1{
     margin-top:0px;
+    padding-top: 10px;
+    padding-right: 10px;
     color: #000;
-    padding-top: 15px;
 }
 #section-a .background-image {
     position: absolute;
@@ -49,7 +50,7 @@ export default {
     margin:0px;
     padding:0px;
     width: 100%;
-    height: 600px;
+    height: 500px;
     opacity: 0.4;
 }
 </style>

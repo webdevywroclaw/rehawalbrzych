@@ -45,7 +45,7 @@ export default {
 <style scoped>
     #articles{
         display:grid;
-        grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     }
     .article{
         border: 3px dotted #fbc13c;
@@ -66,5 +66,10 @@ export default {
     }
     h4{
         font-size: 18px;
+    }
+    @media (min-width: 500px){
+        #articles {
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        }
     }
 </style>

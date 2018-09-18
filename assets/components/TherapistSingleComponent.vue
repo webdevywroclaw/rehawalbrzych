@@ -97,10 +97,7 @@
   .therapinfo{
 
   }
-  .therapeutist{
-    display: grid;
-    grid-template-columns: 200px 1fr 1fr 1fr 200px;
-  }
+
   .teraphoto{
     height: 170px;
     width: 170px;
@@ -122,8 +119,7 @@
   .therapdesc{
     background-color: #FFED3D;
     background-color: #FFF6CD;
-
-    grid-column: 2/6;
+    padding: 0 10px;
   }
 
   #icon1{
@@ -132,26 +128,24 @@
   }
   .study{
     background-color: #FFEEA6;
-
-    grid-column: 2/6;
+    padding-right: 10px;
   }
   #icon2{
     background-color: #fde36b;
+    padding: 10px 0;
 
   }
   .courses{
     background-color: #FFFAAB;
-
-    grid-column: 2/6;
+    padding-right: 10px;
   }
   #icon3{
     background-color: #fbfc9a;
-
+    padding: 10px 0;
   }
   .thermet{
     background-color: #FEFFBC;
-
-    grid-column: 2/6;
+    padding-right: 10px;
   }
   p{
     margin:10px;
@@ -160,17 +154,50 @@
   }
 
   h4{
-    margin: 10px;
+    margin: 0px;
     font-size: 18px;
     text-align: justify;
   }
+  p{
+    margin: 0px;
+  }
   li{
-    margin: 20px;
+    margin: 0px;
+  }
+  ul{
+    margin: 0px;
+  }
+  h1{
+    font-size: 30px;
   }
 
   .methodlink:active, .methodlink:link, .methodlink:visited, .methodlink:hover {
     color: black;
     text-decoration: none;
+  }
+  @media (min-width: 500px){
+    .therapeutist{
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr 1fr 200px;
+    }
+    .therapdesc{
+      grid-column: 2/6;
+    }
+    .study{
+      grid-column: 2/6;
+    }
+    .courses{
+      grid-column: 2/6;
+    }
+    .thermet {
+      grid-column: 2/6;
+    }
+    li{
+      margin: 20px;
+    }
+    h4,p{
+      margin: 10px;
+    }
   }
 
 </style>
