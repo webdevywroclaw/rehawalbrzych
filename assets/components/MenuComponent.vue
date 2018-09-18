@@ -80,9 +80,10 @@
   }
   */
 .nav{
-  border-bottom: 1px dotted #FDE36B;
+  border-bottom: 1px dotted #E5E2C8;
   text-align: left;
-  background-color: #fbc13c;
+  background-color: #F6F2D5;
+  background-color: #ffeac1;
 }
 #menu{
   margin-left: 30px;

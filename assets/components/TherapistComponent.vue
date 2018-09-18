@@ -47,13 +47,11 @@ export default {
      }
    }
     button{
-        background-color: #fde36b;
-        border: 2px solid #fb933c;
+        background-color: #ffffff;
+        border: 2px solid #FECB6E;
         border-radius:6px;
         text-align: center;
         font-size: 24px;
     }
-    h4{
-        color:#fb933c;
-    }
+
 </style>

@@ -111,19 +111,15 @@
   }
 
   .therapinfo{
-    background-color: #E1702E;
-    background-color: #FFED3D;
-    background-color: #F59B67;
-    background-color: #fb933c;
+    background-color: #FD996B;
   }
   .therapdesc{
-    background-color: #FFED3D;
-    background-color: #FFF6CD;
+    background-color: #ffede5;
     padding: 0 10px;
   }
 
   #icon1{
-    background-color: #fbc13c;
+    background-color: #FECB6E;
 
   }
   .study{
@@ -131,20 +127,20 @@
     padding-right: 10px;
   }
   #icon2{
-    background-color: #fde36b;
+    background-color: #FDDCBB;
     padding: 10px 0;
 
   }
   .courses{
-    background-color: #FFFAAB;
+    background-color: #ffefe0;
     padding-right: 10px;
   }
   #icon3{
-    background-color: #fbfc9a;
+    background-color: #FFF1CD;
     padding: 10px 0;
   }
   .thermet{
-    background-color: #FEFFBC;
+    background-color: #fff7e2;
     padding-right: 10px;
   }
   p{

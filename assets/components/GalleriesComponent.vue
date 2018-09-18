@@ -116,7 +116,7 @@
     margin-top: 15px;
     width: 100px;
     /*font-weight: 600;*/
-    border: 1px #FBC13C;
+    border: 1px #FECB6E;
     font-size: 14px;
     background-color: #FEFAD1;
   }
@@ -128,7 +128,7 @@
   }
 
   .gallery {
-    background-color: #FBC13C;
+    background-color: #FECB6E;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 20px 20px 0 20px;
     padding-top: 20px;

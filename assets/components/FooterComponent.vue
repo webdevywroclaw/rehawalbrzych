@@ -46,7 +46,7 @@ export default {
     padding: 10px;
   }
   .contactitem{
-    border: 2px dotted #FBC13C;
+    border: 2px dotted #FECB6E;
     margin:10px;
     display: flex;
     align-items: center;
@@ -55,7 +55,7 @@ export default {
   #phone,#addres,#at{
     height:50px;
     width: 50px;
-    color: #fb933c;
+    color: #FECB6E;
     margin:5px;
   }
   /*h3{*/

@@ -109,12 +109,12 @@
     #phone, #addres, #at, #fb {
         height: 70px;
         width: 70px;
-        color: #fb933c;
+        color: #FECB6E;
         margin: 5px 0 5px 30px;
     }
 
     .box {
-        border: 1px dotted #fb933c;
+        border: 1px dotted #FECB6E;
         margin: 10px;
     }
 
