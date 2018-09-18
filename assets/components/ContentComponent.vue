@@ -1,7 +1,7 @@
 <template>
     <div id="content">
          <div id="section-a">
-            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/image-from-rawpixel-id-383840-jpeg-min.jpg') + ')' }">
+            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/image-from-rawpixel-id.jpg') + ')' }">
             </div>
             <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
         </div>
@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 #content{
-
+    background-color: rgb(255, 251, 210);
     position: relative;
     margin:0;
     padding:0;

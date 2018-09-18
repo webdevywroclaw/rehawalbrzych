@@ -131,22 +131,22 @@ p{
 }
 #number1 {
     padding-top: 10px;
-  background: #fbfc9a;
+    background: #FFF1CD;
     grid-column: 1/2;
 }
 #number2 {
     padding-top: 10px;
-  background: #fde36b;
+    background: #FDDCBB;
     grid-column: 2/3;
 }
 #number3 {
     padding-top: 10px;
     padding-bottom: 10px;
-  background: #fbc13c;
+    background: #FECB6E;
 }
 #number4 {
     padding-top: 10px;
-  background: #fb933c;
+    background: #FD996B;
 }
 
 

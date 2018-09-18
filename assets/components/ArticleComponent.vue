@@ -48,15 +48,15 @@ export default {
         grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     }
     .article{
-        border: 3px dotted #fbc13c;
+        border: 3px dotted #FECB6E;
         margin: 10px;
         padding:10px;
     }
 
     button{
         margin: 5px;
-        background-color: #fde36b;
-        border: 2px solid #fbc13c;
+        background-color: #ffffff;
+        border: 2px solid #FECB6E;
         border-radius:10%;
         text-align: center;
         font-size: 20px;

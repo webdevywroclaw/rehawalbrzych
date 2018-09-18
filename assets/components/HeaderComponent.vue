@@ -45,8 +45,9 @@ export default {
     height: 30px;
     line-height: 30px;
     text-align: right;
-    border-bottom: 1px dotted #FDE36B;
-    background-color: #fbc13c;
+    border-bottom: 1px dotted #E5E2C8;
+    background-color: #F0EDD2;
+    background-color: #ffe2a8;
   }
 
   #contact-top span {
