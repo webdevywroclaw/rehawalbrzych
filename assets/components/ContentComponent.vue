@@ -1,7 +1,7 @@
 <template>
     <div id="content">
          <div id="section-a">
-            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/image-from-rawpixel-id.jpg') + ')' }">
+            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/Fotolia_51053_M.jpg') + ')' }">
             </div>
             <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
         </div>
@@ -53,4 +53,10 @@ export default {
     height: 500px;
     opacity: 0.4;
 }
+
+    @media (min-width: 900px) {
+        #section-a .background-image {
+            background-position-y: -250px;
+        }
+    }
 </style>

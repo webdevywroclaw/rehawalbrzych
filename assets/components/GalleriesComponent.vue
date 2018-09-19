@@ -118,24 +118,36 @@
     /*font-weight: 600;*/
     border: 1px #FECB6E;
     font-size: 14px;
-    background-color: #FEFAD1;
+    /*background-color: #FEFAD1;*/
+    background-color: #FFEAC1;
   }
 
   h2.gal-header>a:hover {
-    background-color: #fdf38f;
+    /*background-color: #fdf38f;*/
+    background-color: #FFE2A8;
     /*color: #FBC13C;*/
     color: black;
   }
 
   .gallery {
-    background-color: #FECB6E;
+    /*background-color: #FECB6E;*/
+    background-color: #FEFEFE;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin: 20px 20px 0 20px;
+    /*margin: 20px 20px 0 20px;*/
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
 
   .gallery:last-child {
       margin-bottom: 20px;
+  }
+
+  @media (max-width: 700px) {
+    .gallery {
+      width: 90%;
+    }
   }
 </style>
