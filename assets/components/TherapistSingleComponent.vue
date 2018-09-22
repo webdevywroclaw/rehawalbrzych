@@ -44,12 +44,16 @@
   <div v-if="therapeutist.methods.length != 0" class="thermet">
     <ul>
 
-        <router-link v-for="method in therapeutist.methods" :key="method" class="methodlink" :to="'/metoda/'+method.metId.metId">
+        <router-link v-for="method in therapeutist.methods" v-if="method.metId.metBody!=''" :key="method" class="methodlink" :to="'/metoda/'+method.metId.metId">
           <li>
           <h4>{{method.metId.metName}}
           <font-awesome-icon id="external-link-alt" icon="external-link-alt"></font-awesome-icon></h4>
           </li>
         </router-link>
+
+      <li v-for="method in therapeutist.methods" v-if="method.metId.metBody==''" class="methodlink">
+        <h4>{{method.metId.metName}}</h4>
+      </li>
 
     </ul>
   </div>

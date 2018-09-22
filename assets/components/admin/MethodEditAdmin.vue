@@ -1,53 +1,57 @@
 <template>
     <transition name="fade">
-    <div v-cloak class="method-edit-admin" v-if="loaded">
-        <h1>Edycja Metody {{$route.params.id}}</h1>
-        <!--<button @click="updateJsonData">Pobierz dane</button>-->
-        <form>
-            <div class="form-group row">
-                <label for="title" class="col-sm-2 col-form-label">Nazwa: </label>
-                <div class="col-sm-10">
-                    <input type="text" id="title" class="form-control" placeholder="Nazwa metody" v-model="jsondata.title">
+        <div v-cloak class="method-edit-admin" v-if="loaded">
+            <h1>Edycja Metody {{$route.params.id}}</h1>
+            <!--<button @click="updateJsonData">Pobierz dane</button>-->
+            <form>
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">Nazwa: </label>
+                    <div class="col-sm-10">
+                        <input type="text" id="title" class="form-control" placeholder="Nazwa metody"
+                               v-model="jsondata.title">
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group row">
-                <label for="content" class="col-sm-2 col-form-label">Treść: </label>
-                <div class="col-sm-10">
-                    <textarea class="form-control rounded-0" id="content" rows="10" v-model="jsondata.body"></textarea>
+                <div class="form-group row">
+                    <label for="content" class="col-sm-2 col-form-label">Treść: </label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control rounded-0" id="content" rows="10"
+                                  v-model="jsondata.body"></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-12">
-                    <select class="custom-select" required v-model="jsondata.catId">
-                        <option value="">Wybierz kategorię</option>
-                        <option v-for="category in categories" :value="category.catId">{{category.catName}}</option>
-                    </select>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <select class="custom-select" required v-model="jsondata.catId">
+                            <option value="">Wybierz kategorię</option>
+                            <option v-for="category in categories" :value="category.catId">{{category.catName}}</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group row">
-                <div class="col-sm-12">
-                    <select class="custom-select" required v-model="jsondata.galId">
-                        <option value="">{{method[0].galleryGal.galName}}</option>
-                        <option v-for="gallery in galleries" :value="gallery.galId">{{gallery.galName}}</option>
-                        <option value="null">Brak galerii</option>
-                    </select>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <select class="custom-select" required v-model="jsondata.galId">
+                            <option value="">Wybierz galerię</option>
+                            <option value="null">Brak galerii</option>
+                            <option v-if="method[0].galleryGal!=null" value="">{{method[0].galleryGal.galName}}</option>
+                            <option v-for="gallery in galleries" :value="gallery.galId">{{gallery.galName}}</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group row">
-                <label for="title" class="col-sm-2 col-form-label">Cena: </label>
-                <div class="col-sm-10">
-                    <input type="text" id="price" class="form-control" placeholder="Cena metody" v-model="jsondata.price">
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 col-form-label">Cena: </label>
+                    <div class="col-sm-10">
+                        <input type="text" id="price" class="form-control" placeholder="Cena metody"
+                               v-model="jsondata.price">
+                    </div>
                 </div>
-            </div>
 
-        </form>
-        <button type="button" class="btn btn-success" @click="updateMethod">Zapisz</button>
-        <div v-if="saved">Zapisano</div>
+            </form>
+            <button type="button" class="btn btn-success" @click="updateMethod">Zapisz</button>
+            <div v-if="saved">Zapisano</div>
 
-    </div>
+        </div>
     </transition>
 </template>
 
@@ -59,12 +63,12 @@
                 saved: false,
                 loaded: false,
                 method: {
-                    "0":{
+                    "0": {
                         "galleryGal": {
                             "galName": ''
                         }
                     },
-                    "photos":[]
+                    "photos": []
                 },
                 categories: [],
                 galleries: [],
@@ -81,7 +85,7 @@
         },
         methods: {
             fetchMethod() {
-                this.$http.get('/api/method/'+ this.$route.params.id,
+                this.$http.get('/api/method/' + this.$route.params.id,
                     {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -121,14 +125,14 @@
                     .then(result => this.galleries = result)
             },
             updateJsonData() {
-                if(this.method!=null){
+                if (this.method != null) {
                     this.jsondata.id = this.$route.params.id
                     this.jsondata.title = this.method[0].metName
                     this.jsondata.body = this.method[0].metBody
                     this.jsondata.price = this.method[0].metPrice
                 }
             },
-            updateMethod(){
+            updateMethod() {
                 this.$http.post(
                     '/api/method',
                     JSON.stringify(this.jsondata),
@@ -214,12 +218,16 @@
         cursor: pointer;
     }
 
-    [v-cloak] { display:none; }
+    [v-cloak] {
+        display: none;
+    }
 
     .fade-enter-active, .fade-leave-active {
         transition: opacity 1s;
     }
-    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
         opacity: 0;
     }
 </style>

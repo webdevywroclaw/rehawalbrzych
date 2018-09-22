@@ -261,14 +261,18 @@ class TherapeutistsController extends AbstractController
             }
         }
 
-        $file = "/img/Therapeutists/" . $name;
 
-        if (file_exists($dir.$name)) {
-            echo "Successfully saved file. ".$params['name'];
-            $photo = new Photo();
-            $photo->setPhotoSrc($file);
-            $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find(2);
-            $photo->setGalleryGal($gallery);
+        if(isset($name)){
+            $file = "/img/Therapeutists/" . $name;
+
+            if (file_exists($dir.$name)) {
+                echo "Successfully saved file. ".$params['name'];
+                $photo = new Photo();
+                $photo->setPhotoSrc($file);
+                $gallery = $this->getDoctrine()->getRepository(Gallery::class)->find(2);
+                $photo->setGalleryGal($gallery);
+        }
+
         }
 //        else {
 //            $response = new Response("nie przeslano pliku");

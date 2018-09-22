@@ -167,7 +167,9 @@ class MethodsController extends AbstractController
 
         $method->setMetName($title);
         $method->setMetBody($body);
-        $method->setMetPrice($price);
+        if($price!=null){
+            $method->setMetPrice($price);
+        }
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->merge($method);
         $entityManager->flush();
