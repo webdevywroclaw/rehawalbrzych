@@ -61,6 +61,10 @@ export default {
         text-align: center;
         font-size: 20px;
     }
+    button:hover{
+        background-color: #FECB6E;
+        transition: 0.8s;
+    }
     h2{
         font-size: 24px;
     }

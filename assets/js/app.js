@@ -24,6 +24,8 @@ Vue.use(VueGoogleMaps, {
         libraries: "places" // necessary for places input
     }
 });
+window.$ = require('jquery')
+window.JQuery = require('jquery')
 /**
  * Create a fresh Vue Application instance
  */

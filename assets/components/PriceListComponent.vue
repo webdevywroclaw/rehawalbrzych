@@ -116,6 +116,9 @@
         background-color: #FFF1CD;
         padding:10px;
     }
+    .singlename:hover{
+        background-color: #FECB6E;
+    }
 
     .methodlink:active, .methodlink:link, .methodlink:visited, .methodlink:hover {
         color: black;

@@ -5,12 +5,14 @@
       <div class="box1">
 
           <div id="trailer1" v-if="item.cl === 'number1'">
-              <h3 class="box-title">{{item.boxTitle}}</h3>
-              <h4>Poniedziałek</h4><h4> 8.00-16.00</h4>
-              <h4>Wtorek</h4><h4>8.00-16.00</h4>
-              <h4>Środa</h4><h4>8.00-16.00</h4>
-              <h4>Czwartek </h4><h4>8.00-16.00</h4>
-              <h4>Piątek </h4><h4>8.00-16.00</h4>
+              <router-link :to="'/kontakt'" class="rlink">
+                  <h3 class="box-title">{{item.boxTitle}}</h3>
+              </router-link>
+              <h4>Poniedziałek</h4><h4> 8.00-18.00</h4>
+              <h4>Wtorek</h4><h4>8.00-18.00</h4>
+              <h4>Środa</h4><h4>8.00-18.00</h4>
+              <h4>Czwartek </h4><h4>8.00-18.00</h4>
+              <h4>Piątek </h4><h4>8.00-18.00</h4>
               <h4>Sobota </h4><h4>nieczynne</h4>
               <h4>Niedziela</h4><h4>nieczynne</h4>
               <div class="buttoncenter">
@@ -23,8 +25,8 @@
           </div>
 
           <div id="trailer2" v-if="item.cl === 'number2'">
-              <h3 class="box-title">{{item.boxTitle}}</h3>
-              <img id="therapimg" v-bind:src="therapeutistsApi[0].photoPhoto.photoSrc">
+              <router-link :to="'/terapeuci'" class="rlink"><h3 class="box-title">{{item.boxTitle}}</h3></router-link>
+              <router-link :to="'/terapeuci'" class="rlink"><img id="therapimg" v-bind:src="therapeutistsApi[0].photoPhoto.photoSrc"></router-link>
               <h3>{{therapeutistsApi[0].therapName}} {{therapeutistsApi[0].therapSurname}}</h3>
               <router-link :to="'/terapeuci'">
                   <button type="button" class="icon">
@@ -40,7 +42,7 @@
           </div>
 
           <div id="trailer4" v-if="item.cl === 'number4'">
-              <h3 class="box-title">{{item.boxTitle}}</h3>
+              <router-link :to="'/galeria'" class="rlink"><h3 class="box-title">{{item.boxTitle}}</h3></router-link>
               <img class="tphoto" v-bind:src="item.photo1">
               <img class="tphoto" v-bind:src="item.photo2">
               <img class="tphoto" v-bind:src="item.photo3">
@@ -128,14 +130,23 @@ ul{
 }
 p{
     margin-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.rlink{
+    color:#000;
+    grid-column: 1/-1;
+    text-decoration:none;
 }
 #number1 {
     padding-top: 10px;
+    padding-bottom: 10px;
     background: #FFF1CD;
     grid-column: 1/2;
 }
 #number2 {
     padding-top: 10px;
+    padding-bottom: 10px;
     background: #FDDCBB;
     grid-column: 2/3;
 }
@@ -146,10 +157,13 @@ p{
 }
 #number4 {
     padding-top: 10px;
+    padding-bottom: 10px;
     background: #FD996B;
 }
 
-
+.rlink:hover{
+    color: #FECB6E;
+}
 @media (min-width: 800px){
     ul li {
         width: 25%;
@@ -188,13 +202,17 @@ p{
 }
 .icon{
     padding: 0;
-    margin-bottom: 10px;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border: 1px solid #FBC13C;
     border-radius: 100%;
     background: #FDE36B;
     text-align: center;
+}
+.icon:hover{
+    width:100px;
+    height:100px;
+    transition: 1s;
 }
 .button-image{
     width: 50%;
