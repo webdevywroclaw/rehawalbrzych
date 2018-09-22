@@ -88,7 +88,7 @@
         vertical-align: top;
     }
     .table tbody tr:nth-child(even) td{
-        background-color: #FDE36B;
+        background-color: #FD996B;
     }
     .price-list{
         display:grid;
@@ -101,19 +101,19 @@
         grid-template-columns: 1fr 1fr;
     }
     #name{
-         background-color: #fbc13c;
+         background-color: #FECB6E;
         padding:10px;
      }
     #price{
-        background-color: #FFEEA6;
+        background-color: #ffb796;
         padding:10px;
     }
     .singlename{
-        background-color: #fde36b;
+        background-color: #ffd68c;
         padding:10px;
     }
     .singleprice{
-        background-color: #FFFAAB;
+        background-color: #FFF1CD;
         padding:10px;
     }
 

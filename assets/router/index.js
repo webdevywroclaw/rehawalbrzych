@@ -30,7 +30,8 @@ import MethodsInCatComponent from '../components/MethodsInCatComponent'
 
 Vue.use(Router)
 
-export default new Router({
+
+const router = new Router({
     mode: 'history',
     routes: [
         {
@@ -40,6 +41,9 @@ export default new Router({
                 default: ContentComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - rehabilitacja dzieci i niemowląt w Wałbrzychu'
             }
         },
         {
@@ -49,6 +53,19 @@ export default new Router({
                 default: CampComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehabilitacja dzieci i niemowląt w Wałbrzychu - turnusy rehabilitacyjne',
+                metaTags: [
+                    {
+                        name: 'description',
+                        content: 'Rehawalbrzych Kamila Juś - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu. '
+                    },
+                    {
+                        property: 'og:description',
+                        content: 'Rehawalbrzych - rehabilitacja dzieci i niemowląt w Wałbrzychu.'
+                    }
+                ]
             }
         },
         {
@@ -58,6 +75,9 @@ export default new Router({
                 default: ContactComponent,
                 menu: MenuComponent,
 
+            },
+            meta: {
+                title: 'Rehabilitacja dzieci i niemowląt w Wałbrzychu - kontakt'
             }
         },
         {
@@ -67,6 +87,9 @@ export default new Router({
                 default: GalleriesComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehabilitacja dzieci i niemowląt w Wałbrzychu - galeria'
             }
         },
         {
@@ -76,6 +99,9 @@ export default new Router({
                 default: MethodsInCatComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - metody terapii'
             }
         },
         {
@@ -85,6 +111,9 @@ export default new Router({
                 default: OfferContentComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - metody terapii'
             }
         },
         {
@@ -94,6 +123,9 @@ export default new Router({
                 default: ArticleComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - artykul'
             }
         },
         {
@@ -103,6 +135,9 @@ export default new Router({
                 default: TherapistSiteComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych- nasi terapeuci'
             }
         },
         {
@@ -112,6 +147,9 @@ export default new Router({
                 default: TherapistSiteComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - terapeuta'
             }
         },
         {
@@ -121,6 +159,9 @@ export default new Router({
                 default: PriceListComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - cennik'
             }
         },
         {
@@ -130,6 +171,9 @@ export default new Router({
                 default: MethodSingleComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - metoda'
             }
         },
         {
@@ -139,6 +183,9 @@ export default new Router({
                 default: ArticleComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - artykuły'
             }
         },
         {
@@ -148,6 +195,9 @@ export default new Router({
                 default: ArticleSingleComponent,
                 menu: MenuComponent,
                 footer: FooterComponent
+            },
+            meta: {
+                title: 'Rehawalbrzych - artykuł'
             }
         },
         {
@@ -228,3 +278,44 @@ export default new Router({
         }
     ]
 })
+
+// This callback runs before every route change, including on page load.
+router.beforeEach((to, from, next) => {
+    // This goes through the matched routes from last to first, finding the closest route with a title.
+    // eg. if we have /some/deep/nested/route and /some, /deep, and /nested have titles, nested's will be chosen.
+    const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title);
+
+    // Find the nearest route element with meta tags.
+    const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+    const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+
+    // If a route with a title was found, set the document (page) title to that value.
+    if(nearestWithTitle) document.title = nearestWithTitle.meta.title;
+
+    // Remove any stale meta tags from the document using the key attribute we set below.
+    Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el));
+
+    // Skip rendering meta tags if there are none.
+    if(!nearestWithMeta) return next();
+
+    // Turn the meta tag definitions into actual elements in the head.
+    nearestWithMeta.meta.metaTags.map(tagDef => {
+        const tag = document.createElement('meta');
+
+        Object.keys(tagDef).forEach(key => {
+            tag.setAttribute(key, tagDef[key]);
+        });
+
+        // We use this to track which meta tags we create, so we don't interfere with other ones.
+        tag.setAttribute('data-vue-router-controlled', '');
+
+        return tag;
+    })
+    // Add the meta tags to the document head.
+        .forEach(tag => document.head.appendChild(tag));
+
+    next();
+});
+
+export default router;
+

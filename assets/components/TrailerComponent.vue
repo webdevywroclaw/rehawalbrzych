@@ -6,11 +6,11 @@
 
           <div id="trailer1" v-if="item.cl === 'number1'">
               <h3 class="box-title">{{item.boxTitle}}</h3>
-              <h4>Poniedziałek</h4><h4> 8.00-16.00</h4>
-              <h4>Wtorek</h4><h4>8.00-16.00</h4>
-              <h4>Środa</h4><h4>8.00-16.00</h4>
-              <h4>Czwartek </h4><h4>8.00-16.00</h4>
-              <h4>Piątek </h4><h4>8.00-16.00</h4>
+              <h4>Poniedziałek</h4><h4> 8.00-18.00</h4>
+              <h4>Wtorek</h4><h4>8.00-18.00</h4>
+              <h4>Środa</h4><h4>8.00-18.00</h4>
+              <h4>Czwartek </h4><h4>8.00-18.00</h4>
+              <h4>Piątek </h4><h4>8.00-18.00</h4>
               <h4>Sobota </h4><h4>nieczynne</h4>
               <h4>Niedziela</h4><h4>nieczynne</h4>
               <div class="buttoncenter">
@@ -131,22 +131,22 @@ p{
 }
 #number1 {
     padding-top: 10px;
-  background: #fbfc9a;
+    background: #FFF1CD;
     grid-column: 1/2;
 }
 #number2 {
     padding-top: 10px;
-  background: #fde36b;
+    background: #FDDCBB;
     grid-column: 2/3;
 }
 #number3 {
     padding-top: 10px;
     padding-bottom: 10px;
-  background: #fbc13c;
+    background: #FECB6E;
 }
 #number4 {
     padding-top: 10px;
-  background: #fb933c;
+    background: #FD996B;
 }
 
 

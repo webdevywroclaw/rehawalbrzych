@@ -11,7 +11,8 @@ body {
     padding: 0;
     text-align: center;
     min-height: 1000px;
-    background-color: rgb(255, 251, 210);
+    background: rgb(255, 255, 255);
+
 
 }
 .application {
@@ -23,6 +24,7 @@ body {
     font-size: 1.1em;
     line-height: 1.5;
     text-align: center;
+    background: #ffffff;
 }
 h1,h2,h3,h4{
     margin:0;
