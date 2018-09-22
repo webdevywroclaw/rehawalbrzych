@@ -1,6 +1,6 @@
 <template>
     <div class="metcat">
-        <div class="metc" v-for="methodInCatApi in methodsInCatApi" :key="methodInCatApi" v-bind:methodInCatApi="methodInCatApi" v-if="methodInCatApi.categoryCat.catId == $route.params.id">
+        <div class="metc" v-for="methodInCatApi in methodsInCatApi" :key="methodInCatApi" v-bind:methodInCatApi="methodInCatApi" v-if="methodInCatApi.categoryCat!= null && methodInCatApi.categoryCat.catId == $route.params.id">
 
                 <h1>{{methodInCatApi.metName}}</h1>
                 <router-link :to="{ name: 'MethodSingleComponent',params:{id: methodInCatApi.metId}}"><button>Więcej</button></router-link>

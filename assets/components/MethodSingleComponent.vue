@@ -5,7 +5,7 @@
 
         </div>
         <span v-html="method[0].metBody"/>
-        <gallery-component class="gal" :id="method[0].galleryGal.galId"></gallery-component>
+        <gallery-component v-if="method[0].galleryGal!=null" class="gal" :id="method[0].galleryGal.galId"></gallery-component>
         <div class="therapists">
             <h2 v-if="therapists.length!=1 && therapists.length!=0">Terapię prowadzą</h2>
             <h2 v-if="therapists.length==1">Terapię prowadzi</h2>
