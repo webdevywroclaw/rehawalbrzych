@@ -49,6 +49,8 @@ export default {
     padding-right: 10px;
     color: #000;
     opacity: 0.9;
+    max-width: 500px;
+    font-size: 46px;
     text-align: center;
 }
 #section-a .background-image {
