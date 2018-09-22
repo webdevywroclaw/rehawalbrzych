@@ -3,7 +3,7 @@
             <div class="box2">
                 <div class="bx">
                      <h2 class="box2-title">{{methodCatApi.catName}}</h2>
-                    <router-link :to="'/metody/'+methodCatApi.catId"><button>Zobacz</button></router-link>
+                    <router-link :to="'/metody/'+methodCatApi.catId"><button>Więcej</button></router-link>
                 </div>
              <!-- </div> -->
             </div>
@@ -46,9 +46,24 @@ li {
     height: 300px;
     opacity: 0.4;
 }
+.box2:hover {
+    opacity: 0.9;
+    transition: 0.4s;
+}
 .bx{
     text-align: center;
     vertical-align: middle;
+}
+.box2:nth-child(1){
+    grid-column: 1/3;
+    margin-top: 0px;
+}
+.box2:nth-child(2){
+    grid-column: 3/5;
+    margin-top: 0px;
+}
+.box2:nth-child(3){
+    grid-column: 2/4;
 }
 #box2-image3 {
 
@@ -83,6 +98,13 @@ li {
     font-size: 16px;
     margin-bottom: 10px;
 }
+button{
+    margin-top: 30px;
+    backgroud-color: none;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-size: 24px;
+}
  @media (min-width: 700px){
     
  li{
@@ -96,12 +118,7 @@ li {
         height: 100%;
 
     }
-    button{
-        backgroud-color: none;
-        border: 2px solid black;
-        border-radius: 6px;
-        font-size: 20px;
-    }
+
     h2{
         font-size: 30px;
     }
