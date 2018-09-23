@@ -27,10 +27,12 @@ import MethodSingleComponent from '../components/MethodSingleComponent'
 import TherapistSiteComponent from '../components/TherapistSiteComponent'
 import PriceListComponent from '../components/PriceListComponent'
 import MethodsInCatComponent from '../components/MethodsInCatComponent'
+import PrivacyComponent from '../components/PrivacyComponent'
 
 Vue.use(Router)
 
 export default new Router({
+
     mode: 'history',
     routes: [
         {
@@ -151,6 +153,15 @@ export default new Router({
             }
         },
         {
+            path: '/politykaprywatnosci',
+            name: 'PrivacyComponent',
+            components: {
+                default: PrivacyComponent,
+                menu: MenuComponent,
+                footer: FooterComponent
+            }
+        },
+        {
             path: '/admin',
             name: 'Admin',
             components: {
@@ -226,5 +237,8 @@ export default new Router({
                 menu: AdminHeader
             }
         }
-    ]
+    ],
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
 })

@@ -15,16 +15,17 @@
             </tbody>
         </table>
 -->
-<div>
+<div id="pricecontener">
     <div class="price-list-title">
         <span id="name">Nazwa metody</span>
         <span id="price">Cena(zł)</span>
     </div>
     <div class="price-list" v-for="methodApi in methodsApi" :key="methodApi" v-bind:methodApi="methodApi">
-        <span class="singlename">
-            <router-link class="methodlink" :to="'/metoda/'+methodApi.metId">{{methodApi.metName}}
+        <span class="singlename" >
+            <router-link v-if="methodApi.metBody != ''" class="methodlink" :to="'/metoda/'+methodApi.metId">{{methodApi.metName}}
             <font-awesome-icon id="external-link-alt" icon="external-link-alt"></font-awesome-icon>
             </router-link>
+            <v-else>{{methodApi.metName}}</v-else>
         </span>
         <span class="singleprice">{{methodApi.metPrice}}</span>
     </div>
@@ -65,6 +66,7 @@
 </script>
 
 <style scoped>
+
     li{
         list-style: none;
         padding: 0px;
@@ -73,7 +75,9 @@
     img{
 
     }
-
+    #pricecontener{
+        margin-top: 20px;
+    }
     .table{
         width:60%;
         border-collapse: collapse;
