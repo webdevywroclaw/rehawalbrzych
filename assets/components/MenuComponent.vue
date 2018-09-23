@@ -44,7 +44,7 @@
                 <button type="button" @click="add()" id="but">&#9776</button>
             </span>
             <span id="navbar-logo">
-                <router-link to="/"><img src="../assets/newlogo2.png" id="logo"></router-link>
+                <router-link to="/"><img src="https://rehawalbrzych.vot.pl/build/images/newlogo2.png" id="logo"></router-link>
             </span>
             <ul id="main-nav">
                 <li @click="close()"><router-link to="/"><img src="../assets/newlogo2.png" id="image"></router-link></li>

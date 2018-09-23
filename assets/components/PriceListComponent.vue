@@ -25,7 +25,7 @@
             <router-link v-if="methodApi.metBody != ''" class="methodlink" :to="'/metoda/'+methodApi.metId">{{methodApi.metName}}
             <font-awesome-icon id="external-link-alt" icon="external-link-alt"></font-awesome-icon>
             </router-link>
-            <v-else>{{methodApi.metName}}</v-else>
+            <li v-else>{{methodApi.metName}}</li>
         </span>
         <span class="singleprice">{{methodApi.metPrice}}</span>
     </div>
