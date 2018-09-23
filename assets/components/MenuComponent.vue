@@ -47,7 +47,7 @@
                 <router-link to="/"><img src="https://rehawalbrzych.vot.pl/build/images/newlogo2.png" id="logo"></router-link>
             </span>
             <ul id="main-nav">
-                <li @click="close()"><router-link to="/"><img src="../assets/newlogo2.png" id="image"></router-link></li>
+                <li @click="close()"><router-link to="/"><img src="https://rehawalbrzych.vot.pl/build/images/newlogo2.png" id="image"></router-link></li>
         <li @click="close()"><router-link to="/terapeuci" class="nav-links">O nas</router-link></li>
         <li @click="close()"><router-link to="/oferta" class="nav-links" >Metody</router-link></li>
         <li @click="close()"><router-link to="/cennik" class="nav-links">Cennik</router-link></li>
