@@ -17,7 +17,7 @@
               <h4>Niedziela</h4><h4>nieczynne</h4>
               <div class="buttoncenter">
                   <router-link :to="'/kontakt'">
-                      <button type="button" class="icon">
+                      <button type="button" class="icon" @click="top()">
                       <img v-bind:src="item.src" class="button-image">
                       </button>
                   </router-link>
@@ -29,7 +29,7 @@
               <router-link :to="'/terapeuci'" class="rlink"><img id="therapimg" v-bind:src="therapeutistsApi[0].photoPhoto.photoSrc"></router-link>
               <h3>{{therapeutistsApi[0].therapName}} {{therapeutistsApi[0].therapSurname}}</h3>
               <router-link :to="'/terapeuci'">
-                  <button type="button" class="icon">
+                  <button type="button" class="icon" @click="top()">
                   <img v-bind:src="item.src" class="button-image">
                   </button>
               </router-link>
@@ -49,7 +49,7 @@
               <img class="tphoto" v-bind:src="item.photo4">
               <div class="buttoncenter">
                   <router-link :to="'/galeria'">
-                  <button type="button" class="icon">
+                  <button type="button" class="icon" @click="top()">
                       <img v-bind:src="item.src" class="button-image">
                   </button>
                   </router-link>
@@ -109,6 +109,12 @@ export default {
                     this.therapeutistsApi = result
                     this.loaded = true
                 })
+        },
+        top(){
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+
         }
     },
     created: function () {

@@ -44,6 +44,7 @@ export default {
 
 <style scoped>
     #articles{
+        margin-top: 20px;
         display:grid;
         grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     }

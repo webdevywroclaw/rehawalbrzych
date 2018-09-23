@@ -89,6 +89,7 @@
 
 <style scoped>
     .cont {
+        margin-top: 20px;
         display: grid;
         /*grid-gap: 10px;*/
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -128,6 +129,7 @@
 
     @media(max-width: 700px){
         .cont {
+
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
         h3 {

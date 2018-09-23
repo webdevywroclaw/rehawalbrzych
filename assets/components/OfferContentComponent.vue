@@ -56,7 +56,7 @@ export default {
   margin: 0px;
 }
   .offerts{
-      margin-top: 20px;
+      margin-top: 30px;
   }
 
   @media (min-width: 650px){
