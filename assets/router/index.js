@@ -27,6 +27,7 @@ import MethodSingleComponent from '../components/MethodSingleComponent'
 import TherapistSiteComponent from '../components/TherapistSiteComponent'
 import PriceListComponent from '../components/PriceListComponent'
 import MethodsInCatComponent from '../components/MethodsInCatComponent'
+import PrivacyComponent from '../components/PrivacyComponent'
 
 Vue.use(Router)
 
@@ -201,6 +202,15 @@ const router = new Router({
             }
         },
         {
+            path: '/politykaprywatnosci',
+            name: 'PrivacyComponent',
+            components: {
+                default: PrivacyComponent,
+                menu: MenuComponent,
+                footer: FooterComponent
+            }
+        },
+        {
             path: '/admin',
             name: 'Admin',
             components: {
@@ -276,7 +286,10 @@ const router = new Router({
                 menu: AdminHeader
             }
         }
-    ]
+    ],
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
 })
 
 // This callback runs before every route change, including on page load.

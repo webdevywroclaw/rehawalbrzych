@@ -37,7 +37,7 @@ export default {
 <style scoped>
 
   .header{
-    height: 100px;
+    min-height: 100px;
   }
   #contact-top {
     margin-right: 10px;

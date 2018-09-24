@@ -2,16 +2,28 @@
 
   <div class="contact">
     <div class="contactitem">
-      <font-awesome-icon id="addres" icon="map-marker-alt"></font-awesome-icon>
-      <h3 class="contact-text">{{adres}}</h3>
+      <div class="icon-center">
+        <font-awesome-icon id="addres" icon="map-marker-alt"></font-awesome-icon>
+      </div>
+      <div class="textforcontact">
+        <h3 class="contact-text">{{adres}}</h3>
+      </div>
     </div>
     <div class="contactitem">
-      <font-awesome-icon id="phone" icon="phone"></font-awesome-icon>
-      <h3 class="contact-text">{{telephone}}</h3>
+      <div class="icon-center">
+        <font-awesome-icon id="phone" icon="phone"></font-awesome-icon>
+      </div>
+      <div class="textforcontact">
+        <h3 class="contact-text">{{telephone}}</h3>
+      </div>
     </div>
     <div class="contactitem" id="ctc">
-      <font-awesome-icon id="at" icon="at"></font-awesome-icon>
-      <h3 class="contact-text">{{mail}}</h3>
+      <div class="icon-center">
+        <font-awesome-icon id="at" icon="at"></font-awesome-icon>
+      </div>
+      <div class="textforcontact">
+        <h3 class="contact-text">{{mail}}</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -44,19 +56,35 @@ export default {
     margin: 10px 20px;
     text-align: center;
     padding: 10px;
+    padding-top:20px;
   }
   .contactitem{
-    border: 2px dotted #FECB6E;
-    margin:10px;
-    display: flex;
-    align-items: center;
-    word-break: break-word;
+    margin-top: -30px;
   }
   #phone,#addres,#at{
     height:50px;
     width: 50px;
     color: #FECB6E;
     margin:5px;
+  }
+  .icon-center{
+    position: relative;
+    top: 40px;
+    width: 80px;
+    margin: auto;
+    background-color: #fff;
+  }
+  .textforcontact{
+    min-height: 120px;
+    border: 2px dotted #FECB6E;
+    margin:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+  }
+  h3{
+    margin: auto;
   }
   /*h3{*/
     /*font-size: 20px;*/
@@ -74,7 +102,7 @@ export default {
     }
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 640px) {
     .contact {
       display: grid;
       grid-template-columns: repeat(2, minmax(250px, 1fr));

@@ -1,12 +1,9 @@
 <template>
   <div id="test2">
-    <div class="offerts" v-if="$route.name === 'OfferContentComponent'">
-     <offer-component v-for="methodCatApi in methodsCatApi" :key="methodCatApi" :methodCatApi="methodCatApi" :style="{'background-image': 'url(' + offerts[0].bacg + ')'}" ></offer-component>
+    <div class="offerts">
+     <offer-component v-for="(methodCatApi,index) in methodsCatApi" :key="methodCatApi" :methodCatApi="methodCatApi" :style="{'background-image': 'url(' + offerts[index].bacg + ')'}" ></offer-component>
+    </div>
 
-    </div>
-    <div v-else>
-      <h1></h1>
-    </div>
   </div>
 </template>
 
@@ -19,8 +16,8 @@ export default {
 
       offerts: [
         { box2Title: 'WADY POSTAWY', class: 'box2-image1', cat_id: '1',bacg: require('../assets/max-rovensky-545700-unsplash.jpg')},
-        { box2Title: 'WADY STÓP', class: 'box2-image2', cat_id: '2'},
-        { box2Title: 'REHABILITACJA DZIECI', class: 'box2-image3', cat_id: '3'},
+        { box2Title: 'WADY STÓP', class: 'box2-image2', cat_id: '2', bacg: require('../assets/beach-boy-bubbles-106684.jpg')},
+        { box2Title: 'REHABILITACJA DZIECI', class: 'box2-image3', cat_id: '3', bacg: require('../assets/abstract-beach-desert-723997.jpg')},
         { box2Title: 'REHABILITACJA DOROSŁYCH', class: 'box2-image4', cat_id: '4'}
       ]
      }
@@ -58,19 +55,15 @@ export default {
   padding: 0px;
   margin: 0px;
 }
-  @media (min-width: 700px){
-        .offerts {
-        display: grid;
-        grid-template-columns: repeat(2,minmax(300px,1fr));
+  .offerts{
+      margin-top: 30px;
+  }
 
-    }
-    .offerts ul {
+  @media (min-width: 650px){
+    .offerts{
         display: grid;
         list-style: none;
-        grid-column-start: 2;
-        grid-column-end: 6;
-        grid-template-columns: repeat(4,1fr);
-        grid-gap: 20px;
+        grid-template-columns: 25% 25% 25% 25%;
     }
 }
 </style>

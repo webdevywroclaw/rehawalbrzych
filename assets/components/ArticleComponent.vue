@@ -44,6 +44,7 @@ export default {
 
 <style scoped>
     #articles{
+        margin-top: 20px;
         display:grid;
         grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     }
@@ -60,6 +61,10 @@ export default {
         border-radius:10%;
         text-align: center;
         font-size: 20px;
+    }
+    button:hover{
+        background-color: #FECB6E;
+        transition: 0.8s;
     }
     h2{
         font-size: 24px;

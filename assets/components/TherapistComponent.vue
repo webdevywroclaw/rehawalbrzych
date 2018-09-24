@@ -38,7 +38,9 @@ export default {
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-
+  }
+  h4{
+      margin: 10px 0;
   }
    @media (max-width: 500px){
 
@@ -53,5 +55,9 @@ export default {
         text-align: center;
         font-size: 24px;
     }
+  button:hover{
+      background-color: #FECB6E;
+      transition: 0.8s;
+  }
 
 </style>

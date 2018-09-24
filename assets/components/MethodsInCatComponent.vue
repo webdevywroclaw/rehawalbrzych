@@ -59,14 +59,14 @@
         padding: 20px;
 
     }
-    .metc:nth-child(3n+1){
-        background-color: #fbfc9a
+    .metc:nth-child(3n+1) {
+        background-color: #FDDCBB;
     }
     .metc:nth-child(3n+2){
-        background-color: #fbc13c;
+        background-color: #FECB6E;
     }
     .metc:nth-child(3n+0){
-        background-color: #fb933c;
+        background-color: #FD996B;
     }
 
     button{

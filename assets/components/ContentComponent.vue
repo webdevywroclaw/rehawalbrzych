@@ -3,9 +3,14 @@
          <div id="section-a">
             <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/baby-baby-feet-barefoot-1172922.jpg') + ')' }">
             </div>
-            <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
+            <p> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</p>
         </div>
         <trailer-component></trailer-component>
+        <div id="line"></div>
+        <div class="text-box">
+        <p id="text">Oferta</p>
+        </div>
+        <offer-content-component></offer-content-component>
     </div>
 
 </template>
@@ -13,10 +18,12 @@
 <script>
 import TrailerComponent from './TrailerComponent'
 import OfferComponent from './OfferComponent'
+import OfferContentComponent from './OfferContentComponent'
 export default {
   components: {
     TrailerComponent,
     OfferComponent,
+    OfferContentComponent
   }
 }
 </script>
@@ -35,12 +42,15 @@ export default {
     text-align: right;
     grid-column: 1/-1;
 }
-#section-a h1{
+#section-a p{
+    float: right;
     margin-top:0px;
     padding-top: 10px;
     padding-right: 10px;
     color: #000;
     opacity: 0.9;
+    max-width: 500px;
+    font-size: 46px;
     text-align: center;
 }
 #section-a .background-image {
@@ -61,4 +71,19 @@ export default {
             /*background-position-y: -250px;*/
         /*}*/
     /*}*/
+    #line {
+        margin-top: 50px;
+        border-top: 2px dotted orange;
+        z-index: -1;
+    }
+    #text{
+
+    }
+.text-box{
+    margin:auto;
+    position: relative;
+    bottom:15px;
+    width: 100px;
+    background-color: rgb(255, 251, 210);
+}
 </style>

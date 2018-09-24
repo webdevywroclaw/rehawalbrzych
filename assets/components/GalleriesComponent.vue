@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="galleriesconteiner">
     <div v-if="gallery.galId!=1 && gallery.galId!=2" class="gallery" v-for="gallery in galleries" :key="gallery" v-bind:gallery="gallery">
       <h2 v-if="gallery.galId!=1 && gallery.galId!=2"  class="gal-header">
         <span >{{gallery.galName}}</span>
@@ -58,6 +58,9 @@
 </script>
 
 <style scoped>
+  #galleriesconteiner{
+    margin-top:20px;
+  }
   .preview-img-list {
     display: flex;
     flex-wrap: wrap;
