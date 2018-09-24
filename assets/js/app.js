@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import Vue from 'vue';
 import router from '../router'
 import vueResource from 'vue-resource'
@@ -13,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGraduationCap, faListAlt,faClipboardCheck, faPhone, faMapMarkerAlt, faAt, faExternalLinkAlt, faCopyright, faTimes} from '@fortawesome/free-solid-svg-icons'
 import {faFacebookF} from '@fortawesome/free-brands-svg-icons'
+
 
 Vue.use(PhotoSwipe)
 Vue.use(BootstrapVue);

@@ -284,7 +284,7 @@
 
           text-decoration: none;
           color: black;
-          margin: 20px;
+          margin: 0 20px 0 20px;
           font-size:20px;
           align-self: center;
           text-align: center;

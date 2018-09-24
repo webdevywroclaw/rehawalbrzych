@@ -19,6 +19,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('appcss', './assets/css/app.css')
+    // .createSharedEntry('vendor', ['babel-polyfill'])
     .enableVueLoader()
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
@@ -44,6 +45,26 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
+
+
+    // first, install any presets you want to use (e.g. yarn add babel-preset-es2017)
+    // then, modify the default Babel configuration
+    .configureBabel(function(babelConfig) {
+        // add additional presets
+        // babelConfig.presets = ['es2015','es2017']
+        babelConfig.presets.push('es2015');
+        babelConfig.presets.push('es2017');
+        // // no plugins are added by default, but you can add some
+        babelConfig.plugins.push('transform-runtime');
+    })
+
 ;
 
+module.exports = {
+    entry: ["@babel/polyfill", "./assets/js/app.js"]
+};
+
+// module.exports = {
+//     entry: ["@babel/polyfill", "./assets/js/app.js"]
+// };
 module.exports = Encore.getWebpackConfig();
