@@ -1,3 +1,7 @@
-controllers:
-    resource: ../../src/Controller/
+api_controllers:
+    resource: ../../src/Controller/api/
+    type: annotation
+
+vue_controller:
+    resource: ../../src/Controller/DefaultController.php
     type: annotation

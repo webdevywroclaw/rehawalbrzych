@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class FrontController extends AbstractController
+class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
-     * @Route("/{route}", name="vue_pages", requirements={"route"="^(?!.*api|_wdt|_profiler|login).+"})
+     * @Route("/{route}", name="vue_pages", requirements={"route"="^(?!.*api|_wdt|_profiler|login|_error).+"})
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         return $this->render('index.html.twig');
     }

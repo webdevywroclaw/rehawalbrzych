@@ -29,6 +29,8 @@ import PriceListComponent from '../components/PriceListComponent'
 import MethodsInCatComponent from '../components/MethodsInCatComponent'
 import PrivacyComponent from '../components/PrivacyComponent'
 
+import NotFoundComponent from '../components/NotFoundComponent'
+
 Vue.use(Router)
 
 
@@ -210,6 +212,13 @@ const router = new Router({
                 footer: FooterComponent
             }
         },
+        {
+            path: '*',
+            components: {
+                default: NotFoundComponent
+            }
+        },
+
         {
             path: '/admin',
             name: 'Admin',
