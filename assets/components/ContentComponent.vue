@@ -1,9 +1,9 @@
 <template>
-    <div id="content">
+    <main id="content">
          <div id="section-a">
             <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/baby-baby-feet-barefoot-1172922.jpg') + ')' }">
             </div>
-            <p> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</p>
+            <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
         </div>
         <trailer-component></trailer-component>
         <div id="line"></div>
@@ -11,7 +11,7 @@
         <p id="text">Oferta</p>
         </div>
         <offer-content-component></offer-content-component>
-    </div>
+    </main>
 
 </template>
 
@@ -42,7 +42,9 @@ export default {
     text-align: right;
     grid-column: 1/-1;
 }
-#section-a p{
+#section-a h1{
+    font-weight: 400;
+    line-height: 1.5;
     float: right;
     margin-top:0px;
     padding-top: 10px;

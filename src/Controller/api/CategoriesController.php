@@ -49,7 +49,7 @@ class CategoriesController extends AbstractController
     /**
      * @Route("/categories/kind/{kind}",
      *     methods="GET",
-     *     name="getcategory"
+     *     name="get_category_of_kind"
      * )
      */
     public function getArticlesByKindAction($kind)

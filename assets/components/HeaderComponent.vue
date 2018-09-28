@@ -1,5 +1,5 @@
 <template>
-<div class="header">
+<header class="header">
   <div id="contact-top">
     <!-- <img src="../assets/placeholder-for-map.png" class="button-image nr1">
     <span class="nr1">{{adres}}</span>
@@ -15,7 +15,7 @@
     <span class="nr3">{{mail}}</span>
   <router-view name="menu"></router-view>
   </div>
-</div>
+</header>
 </template>
 
 <script>

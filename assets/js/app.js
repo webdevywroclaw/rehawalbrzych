@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGraduationCap, faListAlt,faClipboardCheck, faPhone, faMapMarkerAlt, faAt, faExternalLinkAlt, faCopyright, faTimes} from '@fortawesome/free-solid-svg-icons'
 import {faFacebookF} from '@fortawesome/free-brands-svg-icons'
-
+import Meta from 'vue-meta'
 
 Vue.use(PhotoSwipe)
 Vue.use(BootstrapVue);
@@ -27,6 +27,8 @@ Vue.use(VueGoogleMaps, {
         libraries: "places" // necessary for places input
     }
 });
+// Vue.use(Meta);
+
 
 
 

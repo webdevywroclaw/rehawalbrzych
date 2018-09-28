@@ -45,6 +45,34 @@ export default {
     created: function () {
 
         this.fetchCatMethods();
+    },
+    metaInfo () {
+
+        return {
+            title: 'Rehawalbrzych', // set a title
+            titleTemplate: '%s - metody terapii', // title is now "My Example App - Yay!"
+            htmlAttrs: {
+                lang: 'pl',
+                amp: undefined // "amp" has no value
+            },
+            meta: [
+                {
+                    name: 'description',
+                    content: 'Metody terapii. Rehawalbrzych Kamila Juś - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu. '
+                },
+                {
+                    name: 'keywords',
+                    content: 'rehabilitacja,walbrzych,integracja,sensoryczna,dzieci,niemowlat,metody,terapie'
+                },
+                {
+                    property: 'og:description',
+                    content: 'Metody terapii. Rehawalbrzych Kamila Juś - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu. '
+                }
+            ],
+            changed (newInfo, addedTags, removedTags) {
+                console.log('Meta info was updated!')
+            }
+        }
     }
 }
 </script>

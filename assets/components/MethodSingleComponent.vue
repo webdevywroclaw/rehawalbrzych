@@ -1,10 +1,12 @@
 <template>
-    <div>
-        <div class="head">
-            <h1>{{method[0].metName}}</h1>
+    <article>
+        <header class="head">
+            <title><h1>{{method[0].metName}}</h1></title>
 
-        </div>
-        <span v-html="method[0].metBody"/>
+        </header>
+        <p>
+            <span v-html="method[0].metBody"/>
+        </p>
         <gallery-component v-if="method[0].galleryGal!=null" class="gal" :id="method[0].galleryGal.galId"></gallery-component>
         <div class="therapists">
             <h2 v-if="therapists.length!=1 && therapists.length!=0">Terapię prowadzą</h2>
@@ -18,7 +20,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </article>
 
 </template>
 
@@ -53,6 +55,8 @@
                     .then(result => {
                         this.method = result
                         this.loaded = true
+                        document.title = 'RehaWałbrzych - metoda terapii: ' + this.method[0].metName
+                        document.head.querySelector('meta[name=description]').content = 'Metoda terapii:  '+ this.method[0].metName + '. RehaWałbrzych - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu.'
                     })
             },
             fetchTherapists() {
@@ -74,7 +78,36 @@
         created: function () {
             this.fetchMethod();
             this.fetchTherapists();
-        }
+        },
+
+        metaInfo () {
+
+            return {
+                title: 'Rehawalbrzych', // set a title
+                titleTemplate: '%s - metoda', // title is now "My Example App - Yay!"
+                htmlAttrs: {
+                    lang: 'pl',
+                    amp: undefined // "amp" has no value
+                },
+                meta: [
+                    {
+                        name: 'description',
+                        content: 'Metoda terapii. RehaWałbrzych Kamila Juś - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu. '
+                    },
+                    {
+                        name: 'keywords',
+                        content: 'rehabilitacja,walbrzych,integracja,sensoryczna,dzieci,niemowlat,metoda,metody,terapie'
+                    },
+                    {
+                        property: 'og:description',
+                        content: 'Metoda terapii. RehaWałbrzych Kamila Juś - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu. '
+                    }
+                ],
+                changed (newInfo, addedTags, removedTags) {
+                    console.log('Meta info was updated!')
+                }
+            }
+        },
         /* props: ['methods'] */
     }
 </script>
@@ -121,6 +154,10 @@
         margin: auto;
         margin-top: 25px;
 
+    }
+
+    title {
+        display: block;
     }
 
     .therapists > h2 {
