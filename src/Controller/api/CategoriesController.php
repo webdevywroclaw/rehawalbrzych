@@ -84,7 +84,7 @@ class CategoriesController extends AbstractController
             return $response;
         }
 
-        $dir = __DIR__ . '/../../public/img/Categories/';
+        $dir = __DIR__ . '/../../../public/img/Categories/';
         $name = uniqid() . '.jpeg';
 
         foreach ($request->files as $uploadedFile) {

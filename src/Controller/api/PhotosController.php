@@ -42,7 +42,7 @@ class PhotosController extends AbstractController
     {
         $title = $request->request->get('title');
         $galId = $request->request->get('id');
-        $dir = __DIR__ . '/../../public/img/Galleries/';
+        $dir = __DIR__ . '/../../../public/img/Galleries/';
         $name = uniqid() . '.jpeg';
 
         foreach ($request->files as $uploadedFile) {

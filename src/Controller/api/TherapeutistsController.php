@@ -244,7 +244,7 @@ class TherapeutistsController extends AbstractController
      */
     public function updateAction(Request $request)
     {
-        $dir = __DIR__ . '/../../public/img/Therapeutists/';
+        $dir = __DIR__ . '/../../../public/img/Therapeutists/';
 //        $name = uniqid() . '.jpeg';
 
         $params = json_decode($request->getContent(), true);
