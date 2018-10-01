@@ -3,7 +3,7 @@
 <div class="therapeutist">
 
   <div class="therapinfo" >
-    <img class="teraphoto" v-bind:src="therapeutist[0].photoPhoto.photoSrc">
+    <img class="teraphoto" v-bind:src="therapeutist[0].photoPhoto.photoSrc" :alt="'Avatar - '+ therapeutist[0].therapName + ' ' + therapeutist[0].therapSurname">
     <h1>{{therapeutist[0].therapName}}</h1>
     <h1>{{therapeutist[0].therapSurname}}</h1>
   </div>

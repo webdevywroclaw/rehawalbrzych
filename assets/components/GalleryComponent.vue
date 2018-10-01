@@ -3,7 +3,7 @@
         <div v-if="done" class="preview-img-list">
 
             <figure  v-for="(photo, index) in photos" :key="photo" v-bind:photo="photo" @click="$photoswipe.open(index, photos)">
-                <img class="preview-img-item" :src="photo.src" >
+                <img class="preview-img-item" :src="photo.src" :alt="photo.title">
                 <figcaption itemprop="caption description">{{photo.title}}</figcaption>
 
             </figure>
