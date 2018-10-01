@@ -88,6 +88,8 @@
                   .then(result => {
                       this.therapeutist = result
                       this.loaded = true
+                      document.title = 'RehaWałbrzych - terapeuta: ' + this.therapeutist[0].therapName + ' ' + this.therapeutist[0].therapSurname
+                      document.head.querySelector('meta[name=description]').content = 'Terapeuta '+ this.therapeutist[0].therapName + " "  + this.therapeutist[0].therapSurname+'. RehaWałbrzych - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu.'
                   })
           }
       },

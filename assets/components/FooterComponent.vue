@@ -1,6 +1,6 @@
 <template>
 
-  <div class="contact">
+  <footer class="contact">
     <div class="contactitem">
       <div class="icon-center">
         <font-awesome-icon id="addres" icon="map-marker-alt"></font-awesome-icon>
@@ -25,7 +25,7 @@
         <h3 class="contact-text">{{mail}}</h3>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>

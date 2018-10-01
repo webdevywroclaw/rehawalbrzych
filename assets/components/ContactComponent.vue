@@ -1,20 +1,20 @@
 <template>
     <div>
         <div class="cont">
-            <div class="box">
+            <address class="box">
                 <font-awesome-icon id="phone" icon="phone"></font-awesome-icon>
                 <h3>{{telephone}}</h3>
-            </div>
-            <div class="box">
+            </address>
+            <address class="box">
                 <font-awesome-icon id="addres" icon="map-marker-alt"></font-awesome-icon>
                 <h3>{{adres}}</h3>
-            </div>
-            <div class="box">
+            </address>
+            <address class="box">
                 <font-awesome-icon id="at" icon="at"></font-awesome-icon>
                 <h3>{{mail}}</h3>
-            </div>
+            </address>
 
-            <div class="box">
+            <address class="box">
                 <font-awesome-icon id="fb" :icon="['fab', 'facebook-f']"></font-awesome-icon>
                 <div class="fb-page"
                      data-href="https://www.facebook.com/REHAWa%C5%82brzych-Centrum-Rehabilitacji-i-Integracji-Sensorycznej-232658286876630/"
@@ -26,7 +26,7 @@
                             href="https://www.facebook.com/REHAWa%C5%82brzych-Centrum-Rehabilitacji-i-Integracji-Sensorycznej-232658286876630/">REHAWałbrzych
                         Centrum Rehabilitacji i Integracji Sensorycznej</a></blockquote>
                 </div>
-            </div>
+            </address>
         </div>
         <google-map></google-map>
 

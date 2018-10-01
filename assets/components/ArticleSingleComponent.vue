@@ -1,5 +1,5 @@
 <template>
-  <div class="art">
+  <article class="art">
     <div class="author">
       <img v-bind:src="article[0].artAuthor.photoPhoto.photoSrc">
       <h3>{{article[0].artAuthor.therapName}} {{article[0].artAuthor.therapSurname}}</h3>
@@ -8,7 +8,7 @@
     <p id="body">{{article[0].artBody}}</p>
 
 
-  </div>
+  </article>
 </template>
 
 <script>
@@ -35,6 +35,10 @@ export default {
                 .then(result => {
                     this.article = result
                     this.loaded = true
+                    document.title = 'RehaWałbrzych - artykuł: ' + this.article[0].artTitle
+                    document.head.querySelector('meta[name=description]').content = 'Artykuł. Tytuł: '+ this.article[0].artTitle + '. RehaWałbrzych - rehabilitacja i integracja sensoryczna dzieci i niemowląt w Wałbrzychu.'
+
+
                 })
         }
 
