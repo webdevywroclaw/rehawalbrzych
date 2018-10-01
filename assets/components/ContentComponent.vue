@@ -1,7 +1,7 @@
 <template>
     <div id="content">
-         <div id="section-a">
-            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/baby-baby-feet-barefoot-1172922.jpg') + ')' }">
+         <div id="section-a" title="Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt">
+            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/image-from-rawpixel-id.jpg') + ')' }">
             </div>
             <p> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</p>
         </div>
@@ -31,12 +31,14 @@ export default {
 <style scoped>
 #content{
     background-color: rgb(255, 251, 210);
+    background-color: #ffffff;
     position: relative;
     margin:0;
     padding:0;
 
 }
 #section-a {
+    background-color: rgb(255, 251, 210);
     min-height: 500px;
     color: #fff;
     text-align: right;
@@ -55,7 +57,6 @@ export default {
 }
 #section-a .background-image {
     position: absolute;
-    background-color: none;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -85,5 +86,6 @@ export default {
     bottom:15px;
     width: 100px;
     background-color: rgb(255, 251, 210);
+    background-color: #ffffff;
 }
 </style>

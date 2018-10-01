@@ -1,6 +1,6 @@
 <template>
 
-            <div class="box2">
+            <div class="box2" title="Kategoria metod">
                 <div class="bx">
                      <h2 class="box2-title">{{methodCatApi.catName}}</h2>
                     <router-link :to="'/metody/'+methodCatApi.catId"><button>Więcej</button></router-link>

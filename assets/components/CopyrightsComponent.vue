@@ -16,7 +16,7 @@
         methods: {
             closerights() {
                 var cook= document.getElementById('cookiesright')
-                var buttoncook= document.getElementById('buttoncookiesright')
+                var buttoncook= document.getElementById('ict')
                 cook.style.display = "none";
                 buttoncook.style.display = "none";
             }

@@ -18,7 +18,7 @@
               <div class="buttoncenter">
                   <router-link :to="'/kontakt'">
                       <button type="button" class="icon" @click="top()">
-                      <img v-bind:src="item.src" class="button-image">
+                      <img v-bind:src="item.src" class="button-image" alt="Przycisk Kontakt">
                       </button>
                   </router-link>
               </div>
@@ -30,7 +30,7 @@
               <h3>{{therapeutistsApi[0].therapName}} {{therapeutistsApi[0].therapSurname}}</h3>
               <router-link :to="'/terapeuci'">
                   <button type="button" class="icon" @click="top()">
-                  <img v-bind:src="item.src" class="button-image">
+                  <img v-bind:src="item.src" class="button-image" alt="Przycisk Terapeuci">
                   </button>
               </router-link>
           </div>
@@ -43,14 +43,14 @@
 
           <div id="trailer4" v-if="item.cl === 'number4'">
               <router-link :to="'/galeria'" class="rlink"><h3 class="box-title">{{item.boxTitle}}</h3></router-link>
-              <img class="tphoto" v-bind:src="item.photo1">
-              <img class="tphoto" v-bind:src="item.photo2">
-              <img class="tphoto" v-bind:src="item.photo3">
-              <img class="tphoto" v-bind:src="item.photo4">
+              <img class="tphoto" v-bind:src="item.photo1" alt="Fotografia 1">
+              <img class="tphoto" v-bind:src="item.photo2" alt="Fotografia 2">
+              <img class="tphoto" v-bind:src="item.photo3" alt="Fotografia 3">
+              <img class="tphoto" v-bind:src="item.photo4" alt="Fotografia 4">
               <div class="buttoncenter">
                   <router-link :to="'/galeria'">
                   <button type="button" class="icon" @click="top()">
-                      <img v-bind:src="item.src" class="button-image">
+                      <img v-bind:src="item.src" class="button-image" alt="Przycisk Galeria">
                   </button>
                   </router-link>
               </div>

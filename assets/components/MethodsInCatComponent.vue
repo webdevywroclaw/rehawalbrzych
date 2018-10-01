@@ -5,7 +5,6 @@
                 <h1>{{methodInCatApi.metName}}</h1>
                 <router-link :to="{ name: 'MethodSingleComponent',params:{id: methodInCatApi.metId}}"><button>Więcej</button></router-link>
 
-
         </div>
     </div>
 
@@ -55,6 +54,7 @@
         grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
         grid-gap: 10px;
     }
+
     .metc{
         padding: 20px;
 
@@ -76,5 +76,23 @@
         border-radius:6px;
         text-align: center;
         font-size: 20px;
+    }
+    @media (min-width: 970px) {
+        .metcat {
+            grid-template-columns: repeat(auto-fit, minmax(470px, 1fr));
+            align-items: center;
+        }
+        .metc{
+            min-height: 200px;
+        }
+        h2{
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 42px;
+        }
+        button{
+            border-radius:8px;
+            font-size: 28px;
+        }
     }
 </style>

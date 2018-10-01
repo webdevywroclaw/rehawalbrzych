@@ -4,7 +4,7 @@
 
       <div class="obramowanie">
           <router-link :to="'/terapeuta/'+therapeutistApi.therapId">
-            <img v-bind:src="therapeutistApi.photoPhoto.photoSrc" alt="Avatar">
+            <img v-bind:src="therapeutistApi.photoPhoto.photoSrc" :alt="'Avatar - '+ therapeutistApi.therapName + ' ' + therapeutistApi.therapSurname">
           </router-link>
       </div>
       <h2 >{{therapeutistApi.therapName}} {{therapeutistApi.therapSurname}}</h2>
