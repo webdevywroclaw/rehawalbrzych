@@ -42,11 +42,12 @@ class PhotosController extends AbstractController
     {
         $title = $request->request->get('title');
         $galId = $request->request->get('id');
-        $dir = __DIR__ . '/../../public/img/Galleries/'.$galId."/";
+        $dir = __DIR__ . '/../../../public/img/Galleries/'.$galId."/";
         $name = uniqid() . '.jpeg';
 
         foreach ($request->files as $uploadedFile) {
             try {
+                $name = uniqid()."_".$uploadedFile->getClientOriginalName();
                 $uploadedFile->move($dir, $name);
             } catch (\Exception $exception) {
                 $response = new Response($exception);
