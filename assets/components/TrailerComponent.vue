@@ -26,7 +26,7 @@
 
           <div id="trailer2" v-if="item.cl === 'number2'">
               <router-link :to="'/terapeuci'" class="rlink"><h3 class="box-title">{{item.boxTitle}}</h3></router-link>
-              <router-link :to="'/terapeuci'" class="rlink"><img id="therapimg" v-bind:src="therapeutistsApi[0].photoPhoto.photoSrc"></router-link>
+              <router-link :to="'/terapeuci'" class="rlink"><img id="therapimg" v-bind:src="therapeutistsApi[0].photoPhoto.photoSrc" :alt="'Avatar - ' + therapeutistsApi[0].therapName + ' ' + therapeutistsApi[0].therapSurname "></router-link>
               <h3>{{therapeutistsApi[0].therapName}} {{therapeutistsApi[0].therapSurname}}</h3>
               <router-link :to="'/terapeuci'">
                   <button type="button" class="icon" @click="top()">
@@ -37,7 +37,7 @@
 
           <div id="trailer3" v-if="item.cl === 'number3'">
               <h3 class="box-title">{{item.boxTitle}}</h3>
-              <img id="turnusphoto" v-bind:src="item.photo">
+              <img id="turnusphoto" v-bind:src="item.photo" alt="Turnusy rehabilitacyjne">
               <p>Pragniemy poinformować, że w roku 2019 ruszamy z programem turnusów rehabilitacyjnych. Więcej informacji wkrótce!.</p>
           </div>
 
