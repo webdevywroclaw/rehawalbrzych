@@ -1,6 +1,7 @@
 
 <template>
-<ul>
+    <transition name="fade">
+    <ul v-if="loaded">
   <li v-for="item in items" v-bind:key="item" :id="item.cl">
       <div class="box1">
 
@@ -58,7 +59,7 @@
       </div>
   </li>
 </ul>
-
+    </transition>
 </template>
 
 <script>
@@ -67,6 +68,7 @@ export default {
   data() {
     return {
       therapeutistsApi: [],
+        loaded: false,
       items: [
         {
           boxTitle: 'Godziny Przyjęć',
@@ -239,5 +241,12 @@ p{
         font-size:16px;
         margin: 5px 0px;
     }
+
+.fade-enter-active {
+    transition: opacity 1s;
+}
+.fade-enter /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
 </style>
 

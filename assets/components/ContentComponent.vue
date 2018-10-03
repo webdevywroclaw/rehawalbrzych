@@ -1,7 +1,7 @@
 <template>
     <main id="content">
          <div id="section-a" title="Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt">
-            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/baby-baby-feet-barefoot-1172922.jpg') + ')' }">
+            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/baby-baby-feet-barefoot-1172922.80c127a2-min.jpg') + ')' }">
             </div>
             <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
         </div>
