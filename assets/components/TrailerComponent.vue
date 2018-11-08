@@ -72,11 +72,11 @@ export default {
       items: [
         {
           boxTitle: 'Godziny Przyjęć',
-          src: require('../assets/phone-receiver.png'),
+          src: require('../assets/phone-receiver2.png'),
           cl: 'number1'
         },
         { boxTitle: 'Poznaj nas',
-          src: require('../assets/user-silhouette.png'),
+          src: require('../assets/user-silhouette2.png'),
           cl: 'number2'
         },
         {
@@ -86,7 +86,7 @@ export default {
           cl: 'number3'
         },
         { boxTitle: 'Galeria',
-          src: require('../assets/photo-camera.png'),
+          src: require('../assets/photo-camera2.png'),
           photo1: require('../../public/img/Categories/5b93bc498f648.jpeg'),
           photo2: require('../../public/img/Galleries/26/5b93a2a06863a.jpeg'),
           photo3: require('../../public/img/Galleries/26/5b93a2a7a00af.jpeg'),
@@ -149,24 +149,80 @@ p{
 #number1 {
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #FFF1CD;
     grid-column: 1/2;
+    /*Szablon 1 */
+    background: #FFF1CD;
+    /*Szablon 2
+
+    background: #50BFC8;
+    background: #6ED4DB;
+    background: #0DDDEC;
+
+    /* Szablon 3
+    background: #C4EAFF;
+
+    /*Szablon 4
+    background: #ff9dae;
+    /*Szablon 5
+    background: #ffd5ce;*/
+    Szablon 6
+    background: #00ece1;
 }
 #number2 {
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #FDDCBB;
     grid-column: 2/3;
+    /*Szablon 1 */
+    background: #FDDCBB;
+    /*Szablon 2
+    background: #116AAB;
+
+    background: #50BFC8;
+    background: #2BA9B2;
+
+     Szablon 3
+    background: #81CDFF;
+    Szablon 4
+    background: #eb0165;
+    Szablon 5
+    background: #fa8072;*/
+    Szablon 6
+    background: #a6b7b5;
+
 }
 #number3 {
     padding-top: 10px;
     padding-bottom: 10px;
+    /*Szablon 1 */
     background: #FECB6E;
+    /*Szablon 2
+    background: #B7B7B7;
+
+     Szablon 3
+    background: #53B1F9;
+    Szablon 4
+    background: #B7B7B7;
+    Szablon 5
+    background: #ffbdc7;
+    */
+    Szablon 6
+    background: #d37c8c;
 }
 #number4 {
     padding-top: 10px;
     padding-bottom: 10px;
+    /*Szablon 1 */
     background: #FD996B;
+    /*Szablon 2
+    background: #78797C;
+    /* Szablon 3
+    background: #0072B5;
+    /*Szablon 4
+    background: #78797C;
+    /* Szablon 5
+    background: #eb0165;*/
+    Szablon 6
+    background: #eb0165;
 }
 
 .rlink:hover{
@@ -213,8 +269,10 @@ p{
     width: 60px;
     height: 60px;
     border: 1px solid #FBC13C;
+    border: 1px solid #000000;
     border-radius: 100%;
     background: #FDE36B;
+    background: #ffffff;
     text-align: center;
 }
 .icon:hover{
@@ -224,6 +282,7 @@ p{
 }
 .button-image{
     width: 50%;
+    color: black;
 }
 .buttoncenter{
     grid-column: 1/-1;

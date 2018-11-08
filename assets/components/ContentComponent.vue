@@ -45,7 +45,7 @@ export default {
     grid-column: 1/-1;
 }
 #section-a h1{
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.5;
     float: right;
     margin-top:0px;
@@ -53,8 +53,8 @@ export default {
     padding-right: 10px;
     color: #000;
     opacity: 0.9;
-    max-width: 500px;
-    font-size: 46px;
+    max-width: 550px;
+    font-size: 50px;
     text-align: center;
 }
 #section-a .background-image {

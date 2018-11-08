@@ -44,10 +44,10 @@
                 <button type="button" @click="add()" id="but">&#9776</button>
             </span>
             <span id="navbar-logo">
-                <router-link to="/"><img src="https://rehawalbrzych.vot.pl/build/images/newlogo2.png" id="logo"></router-link>
+                <router-link to="/"><img src="../assets/logo.png" id="logo"></router-link>
             </span>
             <ul id="main-nav">
-                <li @click="close()"><router-link to="/"><img src="https://rehawalbrzych.vot.pl/build/images/newlogo2.png" id="image"></router-link></li>
+                <li @click="close()"><router-link to="/"><img src="../assets/logo.png" id="image"></router-link></li>
         <li @click="close()"><router-link to="/terapeuci" class="nav-links">O nas</router-link></li>
         <li @click="close()"><router-link to="/oferta" class="nav-links" >Metody</router-link></li>
         <li @click="close()"><router-link to="/cennik" class="nav-links">Cennik</router-link></li>
@@ -211,9 +211,11 @@
         margin: 0;
       font-size: 18px;
       background: #ffeac1;
+        /*Option */
+        background: #ffffff;
       padding-bottom: 10px;
       z-index: 5;
-        border-bottom: 1px dotted #E5E2C8;
+        border-bottom: 1px dotted #AFAFAF;
     }
     #main-nav {
       list-style-type: none;
@@ -226,6 +228,7 @@
       justify-self: center;
       text-align: center;
       font-size: 20px;
+        font-weight: bold;
       padding: 10px 0;
         width: 100%;
         border-bottom: 1px dotted orange;

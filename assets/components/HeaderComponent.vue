@@ -45,19 +45,32 @@ export default {
     height: 30px;
     line-height: 30px;
     text-align: right;
-    border-bottom: 1px dotted #E5E2C8;
+    /*Szablon 2 i 3*/
+    border-bottom: 2px dotted #25D9E8;
+    /*border-bottom: 2px dotted #ff9dae;*/
+
+
+
     background-color: #F0EDD2;
     background-color: #ffe2a8;
+    /*Option 2*/
+    background-color: #AFAFAF;
+    background-color: #25D9E8;
+    background-color: #ffffff;
   }
 
   #contact-top span {
     margin-right: 5px;
+    font-weight: 450;
   }
 
   #addres,#phone,#at {
     margin-left: 20px;
     margin-right: 3px;
-
+    color: #25D9E8;
+    color: #FC71F8;
+    color: #eb0165;
+    color: #25D9E8;
   }
 
   @media (max-width:550px){
