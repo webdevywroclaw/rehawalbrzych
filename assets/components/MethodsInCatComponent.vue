@@ -8,10 +8,10 @@
                  v-bind:methodInCatApi="methodInCatApi"
                  v-if="methodInCatApi.categoryCat!= null && methodInCatApi.categoryCat.catId == $route.params.id">
 
-                <h1>{{methodInCatApi.metName}}</h1>
-                <router-link :to="{ name: 'MethodSingleComponent',params:{id: methodInCatApi.metId}}">
-                    <button>Więcej</button>
-                </router-link>
+                    <h1>{{methodInCatApi.metName}}</h1>
+                    <router-link :to="{ name: 'MethodSingleComponent',params:{id: methodInCatApi.metId}}">
+                        <button>Więcej</button>
+                    </router-link>
 
 
             </div>
@@ -153,32 +153,39 @@
     }
 
     .metc{
-        padding: 20px;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 150px;
     }
 
-    .metc:nth-child(3n+1) {
-        background-color: #FDDCBB;
+    .metc:nth-child(4n+1) {
+        background-color: rgba(37,217,232);
     }
 
-    .metc:nth-child(3n+2) {
-        background-color: #FECB6E;
+    .metc:nth-child(4n+3) {
+        background-color: rgba(37,217,232, 0.2);
     }
 
-    .metc:nth-child(3n+0) {
-        background-color: #FD996B;
+    .metc:nth-child(4n+0) {
+        background-color: rgba(255, 150, 238, 1);
+    }
+
+    .metc:nth-child(4n+2) {
+        background-color: rgba(255, 150, 238, 0.2);
     }
 
     .title {
-        border-bottom: dotted 1px #FD996B;
+        border-bottom: dotted 1px rgba(37,217,232);
         margin: 10px;
         padding: 4px;
     }
 
-    button {
 
-        background-color: #fde36b;
-        border: 2px solid #fb933c;
+    button {
+        margin-top: 10px;
+        background-color: #ffffff;
+        border: 1px solid #000000;
         border-radius: 6px;
         text-align: center;
         font-size: 20px;

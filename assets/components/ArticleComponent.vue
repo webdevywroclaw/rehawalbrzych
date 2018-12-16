@@ -49,7 +49,7 @@ export default {
         grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     }
     .article{
-        border: 3px dotted #FECB6E;
+        border: 3px dotted rgb(37,217,232);
         margin: 10px;
         padding:10px;
     }
@@ -57,13 +57,13 @@ export default {
     button{
         margin: 5px;
         background-color: #ffffff;
-        border: 2px solid #FECB6E;
+        border: 2px solid rgb(37,217,232);
         border-radius:10%;
         text-align: center;
         font-size: 20px;
     }
     button:hover{
-        background-color: #FECB6E;
+        background-color: rgb(37,217,232);
         transition: 0.8s;
     }
     h2{
