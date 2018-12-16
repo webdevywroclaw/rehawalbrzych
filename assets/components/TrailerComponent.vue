@@ -238,7 +238,7 @@ p{
 }
 
 .rlink:hover{
- color: #FECB6E;
+ color: rgba(0, 0, 0, 0.7);
 }
 @media (min-width: 800px){
  ul li {
@@ -285,11 +285,13 @@ p{
  background: #ffffff;
  text-align: center;
 }
-/*.icon:hover{
- width:100px;
- height:100px;
- transition: 1s;
-}*/
+.icon:hover{
+ /*width:100px;*/
+ /*height:100px;*/
+    transform: scale(0.9);
+
+    transition: 1s;
+}
 .button-image{
  width: 50%;
  color: black;

@@ -108,7 +108,7 @@
 
   }
   .title {
-    margin: 10px;
+    margin: 0 10px 10px 10px;
     padding: 4px;
   }
   .pl{
@@ -134,7 +134,7 @@
   }
   .therapdesc{
     background-color: rgba(83,225,237,0.1);
-    padding: 0 10px;
+    padding: 10px 10px;
   }
 
   #icon1{
@@ -144,7 +144,7 @@
   .study{
     background-color: #FFEEA6;
     background-color: rgba(255,95,255,0.15);
-    padding-right: 10px;
+    padding: 10px 10px;
   }
   #icon2{
     background-color: rgb(83,225,237);
@@ -153,7 +153,7 @@
   }
   .courses{
     background-color: rgba(83,225,237,0.1);
-    padding-right: 10px;
+    padding: 10px 10px;
   }
   #icon3{
     background-color:  rgba(235,1,101,0.6);
@@ -161,7 +161,7 @@
   }
   .thermet{
     background-color: rgba(255,95,255,0.15);
-    padding-right: 10px;
+    padding: 10px 10px;
   }
   p{
     margin:10px;
