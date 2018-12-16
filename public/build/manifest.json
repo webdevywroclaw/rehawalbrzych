@@ -1,8 +1,8 @@
 {
-  "build/app.css": "build/app.56f43963.css",
-  "build/app.js": "build/app.cea56fd0.js",
-  "build/appcss.css": "build/appcss.d8dbc8f5.css",
-  "build/appcss.js": "build/appcss.b1a8298f.js",
+  "build/app.css": "build/app.css",
+  "build/app.js": "build/app.js",
+  "build/appcss.css": "build/appcss.css",
+  "build/appcss.js": "build/appcss.js",
   "build/images/5b7c6a2f42a49.jpeg": "build/images/5b7c6a2f42a49.8f7d58f8.jpeg",
   "build/images/5b93a2a06863a.jpeg": "build/images/5b93a2a06863a.1a8fe545.jpeg",
   "build/images/5b93a2a7a00af.jpeg": "build/images/5b93a2a7a00af.52fa04d3.jpeg",
@@ -10,9 +10,16 @@
   "build/images/abstract-beach-desert-723997.jpg": "build/images/abstract-beach-desert-723997.d2d445eb.jpg",
   "build/images/baby-baby-feet-barefoot-1172922.80c127a2-min.jpg": "build/images/baby-baby-feet-barefoot-1172922.80c127a2-min.f113298a.jpg",
   "build/images/beach-boy-bubbles-106684.jpg": "build/images/beach-boy-bubbles-106684.8f7d58f8.jpg",
+  "build/images/logo.png": "build/images/logo.752e5145.png",
   "build/images/max-rovensky-545700-unsplash.jpg": "build/images/max-rovensky-545700-unsplash.f0c51cac.jpg",
   "build/images/nut-icon.png": "build/images/nut-icon.4220d062.png",
-  "build/images/phone-receiver.png": "build/images/phone-receiver.3f64e301.png",
-  "build/images/photo-camera.png": "build/images/photo-camera.82231aa4.png",
-  "build/images/user-silhouette.png": "build/images/user-silhouette.87df02a7.png"
+  "build/images/phone-receiver2.png": "build/images/phone-receiver2.a736b3c4.png",
+  "build/images/photo-camera2.png": "build/images/photo-camera2.85c41f4c.png",
+  "build/images/user-silhouette2.png": "build/images/user-silhouette2.09eca47c.png",
+  "build/images/main-photo.jpeg": "build/images/main-photo.f97353fc.jpeg",
+  "build/images/logopedia2.jpg": "build/images/logopedia2.102d716e.jpg",
+  "build/images/pedagogiczne.jpg": "build/images/pedagogiczne.1fb10cd6.jpg",
+  "build/images/paint.jpeg": "build/images/paint.6bd7fee5.jpeg",
+  "build/images/candy.jpg": "build/images/candy.94f96858.jpg",
+  "build/images/crayons-1445053_640.jpg": "build/images/crayons-1445053_640.c9354cbc.jpg"
 }

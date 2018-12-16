@@ -122,12 +122,12 @@
     border: 1px #FECB6E;
     font-size: 14px;
     /*background-color: #FEFAD1;*/
-    background-color: #FFEAC1;
+    background-color: rgba(37,217,232, 0.2);
   }
 
   h2.gal-header>a:hover {
     /*background-color: #fdf38f;*/
-    background-color: #FFE2A8;
+    background-color: rgb(37,217,232);
     /*color: #FBC13C;*/
     color: black;
   }

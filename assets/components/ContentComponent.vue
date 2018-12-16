@@ -1,8 +1,6 @@
 <template>
     <main id="content">
-         <div id="section-a" title="Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt">
-            <div class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/baby-baby-feet-barefoot-1172922.80c127a2-min.jpg') + ')' }">
-            </div>
+         <div id="section-a" class="background-image" :style="{ backgroundImage: 'url(' + require('../assets/main-photo.jpeg') + ')' }" title="Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt">
             <h1> Centrum rehabilitacji i integracji sensorycznej dla dzieci i niemowląt</h1>
         </div>
         <trailer-component></trailer-component>
@@ -30,42 +28,38 @@ export default {
 
 <style scoped>
 #content{
-    background-color: rgb(255, 251, 210);
     background-color: #ffffff;
     position: relative;
     margin:0;
     padding:0;
-
 }
 #section-a {
-    background-color: rgb(255, 251, 210);
-    min-height: 500px;
+    min-height: 800px;
     color: #fff;
     text-align: right;
     grid-column: 1/-1;
+    filter: contrast(140%);
 }
 #section-a h1{
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.5;
-    float: right;
-    margin-top:0px;
-    padding-top: 10px;
-    padding-right: 10px;
+    float: left;
+    margin-top: 0px;
+    padding-top: 80px;
+    padding-left: 70px;
     color: #000;
-    opacity: 0.9;
-    max-width: 500px;
-    font-size: 46px;
-    text-align: center;
+    max-width: 550px;
+    font-size: 50px;
+    text-align: center
 }
-#section-a .background-image {
-    position: absolute;
+.background-image {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     margin:0px;
     padding:0px;
     width: 100%;
-    height: 500px;
+    height: 800px;
     opacity: 0.7;
 }
 
@@ -76,7 +70,7 @@ export default {
     /*}*/
     #line {
         margin-top: 50px;
-        border-top: 2px dotted orange;
+        border-top: 2px dotted #25D9E8;;
         z-index: -1;
     }
     #text{
@@ -89,5 +83,17 @@ export default {
     width: 100px;
     background-color: rgb(255, 251, 210);
     background-color: #ffffff;
+}
+@media (max-width:820px){
+    #section-a h1 {
+        float: none;
+        margin: auto;
+        padding-left: 0px;
+    }
+    }
+@media (max-width:550px){
+    #section-a h1 {
+        padding-top: 20px;
+    }
 }
 </style>

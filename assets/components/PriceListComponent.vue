@@ -105,23 +105,23 @@
         grid-template-columns: 1fr 1fr;
     }
     #name{
-         background-color: #FECB6E;
+        background-color: rgb(37,217,232);
         padding:10px;
      }
     #price{
-        background-color: #ffb796;
+        background-color: rgb(255, 150, 238);
         padding:10px;
     }
     .singlename{
-        background-color: #ffd68c;
+        background-color: rgba(37,217,232,0.15);
         padding:10px;
     }
     .singleprice{
-        background-color: #FFF1CD;
+        background-color: rgba(255, 150, 238, 0.15);
         padding:10px;
     }
     .singlename:hover{
-        background-color: #FECB6E;
+        background-color: rgb(37,217,232);
     }
 
     .methodlink:active, .methodlink:link, .methodlink:visited, .methodlink:hover {

@@ -110,12 +110,12 @@
     #phone, #addres, #at, #fb {
         height: 70px;
         width: 70px;
-        color: #FECB6E;
+        color: rgb(37,217,232);
         margin: 5px 0 5px 30px;
     }
 
     .box {
-        border: 1px dotted #FECB6E;
+        border: 1px dotted rgb(37,217,232);
         margin: 10px;
     }
 

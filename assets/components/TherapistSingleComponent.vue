@@ -9,6 +9,7 @@
   </div>
 
   <div class="therapdesc">
+    <h1 class="title bl">O mnie</h1>
     <p>{{therapeutist[0].therapDesc}}</p>
   </div>
 
@@ -17,6 +18,7 @@
   </div>
 
   <div v-if="therapeutist.schools.length != 0" class="study">
+    <h1 class="title pl">Edukacja</h1>
     <ul>
       <li v-for="school in therapeutist.schools">
         <h4>{{school.eduItemName}}</h4>
@@ -30,6 +32,7 @@
   </div>
 
   <div v-if="therapeutist.courses.length != 0" class="courses">
+    <h1 class="title bl" >Kursy</h1>
     <ul>
       <li v-for="course in therapeutist.courses">
         <h4>{{course.eduItemName}}</h4>
@@ -42,6 +45,7 @@
   </div>
 
   <div v-if="therapeutist.methods.length != 0" class="thermet">
+    <h1 class="title pl">Metody</h1>
     <ul>
 
         <router-link v-for="method in therapeutist.methods" v-if="method.metId.metBody!=''" :key="method" class="methodlink" :to="'/metoda/'+method.metId.metId">
@@ -103,7 +107,16 @@
   .therapinfo{
 
   }
-
+  .title {
+    margin: 10px;
+    padding: 4px;
+  }
+  .pl{
+    border-bottom: dotted 2px rgba(235,1,101,0.6);
+  }
+  .bl{
+    border-bottom: dotted 2px #25D9E8;
+  }
   .teraphoto{
     height: 170px;
     width: 170px;
@@ -117,36 +130,37 @@
   }
 
   .therapinfo{
-    background-color: #FD996B;
+    background-color: rgb(83,225,237);
   }
   .therapdesc{
-    background-color: #ffede5;
+    background-color: rgba(83,225,237,0.1);
     padding: 0 10px;
   }
 
   #icon1{
     background-color: #FECB6E;
-
+    background-color: rgba(235,1,101,0.6);
   }
   .study{
     background-color: #FFEEA6;
+    background-color: rgba(255,95,255,0.15);
     padding-right: 10px;
   }
   #icon2{
-    background-color: #FDDCBB;
+    background-color: rgb(83,225,237);
     padding: 10px 0;
 
   }
   .courses{
-    background-color: #ffefe0;
+    background-color: rgba(83,225,237,0.1);
     padding-right: 10px;
   }
   #icon3{
-    background-color: #FFF1CD;
+    background-color:  rgba(235,1,101,0.6);
     padding: 10px 0;
   }
   .thermet{
-    background-color: #fff7e2;
+    background-color: rgba(255,95,255,0.15);
     padding-right: 10px;
   }
   p{
