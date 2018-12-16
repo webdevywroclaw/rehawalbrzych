@@ -165,7 +165,7 @@ p{
     background: #ff9dae;
     /*Szablon 5
     background: #ffd5ce;*/
-    Szablon 6
+    /*Szablon 6*/
     background: #00ece1;
 }
 #number2 {
@@ -186,7 +186,7 @@ p{
     background: #eb0165;
     Szablon 5
     background: #fa8072;*/
-    Szablon 6
+    /*Szablon 6*/
     background: #a6b7b5;
 
 }
@@ -205,7 +205,7 @@ p{
     Szablon 5
     background: #ffbdc7;
     */
-    Szablon 6
+    /*Szablon 6*/
     background: #d37c8c;
 }
 #number4 {
@@ -221,7 +221,7 @@ p{
     background: #78797C;
     /* Szablon 5
     background: #eb0165;*/
-    Szablon 6
+    /*Szablon 6*/
     background: #eb0165;
 }
 

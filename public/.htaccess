@@ -2,12 +2,12 @@
 
 RewriteEngine On
 RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://rehawalbrzych.vot.pl/$1 [R,L]
+RewriteRule ^(.*)$ https://rehawalbrzych.pl/$1 [R,L]
 
 # Przekierowanie z https://www do https:/
 
-RewriteCond %{HTTP_HOST} ^www\.rehawalbrzych\.vot.pl$
-RewriteRule ^/?$ "http\:\/\/rehawalbrzych\.vot.pl\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.rehawalbrzych\.pl$
+RewriteRule ^/?$ "http\:\/\/rehawalbrzych\.pl\/" [R=301,L]
 
 # Pozbycie się index.php z URL
 RewriteEngine On
