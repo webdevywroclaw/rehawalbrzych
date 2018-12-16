@@ -6,6 +6,7 @@
       <div class="box1">
 
           <div id="trailer1" v-if="item.cl === 'number1'">
+
               <router-link :to="'/kontakt'" class="rlink">
                   <h3 class="box-title">{{item.boxTitle}}</h3>
               </router-link>
@@ -16,6 +17,7 @@
               <h4>Piątek </h4><h4>8.00-18.00</h4>
               <h4>Sobota </h4><h4>nieczynne</h4>
               <h4>Niedziela</h4><h4>nieczynne</h4>
+
               <div class="buttoncenter">
                   <router-link :to="'/kontakt'">
                       <button type="button" class="icon" @click="top()">
@@ -23,7 +25,8 @@
                       </button>
                   </router-link>
               </div>
-          </div>
+
+           </div>
 
           <div id="trailer2" v-if="item.cl === 'number2'">
               <router-link :to="'/terapeuci'" class="rlink"><h3 class="box-title">{{item.boxTitle}}</h3></router-link>
@@ -31,7 +34,7 @@
               <h3>{{therapeutistsApi[0].therapName}} {{therapeutistsApi[0].therapSurname}}</h3>
               <router-link :to="'/terapeuci'">
                   <button type="button" class="icon" @click="top()">
-                  <img v-bind:src="item.src" class="button-image" alt="Przycisk Terapeuci">
+                  <img v-bind:src="item.src" class="button-image filtr" alt="Przycisk Terapeuci">
                   </button>
               </router-link>
           </div>
@@ -131,7 +134,9 @@ ul{
   padding: 0;
   list-style: none;
 }
-
+#therapimg{
+    filter: brightness(1.4)
+}
 .box1 {
   height: minmax(300px, auto);
 
@@ -146,6 +151,7 @@ p{
     grid-column: 1/-1;
     text-decoration:none;
 }
+
 #number1 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -165,14 +171,16 @@ p{
     background: #ff9dae;
     /*Szablon 5
     background: #ffd5ce;*/
-    Szablon 6
-    background: #00ece1;
+    /*Szablon 6*/
+    /*background: #00ece1;*/
+    background-color: rgba(83,225,237,0.2);
+    /*border: 10px solid #00ece1;*/
 }
 #number2 {
     padding-top: 10px;
     padding-bottom: 10px;
     grid-column: 2/3;
-    /*Szablon 1 */
+    /*Szablon 1
     background: #FDDCBB;
     /*Szablon 2
     background: #116AAB;
@@ -186,8 +194,9 @@ p{
     background: #eb0165;
     Szablon 5
     background: #fa8072;*/
-    Szablon 6
-    background: #a6b7b5;
+    /*Szablon 6*/
+   background: rgba(83,225,237,0.9);
+    /*border: 10px solid #a6b7b5;*/
 
 }
 #number3 {
@@ -204,14 +213,16 @@ p{
     background: #B7B7B7;
     Szablon 5
     background: #ffbdc7;
-    */
-    Szablon 6
-    background: #d37c8c;
-}
-#number4 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    /*Szablon 1 */
+
+   /* Szablon 6*/
+   background: rgba(255,95,255,0.2);
+    /* border: 10px solid #d37c8c;*/
+
+ }
+ #number4 {
+     padding-top: 10px;
+     padding-bottom: 10px;
+     /*Szablon 1 */
     background: #FD996B;
     /*Szablon 2
     background: #78797C;
@@ -221,88 +232,92 @@ p{
     background: #78797C;
     /* Szablon 5
     background: #eb0165;*/
-    Szablon 6
-    background: #eb0165;
+   /* Szablon 6*/
+   background: rgba(235,1,101,0.6);
+/* border: 10px solid #eb0165;*/
 }
 
 .rlink:hover{
-    color: #FECB6E;
+ color: #FECB6E;
 }
 @media (min-width: 800px){
-    ul li {
-        width: 25%;
-        height: auto;
-    }
-    ul {
-        display: flex;
-        justify-content: space-around;
+ ul li {
+     width: 25%;
+     height: auto;
+ }
+ ul {
+     display: flex;
+     justify-content: space-around;
 
-    }
-    
+ }
+
 }
-
-
 #trailer1{
-    grid-column:1/2;
-    display:grid;
-    grid-template-columns: repeat(2,1fr);
+ grid-column:1/2;
+ display:grid;
+ grid-template-columns: repeat(2,1fr);
 }
 #trailer4{
-    grid-column-start: 2;
-    grid-column-end: 3;
-    display:grid;
-    grid-template-columns: repeat(2,1fr);
+ grid-column-start: 2;
+ grid-column-end: 3;
+ display:grid;
+ grid-template-columns: repeat(2,1fr);
 }
 .tphoto{
-    width:100%;
-    padding:10px;
-    max-height:165px;
+ width:100%;
+ padding:10px;
+ max-height:165px;
 }
 .box-title {
-    margin: 0;
-    margin-bottom: 10px;
-    padding: 0;
-    grid-column: 1/-1;
+ margin: 0;
+ margin-bottom: 10px;
+ padding: 0;
+ grid-column: 1/-1;
 }
 .icon{
-    padding: 0;
-    width: 60px;
-    height: 60px;
-    border: 1px solid #FBC13C;
-    border: 1px solid #000000;
-    border-radius: 100%;
-    background: #FDE36B;
-    background: #ffffff;
-    text-align: center;
+ padding: 0;
+ width: 60px;
+ height: 60px;
+ border: 1px solid #FBC13C;
+ border: 1px solid #000000;
+ border-radius: 100%;
+ background: #FDE36B;
+ background: #ffffff;
+ text-align: center;
 }
-.icon:hover{
-    width:100px;
-    height:100px;
-    transition: 1s;
-}
+/*.icon:hover{
+ width:100px;
+ height:100px;
+ transition: 1s;
+}*/
 .button-image{
-    width: 50%;
-    color: black;
+ width: 50%;
+ color: black;
 }
 .buttoncenter{
-    grid-column: 1/-1;
+ grid-column: 1/-1;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+
 }
 #therapimg{
-    height: 200px;
-    width: 200px;
-    border-radius: 100%;
-    margin:10px;
+ height: 200px;
+ width: 200px;
+ border-radius: 100%;
+ margin:10px;
 }
 #turnusphoto{
-    padding:10px;
+    padding: 10px;
+    width: 90%;
 }
-    h4{
-        font-size:16px;
-        margin: 5px 0px;
-    }
+ h4{
+     font-size:16px;
+     margin: 5px 0px;
+ }
 
 .fade-enter-active {
-    transition: opacity 1s;
+ transition: opacity 1s;
 }
 .fade-enter /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;

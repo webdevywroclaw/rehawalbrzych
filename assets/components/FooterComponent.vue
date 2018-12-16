@@ -64,7 +64,7 @@ export default {
   #phone,#addres,#at{
     height:50px;
     width: 50px;
-    color: #FECB6E;
+    color: #25D9E8;
     margin:5px;
   }
   .icon-center{
@@ -76,7 +76,7 @@ export default {
   }
   .textforcontact{
     min-height: 120px;
-    border: 2px dotted #FECB6E;
+    border: 2px dotted #25D9E8;
     margin:10px;
     display: flex;
     align-items: center;

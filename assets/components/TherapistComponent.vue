@@ -50,13 +50,13 @@ export default {
    }
     button{
         background-color: #ffffff;
-        border: 2px solid #FECB6E;
+        border: 2px solid #25D9E8;
         border-radius:6px;
         text-align: center;
         font-size: 24px;
     }
   button:hover{
-      background-color: #FECB6E;
+      background-color: #25D9E8;
       transition: 0.8s;
   }
 

@@ -44,8 +44,9 @@ li {
     background-size: cover;
     width: 90%;
     height: 300px;
-    opacity: 0.4;
+    opacity: 0.5;
 }
+
 .box2:hover {
     opacity: 0.9;
     transition: 0.4s;
@@ -53,6 +54,7 @@ li {
 .bx{
     text-align: center;
     vertical-align: middle;
+    opacity: 1;
 }
 .box2:nth-child(1){
     grid-column: 1/3;

@@ -28,7 +28,7 @@
     #icc{
         width: 20px;
         height: 20px;
-        color: #FECB6E;
+        color: #25D9E8;
     }
     #copyrights{
         margin-top:40px;
@@ -52,7 +52,7 @@
     #ict{
         width: 15px;
         height: 15px;
-        color: #FECB6E;
+        color: #25D9E8;
         margin-left: 20px;
     }
     button{
@@ -66,6 +66,6 @@
         text-align: justify;
     }
     #clink{
-        color: #FECB6E;
+        color: #25D9E8;
     }
 </style>

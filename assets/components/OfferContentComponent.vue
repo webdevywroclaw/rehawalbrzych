@@ -15,9 +15,9 @@ export default {
         methodsCatApi: [],
 
       offerts: [
-        { box2Title: 'WADY POSTAWY', class: 'box2-image1', cat_id: '1',bacg: require('../assets/max-rovensky-545700-unsplash.jpg')},
-        { box2Title: 'WADY STÓP', class: 'box2-image2', cat_id: '2', bacg: require('../assets/beach-boy-bubbles-106684.jpg')},
-        { box2Title: 'REHABILITACJA DZIECI', class: 'box2-image3', cat_id: '3', bacg: require('../assets/abstract-beach-desert-723997.jpg')},
+        { box2Title: 'WADY POSTAWY', class: 'box2-image1', cat_id: '1',bacg: require('../assets/beach-boy-bubbles-106684.jpg')},
+        { box2Title: 'WADY STÓP', class: 'box2-image2', cat_id: '2', bacg: require('../assets/crayons-1445053_640.jpg')},
+        { box2Title: 'REHABILITACJA DZIECI', class: 'box2-image3', cat_id: '3', bacg: require('../assets/logopedia2.jpg')},
         { box2Title: 'REHABILITACJA DOROSŁYCH', class: 'box2-image4', cat_id: '4'}
       ]
      }
