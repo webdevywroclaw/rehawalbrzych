@@ -9,6 +9,14 @@
         <p id="text">Oferta</p>
         </div>
         <offer-content-component></offer-content-component>
+        <div id="line"></div>
+        <div class="text-box">
+        <p id="text">Ogłoszenie</p>
+        </div>
+        <div id="add">
+            <img id="addphoto" src="../../public/img/Categories/ogloszenia.jpg">
+            <p>Pragniemy poinformować, iż poszukujemy nowego tarapeuty do naszego zespołu. Osoby zainteresowane prosimy o kontakt telefoniczny.</p>
+        </div>
     </main>
 
 </template>
@@ -83,6 +91,13 @@ export default {
     width: 100px;
     background-color: rgb(255, 251, 210);
     background-color: #ffffff;
+}
+#add{
+    width: 100%;
+    margin-bottom: 100px;
+}
+#addphoto{
+    max-width:320px;
 }
 @media (max-width:820px){
     #section-a h1 {

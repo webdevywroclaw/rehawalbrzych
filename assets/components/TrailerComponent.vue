@@ -42,8 +42,8 @@
           <div id="trailer3" v-if="item.cl === 'number3'">
               <h3 class="box-title">{{item.boxTitle}}</h3>
               <img id="turnusphoto" v-bind:src="item.photo" alt="Turnusy rehabilitacyjne">
-              <p>Pragniemy poinformować, że w roku 2019 ruszamy z programem turnusów rehabilitacyjnych. Więcej informacji wkrótce!.</p>
-          </div>
+               <p>Pragniemy poinformować, że w roku 2019 ruszamy z programem turnusów rehabilitacyjnych. Więcej informacji wkrótce!.</p> 
+              <!--<p>Pragniemy poinformować, iż poszukujemy nowego tarapeuty do naszego zespołu. Osoby zainteresowane prosimy o kontakt telefoniczny.</p>-->          </div>
 
           <div id="trailer4" v-if="item.cl === 'number4'">
               <router-link :to="'/galeria'" class="rlink"><h3 class="box-title">{{item.boxTitle}}</h3></router-link>
@@ -82,12 +82,21 @@ export default {
           src: require('../assets/user-silhouette2.png'),
           cl: 'number2'
         },
+        
         {
           boxTitle: 'Turnusy',
           src: require('../assets/nut-icon.png'),
           photo: require('../../public/img/Categories/5b93bc498f648.jpeg'),
           cl: 'number3'
         },
+        /*
+        {
+          boxTitle: 'Ogłoszenie',
+          src: require('../assets/nut-icon.png'),
+          photo: require('../../public/img/Categories/ogloszenia.jpg'),
+          cl: 'number3'
+        },
+        */
         { boxTitle: 'Galeria',
           src: require('../assets/photo-camera2.png'),
           photo1: require('../../public/img/Categories/5b93bc498f648.jpeg'),
@@ -238,7 +247,7 @@ p{
 }
 
 .rlink:hover{
- color: rgba(0, 0, 0, 0.7);
+ color: #FECB6E;
 }
 @media (min-width: 800px){
  ul li {
@@ -285,13 +294,11 @@ p{
  background: #ffffff;
  text-align: center;
 }
-.icon:hover{
- /*width:100px;*/
- /*height:100px;*/
-    transform: scale(0.9);
-
-    transition: 1s;
-}
+/*.icon:hover{
+ width:100px;
+ height:100px;
+ transition: 1s;
+}*/
 .button-image{
  width: 50%;
  color: black;
