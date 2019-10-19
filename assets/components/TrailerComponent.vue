@@ -2,7 +2,7 @@
 <template>
     <transition name="fade">
     <ul v-if="loaded">
-  <li v-for="item in items" v-bind:key="item" :id="item.cl">
+  <li v-for="(item,index) in items" v-bind:key="index" :id="item.cl">
       <div class="box1">
 
           <div id="trailer1" v-if="item.cl === 'number1'">

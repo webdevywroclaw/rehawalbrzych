@@ -1,5 +1,4 @@
 <template>
-
   <footer class="contact">
     <div class="contactitem">
       <div class="icon-center">
@@ -30,103 +29,100 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      adres: 'ul. Wrocławska 5, 58-332 Wałbrzych',
-      telephone: '+48 784 891 919',
-      mail: 'rehawałbrzych@gmail.com'
-    }
+      adres: "ul. Mieszka I nr 97, 58-309 Wałbrzych",
+      telephone: "+48 784 891 919",
+      mail: "rehawalbrzych@gmail.com"
+    };
   }
-}
-
+};
 </script>
 
 <style scoped>
-  .contact{
-    display:grid;
+.contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 10px;
+  /*margin-top:100px;*/
+}
+.contactitem > h3 {
+  margin: auto;
+  font-size: 1.5rem;
+}
+.contact-text {
+  margin: 10px 20px;
+  text-align: center;
+  padding: 10px;
+  padding-top: 20px;
+}
+.contactitem {
+  margin-top: -30px;
+}
+#phone,
+#addres,
+#at {
+  height: 50px;
+  width: 50px;
+  color: #25d9e8;
+  margin: 5px;
+}
+.icon-center {
+  position: relative;
+  top: 40px;
+  width: 80px;
+  margin: auto;
+  background-color: #fff;
+}
+.textforcontact {
+  min-height: 120px;
+  border: 2px dotted #25d9e8;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+}
+h3 {
+  margin: auto;
+}
+/*h3{*/
+/*font-size: 20px;*/
+/*}*/
+
+@media (max-width: 350px) {
+  .contactitem > h3 {
+    font-size: 1.3rem;
+  }
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    /*margin-top:50px;*/
+  }
+}
+
+@media (min-width: 640px) {
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-gap: 10px;
+    /*margin-top: 50px;*/
+  }
+
+  #ctc {
+    grid-column: 1/3;
+  }
+}
+@media (min-width: 1000px) {
+  .contact {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-gap:10px;
-    /*margin-top:100px;*/
+    grid-gap: 10px;
+    /*margin-top:50px;*/
   }
-  .contactitem>h3 {
-    margin: auto;
-    font-size: 1.5rem;
+  #ctc {
+    grid-column: 3/4;
   }
-  .contact-text {
-    margin: 10px 20px;
-    text-align: center;
-    padding: 10px;
-    padding-top:20px;
-  }
-  .contactitem{
-    margin-top: -30px;
-  }
-  #phone,#addres,#at{
-    height:50px;
-    width: 50px;
-    color: #25D9E8;
-    margin:5px;
-  }
-  .icon-center{
-    position: relative;
-    top: 40px;
-    width: 80px;
-    margin: auto;
-    background-color: #fff;
-  }
-  .textforcontact{
-    min-height: 120px;
-    border: 2px dotted #25D9E8;
-    margin:10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    word-break: break-word;
-  }
-  h3{
-    margin: auto;
-  }
-  /*h3{*/
-    /*font-size: 20px;*/
-  /*}*/
-
-  @media (max-width: 350px) {
-    .contactitem>h3{
-      font-size: 1.3rem;
-    }
-    .contact{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      grid-gap:10px;
-      /*margin-top:50px;*/
-    }
-  }
-
-  @media (min-width: 640px) {
-    .contact {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(250px, 1fr));
-      grid-gap: 10px;
-      /*margin-top: 50px;*/
-    }
-
-    #ctc {
-      grid-column: 1/3;
-    }
-
-  }
-    @media (min-width: 1000px){
-      .contact{
-        display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        grid-gap:10px;
-        /*margin-top:50px;*/
-      }
-      #ctc{
-        grid-column: 3/4;
-      }
-    }
-
-
-
+}
 </style>

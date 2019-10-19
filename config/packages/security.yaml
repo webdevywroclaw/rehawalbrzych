@@ -1,45 +1,42 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-    providers:
-        in_memory:
-            memory:
-                users:
-                    ryan:
-                        password: ryanpass
-                        roles: 'ROLE_USER'
-                    admin:
-                        password: kitten
-                        roles: 'ROLE_ADMIN'
+  # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+  providers:
+    in_memory:
+      memory:
+        users:
+          ryan:
+            password: ryanpass
+            roles: 'ROLE_USER'
+          admin:
+            password: passwords
+            roles: 'ROLE_ADMIN'
 
-    firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
-            anonymous: true
-            form_login:
-                login_path: login
-                check_path: login
-                default_target_path: articles
-            logout:
-                path:   /logout
-                target: /
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+    main:
+      anonymous: true
+      form_login:
+        login_path: login
+        check_path: login
+        default_target_path: articles
+      logout:
+        path: /logout
+        target: /
 
-            # activate different ways to authenticate
+      # activate different ways to authenticate
+      # http_basic: true
+      # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+      # form_login: true
+      # https://symfony.com/doc/current/security/form_login_setup.html
 
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+  # Easy way to control access for large sections of your site
+  # Note: Only the *first* access control that matches will be used
+  access_control:
+    - { path: ^/admin, roles: ROLE_ADMIN }
+    - { path: ^/api, roles: ROLE_ADMIN, methods: [POST, PUT, DELETE, UPDATE] }
+    # - { path: ^/profile, roles: ROLE_USER }
 
-            # form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
-    access_control:
-         - { path: ^/admin, roles: ROLE_ADMIN }
-         - { path: ^/api, roles: ROLE_ADMIN, methods: [POST, PUT, DELETE, UPDATE]  }
-        # - { path: ^/profile, roles: ROLE_USER }
-
-
-    encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+  encoders:
+    Symfony\Component\Security\Core\User\User: plaintext

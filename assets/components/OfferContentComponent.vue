@@ -1,7 +1,7 @@
 <template>
   <div id="test2">
     <div class="offerts">
-     <offer-component v-for="(methodCatApi,index) in methodsCatApi" :key="methodCatApi" :methodCatApi="methodCatApi" :style="{'background-image': 'url(' + offerts[index].bacg + ')'}" ></offer-component>
+     <offer-component v-for="(methodCatApi,index) in methodsCatApi" :key="index" :methodCatApi="methodCatApi" :style="{'background-image': 'url(' + offerts[index].bacg + ')'}" ></offer-component>
     </div>
 
   </div>

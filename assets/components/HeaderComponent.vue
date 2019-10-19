@@ -24,9 +24,9 @@ import MenuComponent from './MenuComponent'
 export default {
   data () {
     return {
-      adres: 'ul. Wrocławska 5, 58-332 Wałbrzych',
+      adres: 'ul. Mieszka I nr 97, 58-309 Wałbrzych',
       telephone: '+48 784 891 919',
-      mail: 'rehawałbrzych@gmail.com'
+      mail: 'rehawalbrzych@gmail.com'
     }
   },
   components: {

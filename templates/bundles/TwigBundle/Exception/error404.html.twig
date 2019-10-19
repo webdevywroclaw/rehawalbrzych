@@ -3,15 +3,14 @@
 
 {% block body %}
 
-    <div id="app" class="application">
-        <header-component></header-component>
+    <div id="app" class="application" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+        <div>
         <h1>Błąd 404 - Przepraszamy, nie znaleziono strony</h1>
 
         <p>
             Szukana strona nie została znaleziona. Sprawdź, czy adres URL jest poprawny, lub <a href="{{ path('homepage') }}">wróć do strony głównej</a>.
         </p>
-        <router-view name="footer"></router-view>
-        <copyrights-component></copyrights-component>
+        </div>
     </div>
 
 {% endblock %}
