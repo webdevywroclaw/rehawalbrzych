@@ -51,7 +51,6 @@ export default {
         navBar.style.marginBottom = "500px";
       }
       logoNav.style.minHeight = "80px";
-      logo.style.marginTop = "6px";
       list[0].style.padding = "0";
     },
     close() {
@@ -118,6 +117,9 @@ button {
 }
 #navbar-logo {
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #image {
   display: none;

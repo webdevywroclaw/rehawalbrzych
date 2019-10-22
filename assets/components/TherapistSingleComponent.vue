@@ -12,7 +12,7 @@
 
     <div class="therapdesc">
       <h1 class="title bl">O mnie</h1>
-      <p>{{therapeutist[0].therapDesc}}</p>
+      <p style="word-break: break-all">{{therapeutist[0].therapDesc}}</p>
     </div>
 
     <div v-if="therapeutist.schools.length != 0" id="icon1">
