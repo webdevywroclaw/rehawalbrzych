@@ -9,13 +9,27 @@
         <p id="text">Oferta</p>
         </div>
         <offer-content-component></offer-content-component>
-        <div id="line"></div>
+        <div id="line2"></div>
         <div class="text-box">
-        <p id="text">Ogłoszenie</p>
+        <p id="text">Aktualności</p>
         </div>
         <div id="add">
-            <img id="addphoto" src="../../public/img/Categories/ogloszenia.jpg">
-            <p>Pragniemy poinformować, iż poszukujemy nowego tarapeuty do naszego zespołu. Osoby zainteresowane prosimy o kontakt telefoniczny.</p>
+            <h3 id="training-header">Trening umiejętności społecznych dla dzieci i młodzieży</h3>
+            <img id="addphoto" src="../../public/img/Categories/trening.jpg">
+            <p>Zapraszamy na trening umięjętności społecznych, które obejmują naukę:</p>
+            <div id="treningList">
+                <ul>
+                    <li>zawierania znajomości</li>
+                    <li>słuchania</li>
+                    <li>zadawania pytań</li>
+                    <li>odmawiania</li>
+                    <li>inicjowania rozmowy</li>
+                    <li>dyskutowania</li>
+                    <li>reagowania na krytykę</li>
+                    <li>radzenia sobie z uczuciami</li>
+                    <li>wyrażania emocji</li>
+                </ul>
+            </div>
         </div>
     </main>
 
@@ -81,6 +95,11 @@ export default {
         border-top: 2px dotted #25D9E8;;
         z-index: -1;
     }
+    #line2 {
+        margin-top: 50px;
+        border-top: 2px dotted #25D9E8;;
+        z-index: -1;
+    }
     #text{
 
     }
@@ -96,8 +115,19 @@ export default {
     width: 100%;
     margin-bottom: 100px;
 }
+#treningList {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+#training-header{
+    color: #25d9e8;
+    margin: 10px 0;
+}
 #addphoto{
     max-width:320px;
+    margin: 10px 0;
 }
 @media (max-width:820px){
     #section-a h1 {

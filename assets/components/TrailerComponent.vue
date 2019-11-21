@@ -4,7 +4,6 @@
     <ul v-if="loaded">
   <li v-for="(item,index) in items" v-bind:key="index" :id="item.cl">
       <div class="box1">
-
           <div id="trailer1" v-if="item.cl === 'number1'">
 
               <router-link :to="'/kontakt'" class="rlink">
@@ -17,8 +16,8 @@
               <h4>Piątek </h4><h4>8.00-18.00</h4>
               <h4>Sobota </h4><h4>nieczynne</h4>
               <h4>Niedziela</h4><h4>nieczynne</h4>
-
-              <div class="buttoncenter">
+           </div>
+           <div class="buttoncenter" id="btn1" v-if="item.cl === 'number1'">
                   <router-link :to="'/kontakt'">
                       <button type="button" class="icon" @click="top()">
                       <img v-bind:src="item.src" class="button-image" alt="Przycisk Kontakt">
@@ -26,23 +25,23 @@
                   </router-link>
               </div>
 
-           </div>
-
           <div id="trailer2" v-if="item.cl === 'number2'">
               <router-link :to="'/terapeuci'" class="rlink"><h3 class="box-title">{{item.boxTitle}}</h3></router-link>
               <router-link :to="'/terapeuci'" class="rlink"><img id="therapimg" v-bind:src="therapeutistsApi[0].photoPhoto.photoSrc" :alt="'Avatar - ' + therapeutistsApi[0].therapName + ' ' + therapeutistsApi[0].therapSurname "></router-link>
               <h3>{{therapeutistsApi[0].therapName}} {{therapeutistsApi[0].therapSurname}}</h3>
+              <div class="buttoncenter">
               <router-link :to="'/terapeuci'">
-                  <button type="button" class="icon" @click="top()">
+                  <button type="button" class="icon" @click="top()" >
                   <img v-bind:src="item.src" class="button-image filtr" alt="Przycisk Terapeuci">
                   </button>
               </router-link>
+              </div>
           </div>
 
           <div id="trailer3" v-if="item.cl === 'number3'">
-              <h3 class="box-title">{{item.boxTitle}}</h3>
+              <a id="goTo" href="#line2"><h3 class="box-title">{{item.boxTitle}}</h3></a>
               <img id="turnusphoto" v-bind:src="item.photo" alt="Turnusy rehabilitacyjne">
-               <p>Pragniemy poinformować, że w roku 2019 ruszamy z programem turnusów rehabilitacyjnych. Więcej informacji wkrótce!.</p> 
+               <p id="trainingText">Jeżeli Twoje dziecko ma trudności w nawiązywaniu kontaktów, nie potrafi bawić się z rówieśnikami, czuje sie odrzucone, nie jest asertwne, ma problem z wyrażaniem emocji.</p> 
               <!--<p>Pragniemy poinformować, iż poszukujemy nowego tarapeuty do naszego zespołu. Osoby zainteresowane prosimy o kontakt telefoniczny.</p>-->          </div>
 
           <div id="trailer4" v-if="item.cl === 'number4'">
@@ -84,7 +83,7 @@ export default {
         },
         
         {
-          boxTitle: 'Turnusy',
+          boxTitle: 'Trening umiejętności społecznych',
           src: require('../assets/nut-icon.png'),
           photo: require('../../public/img/Categories/5b93bc498f648.jpeg'),
           cl: 'number3'
@@ -147,8 +146,8 @@ ul{
     filter: brightness(1.4)
 }
 .box1 {
-  height: minmax(300px, auto);
-
+  height: 380px;
+position: relative;
 }
 p{
     margin-bottom: 0px;
@@ -275,7 +274,7 @@ p{
 .tphoto{
  width:100%;
  padding:10px;
- max-height:165px;
+ max-height: 125px;
 }
 .box-title {
  margin: 0;
@@ -304,15 +303,17 @@ p{
  color: black;
 }
 .buttoncenter{
- grid-column: 1/-1;
- display:flex;
- justify-content: center;
- align-items: center;
-
+ position: absolute;
+ bottom: 10px;
+ left: 50%;
+ transform: translate(-50%,0);
+}
+#btn-1{
+ grid-column:1/2;
 }
 #therapimg{
- height: 200px;
- width: 200px;
+ height: 150px;
+ width: 150px;
  border-radius: 100%;
  margin:10px;
 }
@@ -331,5 +332,13 @@ p{
 .fade-enter /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
+#trainingText{
+    font-size: 0.8em;
+    text-align: justify;
+    padding: 0 15px;
+}
+#goTo{
+    text-decoration: none;
+    color: black;
+}
 </style>
-
